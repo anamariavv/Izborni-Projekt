@@ -10,7 +10,7 @@ The main goal of this web app is to make finding student internships easier, for
 - login system
 - online student resumes
 - internship feed
-- user profiles (company and user)
+- user profiles (company and student)
 - company ratings & internship experience
 
 ## Technologies used
@@ -18,6 +18,7 @@ The main goal of this web app is to make finding student internships easier, for
 ## Project status - in progress
 ### To-do:
 - Database creation & connection
+- Database documentation
 ## Contributors
 Anamaria Vargić - Student  
 
