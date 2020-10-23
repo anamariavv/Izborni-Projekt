@@ -11,7 +11,7 @@ The main goal of this web app is to make finding student internships easier, for
 - online student resumes
 - internship feed
 - user profiles (company and student)
-- company ratings & internship experience
+- company/internship reviews
 
 ## Technologies used
 
