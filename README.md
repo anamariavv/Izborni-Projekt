@@ -5,7 +5,7 @@ The main goal of this web app is to make finding student internships easier, for
 ## Features
 - multiple user types
   - company
-  - user
+  - student
   - administrator
 - login system
 - online student resumes
