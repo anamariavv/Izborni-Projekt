@@ -13,7 +13,7 @@ The main goal of this web app is to make finding student internships easier, for
 - user profiles (company and user)
 - company ratings & internship experience
 
-## Tehnologies used
+## Technologies used
 
 ## Project status - in progress
 ### To-do:
