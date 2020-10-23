@@ -13,9 +13,12 @@ The main goal of this web app is to make finding student internships easier, for
 - user profiles (company and user)
 - company ratings & internship experience
 
+## Tehnologies used
+
 ## Project status - in progress
 ### To-do:
 - Database creation & connection
 ## Contributors
-Anamaria Vargić - Student
+Anamaria Vargić - Student  
+
 Miroslav Joler - Professor and Mentor
