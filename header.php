@@ -1,8 +1,7 @@
 <!DOCTYPE html>
     <head>
         <title>Internship Platform</title>
-        <meta charset="utf-8">
-        <meta name="description" content="Internship Platform">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <ul>
             <a href="login.php">Log in</a> 
             <a href="signup.php">Register as student</a> 
