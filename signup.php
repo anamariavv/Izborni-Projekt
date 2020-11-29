@@ -7,6 +7,7 @@
 <form action="include/signup.inc.php" method="post" target="_self">
     Firstname: <input type="text" id="firstname" name="firstname"><br>
     Lastname: <input type="text" id="lastname" name="lastname"><br>
+    OIB: <input type="number" id="oib" name="oib"><br>
     Age: <input type="number" id="age" name="age"><br>
     E-mail: <input type="email" id="email" name="email"><br>
     City: <input type="text" id="city" name="city"><br> 
