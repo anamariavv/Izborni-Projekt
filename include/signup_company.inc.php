@@ -21,15 +21,15 @@
         //check for taken email
         $sql = "SELECT * FROM company WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
-            header("Location: ../signup_company.php?error=sql_prepare1");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         }
         if(!($stmt->bind_param("s", $email))) {
-            header("Location: ../signup_company.php?error=sql_bind1");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         }
         if(!$stmt->execute()) {
-            header("Location: ../signup_company.php?error=sql_execute1");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         }
         $result = $stmt->get_result();
@@ -57,15 +57,15 @@
         $password_hashed = password_hash($pwd1, PASSWORD_BCRYPT);
         $sql = "INSERT INTO company(id,name,city,address,postal_code,email,phone_number,field,user_level_id,password) VALUES (?,?,?,?,?,?,?,?,?,?)";
         if(!($stmt = $conn->prepare($sql))) {
-            header("Location: ../signup_company.php?error=sql_prepare1");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         }  
         if(!($stmt->bind_param("ssssisssis", $id, $cname, $city, $address, $postal, $email, $phone, $field, $user_level_id, $password_hashed))) {
-            header("Location: ../signup_company.php?error=sql_bind2");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         } 
         if(!$stmt->execute()) {
-            header("Location: ../signup_company.php?error=sql_execute2");
+            header("Location: ../signup_company.php?error=sql");
             exit();
         }
         //if all was successful, return to index page
