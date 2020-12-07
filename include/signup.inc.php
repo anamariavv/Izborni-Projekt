@@ -3,7 +3,7 @@
     
     if(isset($_POST['signupsubmit'])) {
 
-        require_once('database_connect.inc.php');
+        require_once("database_connect.inc.php");
 
         $oib = mysqli_real_escape_string($conn, $_POST['oib']);
         $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
@@ -24,15 +24,15 @@
         //check if email is taken
         $sql = "SELECT * FROM student WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
-            header("Location: ../signup.php?error=sql_prepare1");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         if(!($stmt->bind_param("s", $email))) {
-            header("Location: ../signup.php?error=sql_bind1");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         if(!($stmt->execute())) {
-            header("Location: ../signup.php?error=sql_execute1");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         $result = $stmt->get_result();
@@ -58,7 +58,7 @@
         $sql = "INSERT INTO student(oib,firstname,lastname,age,email,city,university,user_level_id,password) VALUES (?,?,?,?,?,?,?,?,?);";
         //if the statement prepare fails
         if(!($stmt = $conn->prepare($sql))) {
-            header("Location: ../signup.php?error=sql_prepare2");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         $password_hashed = password_hash($password1, PASSWORD_BCRYPT);
@@ -66,12 +66,12 @@
 
         //if binding fails
         if(!($stmt->bind_param("ississsis", $oib, $fname, $lname, $age, $email, $city, $uni, $user_level_id, $password_hashed))) {
-            header("Location: ../signup.php?error=sql_bind2");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         //if execution fails
         if(!($stmt->execute())) {
-            header("Location: ../signup.php?error=sql_execute2");
+            header("Location: ../signup.php?error=sql");
             exit();
         }
         //if all was successful, return to signup page
