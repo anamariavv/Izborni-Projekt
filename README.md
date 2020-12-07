@@ -21,6 +21,7 @@ The main goal of this web app is to make finding student internships easier, for
 - Database documentation
 - ~User registration~
 - ~Company registration~
+- Log in
 ## Contributors
 Anamaria Vargić - Student  
 
