@@ -6,6 +6,8 @@
     <head>
         <title>Internship Platform</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/jquery.validate.js"></script>
         <ul>
             <?php
                 if(isset($_SESSION["status"])) {
