@@ -15,12 +15,6 @@
         $password1 = mysqli_real_escape_string($conn, $_POST['pwd1']);
         $password2 = mysqli_real_escape_string($conn, $_POST['pwd2']);
 
-        //check for empty fields
-        if(empty($oib) || empty($fname) || empty($lname) ||  empty($age) || empty($email) || empty($city) || empty($uni) || empty($password1) || empty($password2)) {
-            header("Location: ../signup.php?error=empty_fields");
-            exit();
-        }
-
         //check if email is taken
         $sql = "SELECT * FROM student WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
@@ -41,18 +35,6 @@
             header("Location: ../signup.php?error=email_taken");
             exit();
         } 
-
-        //if email was alright-> check for valid password (password1)
-        if(!preg_match('/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/', $password1)) {
-            header("Location: ../signup.php?error=password_weak");
-            exit();
-        }
-
-        //then check if passwords match
-        if($password1 != $password2) {
-            header("Location: ../signup.php?error=password_mismatch");
-            exit();
-        }
 
         //insert user into database
         $sql = "INSERT INTO student(oib,firstname,lastname,age,email,city,university,user_level_id,password) VALUES (?,?,?,?,?,?,?,?,?);";

@@ -12,12 +12,6 @@
         $pwd1 = mysqli_real_escape_string($conn, $_POST['pwd1']);
         $pwd2 = mysqli_real_escape_string($conn, $_POST['pwd2']);
 
-        //check for empty fields
-        if(empty($cname) || empty($city) || empty($address) || empty($postal) || empty($email) || empty($phone) || empty($field) || empty($pwd1) || empty($pwd2)) {
-            header("Location: ../signup_company.php?error=empty_fields");
-            exit();
-        }
-
         //check for taken email
         $sql = "SELECT * FROM company WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
@@ -39,18 +33,6 @@
             exit();
         } 
         
-        //if email is free, check for valid password
-        if(!preg_match('/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/', $pwd1)) {
-            header("Location: ../signup_company.php?error=password_weak");
-            exit();
-        }
-
-        //check if passwords match
-        if($pwd1 != $pwd2) {
-            header("Location: ../signup_company.php?error=password_mismatch");
-            exit();
-        }
-
         //insert company into database
         $id = bin2hex(random_bytes(32));
         $user_level_id = 3;
