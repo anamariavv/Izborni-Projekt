@@ -4,7 +4,6 @@
 
     //to to:
     //edit profile-> detect changed fields with js and activate submit button if needed
-    //change password -> finish ajax request
     //change picture 
 
     if($_SESSION["user_level"] == "student") {
@@ -38,6 +37,7 @@
     Postal code: <input type='number' id='postal' value=".$row["postal_code"]."><br>
     </form>";
     echo "<div id='passdiv'></div>";
+    echo "<div id='passresult'></div>";
     echo "<button type='button' id='change_pass'><p id='buttontext'>Change Password</p></button>";
     echo "<script src='js/changepass.js'></script>";
 
