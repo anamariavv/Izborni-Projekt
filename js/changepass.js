@@ -1,3 +1,4 @@
+//remove the password change fields after successful password change
 $(document).ready(function() {
 
     $("#change_pass").click(function(){
@@ -51,8 +52,6 @@ $(document).ready(function() {
                         submitHandler: function(form, e) {
                             e.preventDefault();
                             var password = $("#pwd1").val();
-                            //var user_type = 
-
                             $.ajax({
                                 type: "POST",
                                 url: "include/change_password.inc.php",
@@ -60,7 +59,7 @@ $(document).ready(function() {
                                 dataType: "json",
                                 data: {pass: password},
                                 success: function(data) {
-                                    $("#passresult").text("Success");
+                                    $("#passresult").text("Password successfully changed!");
                                 },
                                 error: function(data) {
                                     $("#passresult").text("An error occured: " + data);
