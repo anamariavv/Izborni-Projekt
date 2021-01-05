@@ -1,4 +1,3 @@
-//remove the password change fields after successful password change
 $(document).ready(function() {
 
     $("#change_pass").click(function(){
@@ -60,6 +59,12 @@ $(document).ready(function() {
                                 data: {pass: password},
                                 success: function(data) {
                                     $("#passresult").text("Password successfully changed!");
+                                    $("#pwd1").remove();
+                                    $("#pwd2").remove();
+                                    $("#changepasssubmit").remove();
+                                    $("#change_pass").attr("disabled", false); 
+                                    $("#cancel").remove();
+                                    $("#passwordform").remove();
                                 },
                                 error: function(data) {
                                     $("#passresult").text("An error occured: " + data);
