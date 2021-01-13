@@ -42,5 +42,15 @@
     echo "<script src='js/changepass.js'></script>";
     echo "<script src='js/editprofile.js'></script>";
     
+?>
+
+<?php
+    if(isset($_GET['error'])) {
+               
+    } else if(isset($_GET['success'])) {
+        
+    }
+
     include_once "footer.php";
+
 ?>
