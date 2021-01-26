@@ -21,10 +21,16 @@
         <tr><td>Description</td><td id='description'>".$row['description']."</td></tr>"; 
     }
 
+    echo "<script src='js/changepass.js'></script>";
+    echo "<script src='js/editprofile.js'></script>";
+    echo "<script src ='js/change_picture.js'></script>";
     echo $html_title;
     if(!empty($picture_src)) {
-        echo "<img src=' ".$picture_src."' alt='Profile picture' width=100 height=100><br>";
+        echo "<img src=' ".$picture_src."' alt='Profile picture' width=170 height=170><br>";
+        echo "<a id='delete_link'><button type ='button' id='delete_picture'>Remove picture</button></a><br>";
     }
+    echo "<button type ='button' id='change_picture'>Change picture</button><br>";
+    echo "<div id='picture_div'></div>";
 
     echo $html_info;
     echo "<tr><td>Email</td><td id='email'>".$row['email']."</td></tr>
@@ -39,8 +45,6 @@
     echo "<button type='button' id='edit_profile'>Edit Profile</button><br>";
     echo "<button type='button' id='change_pass'><p id='buttontext'>Change Password</p></button>";
     echo "<div id='passresult'></div>";
-    echo "<script src='js/changepass.js'></script>";
-    echo "<script src='js/editprofile.js'></script>";
     
 ?>
 

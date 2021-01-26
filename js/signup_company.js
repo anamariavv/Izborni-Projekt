@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    jQuery.validator.addMethod("password_val", function (value, element) {
+    jQuery.validator.addMethod("password_val", function (value) {
         if (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(value)) {
             return true;
         } else {
