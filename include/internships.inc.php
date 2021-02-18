@@ -1,7 +1,7 @@
 <?php
     require_once "database_connect.inc.php";
 
-    $sql = ' SELECT * FROM internship WHERE company_id = "' . $_SESSION['id'] . '"';
+    $sql = ' SELECT * FROM internship ';
 
     $result = $conn->query($sql);
     $result_array = $result->fetch_all(MYSQLI_ASSOC);
