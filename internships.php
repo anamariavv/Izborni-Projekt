@@ -16,9 +16,19 @@
         ?>
     </table>
     
-    <h2>Internship Archive</h2>
-    
-    <!--Finish internship creation-->
+    <table>
+        <tr><th colspan = "9"><h2>Internship Archive</h2></th></tr>
+        <tr><th>ID</th><th>Position</th><th>City</th></tr>
+        <?php
+            foreach($result_array as $row) {
+                    if($row['status'] == 'closed') {
+                        echo "<tr><td>".$row['id']."</td><td>".$row['position']."</td><td>".$row['city']."</td><td><a href='internship_".$row['id'].".php?closed'><button type='button'>View</button></a></td></tr>";
+                    }
+                }
+        ?>
+    </table>
+
+
     <button type="button" id="new_internship">Create new internship</button>
     <div id="create_new"></div>
     <script src="js/new_internship.js"></script>
