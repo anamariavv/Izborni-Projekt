@@ -42,13 +42,12 @@ $(document).ready(function(){
         $new_input_6.setAttribute("type", "number");
         $new_input_7.setAttribute("id", "deadline");
         $new_input_7.setAttribute("name", "deadline");
-        $new_input_7.setAttribute("type", "datetime-local");
+        $new_input_7.setAttribute("type", "date");
 
         //modify the submit button to validate all fields
         $new_input_8.setAttribute("id", "new_internship_submit");
         $new_input_8.setAttribute("type", "submit");
         $new_input_8.onclick = function(e) {
-            //e.preventDefault();
             $($new_form).validate({
                 rules: {
                     id: "required",
@@ -83,9 +82,8 @@ $(document).ready(function(){
                     }     
                 },
                 submitHandler: function() {
-                   //!!finish ajax request
                     var $data_array = {id : JSON.stringify($("#id").val()), position : JSON.stringify($("#position").val()), desc : JSON.stringify($("#description").val()),
-                                        city : JSON.stringify($("#city").val()), requirements : JSON.stringify($("#city").val()), salary : JSON.stringify($("#salary").val()), deadline : JSON.stringify($("#deadline").val())};
+                                        city : JSON.stringify($("#city").val()), requirements : JSON.stringify($("#requirements").val()), salary : JSON.stringify($("#salary").val()), deadline : JSON.stringify($("#deadline").val())};
                    $.ajax({
                         type: "POST",
                         url: "include/add_internship.inc.php",
