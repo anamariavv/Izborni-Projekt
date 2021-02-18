@@ -19,13 +19,15 @@ $(document).ready(function(){
        
         //get information from table to variables
         var $old_id = $("#id").html();
+        var $status =  $("#status").html();
+        var $created = $("#created").html();
         var $position = $("#position").html();
         var $city = $("#city").html();
         var $description = $("#description").html();
         var $requirements = $("#requirements").html();
         var $salary = $("#salary").html();
         var $deadline = $("#deadline").html();
-        
+
         $div_element.innerHTML = "";
 
         
@@ -72,18 +74,6 @@ $(document).ready(function(){
         $new_input_7.setAttribute("type", "date");
         
 
-        //get new data
-        var $data_array = {
-            old_id: JSON.stringify($old_id),
-            id: JSON.stringify($("#id_new").val()),
-            position: JSON.stringify($("#position_new").val()),
-            city: JSON.stringify($("#city_new").val()),
-            desc: JSON.stringify($("#description_new").val()),
-            req: JSON.stringify($("#requirements_new").val()),
-            salary: JSON.stringify($("#salary_new").val()),
-            deadline: JSON.stringify($("#deadline_new").val())
-        }
-
         //modify submit button
         $new_input_8.setAttribute("type", "submit");
         $new_input_8.setAttribute("id", "edit_submit");
@@ -99,15 +89,104 @@ $(document).ready(function(){
                     deadline: "required"
                 },
                 submitHandler: function() {
+                    var data_array = new Object();
+                    data_array["old_id"] = $old_id;
+                    data_array["id"] = $("#id_new").val();
+                    data_array["city"] = $("#city_new").val();
+                    data_array["desc"] = $("#description_new").val();
+                    data_array["req"] = $("#requirements_new").val();
+                    data_array["salary"] = $("#salary_new").val();
+                    data_array["deadline"] = $("#deadline_new").val();
+                    data_array["position"] = $("#position_new").val();                    
+
                     $.ajax({
                         type: "POST",
                         url: "include/edit_internship.inc.php",
                         dataType: "json",
-                        data: $data_array,
+                        data: JSON.parse(JSON.stringify(data_array)),
                         success: function(data) {
                             $("#edit_internship").attr("disabled", false);
                             $new_form.remove();
-                            $div_element.innerHTML = $old_html;
+                            $new_table = document.createElement("table");
+                            $new_table.setAttribute("id", "information_table");
+                            $tr1 = document.createElement("tr");
+                            $th1 = document.createElement("th");
+                            $th1.setAttribute("colspan", "9");
+                            $th1.innerText = "Internship information";
+                            $tr2 = document.createElement("tr");
+                            $th2 = document.createElement("th");
+                            $th2.innerText = "ID";
+                            $th3 = document.createElement("th");
+                            $th3.innerText = "Date Created";
+                            $th4 = document.createElement("th");
+                            $th4.innerText = "Position";
+                            $th5 = document.createElement("th");
+                            $th5.innerText = "Work Description";
+                            $th6 = document.createElement("th");
+                            $th6.innerText = "City";
+                            $th7 = document.createElement("th");
+                            $th7.innerText = "Requirements";
+                            $th8 = document.createElement("th");
+                            $th8.innerText = "Status";
+                            $th9 = document.createElement("th");
+                            $th9.innerText = "Monthly Salary (Gross Pay)";
+                            $th10 = document.createElement("th");
+                            $th10.innerText = "Application Deadline";
+                            $tr3 = document.createElement("tr");
+                            $td1 = document.createElement("td");
+                            $td1.setAttribute("id", "id");
+                            $td1.innerText = data_array["id"];
+                            $td2 = document.createElement("td");
+                            $td2.setAttribute("id", "created");
+                            $td2.innerText = $created;
+                            $td3 = document.createElement("td");
+                            $td3.setAttribute("id", "position");
+                            $td3.innerText = data_array["position"];
+                            $td4 = document.createElement("td");
+                            $td4.setAttribute("id", "description");
+                            $td4.innerText = data_array["desc"];
+                            $td5 = document.createElement("td");
+                            $td5.setAttribute("id", "city");
+                            $td5.innerText = data_array["city"];
+                            $td6 = document.createElement("td");
+                            $td6.setAttribute("id", "requirements");
+                            $td6.innerText = data_array["req"];
+                            $td7 = document.createElement("td");
+                            $td7.setAttribute("id", "status");
+                            $td7.innerText = $status;
+                            $td8 = document.createElement("td");
+                            $td8.setAttribute("id", "salary");
+                            $td8.innerText = data_array["salary"];
+                            $td9 = document.createElement("td");
+                            $td9.setAttribute("id", "deadline");
+                            $td9.innerText = data_array["deadline"];
+                            $new_table.appendChild($tr1);
+                            $tr1.appendChild($th1);
+                            $new_table.appendChild($tr2);
+                            $tr2.appendChild($th2);
+                            $tr2.appendChild($th3);
+                            $tr2.appendChild($th4);
+                            $tr2.appendChild($th5);
+                            $tr2.appendChild($th6);
+                            $tr2.appendChild($th7);
+                            $tr2.appendChild($th8);
+                            $tr2.appendChild($th9);
+                            $tr2.appendChild($th10);
+                            $tr3 = document.createElement("tr");
+                            $tr3.appendChild($td1);
+                            $tr3.appendChild($td2);
+                            $tr3.appendChild($td3);
+                            $tr3.appendChild($td4);
+                            $tr3.appendChild($td5);
+                            $tr3.appendChild($td6);
+                            $tr3.appendChild($td7);
+                            $tr3.appendChild($td8);
+                            $tr3.appendChild($td9);
+                            $new_table.appendChild($tr3);
+
+                            $div_element.appendChild($new_table);
+                            
+                            $("#cancel_edit_internship").remove();
                             $(this).remove();
                         },
                         error: function(data) {
@@ -129,8 +208,6 @@ $(document).ready(function(){
 
         $div_element.appendChild($new_form);
         
-
-
         //create cancel button
         var $new_cancel_button = document.createElement("button");
         $new_cancel_button.setAttribute("id", "cancel_edit_internship");
