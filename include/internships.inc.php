@@ -9,7 +9,7 @@
     //--create page for each internship--    
     foreach ($result_array as $row) {
         $new_file_name = 'internship_'.$row['id'].'.php';
-        
+
         //create content and source code
         $src_code = file_get_contents("header.php");
         $src_data = "<div id='information_div'>

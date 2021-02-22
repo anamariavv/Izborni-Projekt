@@ -2,9 +2,9 @@
     require_once "database_connect.inc.php";
 
     $sql = "SELECT internship.id, internship.created, internship.position, internship.description, 
-    internship.city, internship.requirements, internship.salary, internship.deadline, company.name 
-    FROM internship INNER JOIN company ON (internship.company_id = company.id)
-    WHERE internship.status = 'open' ORDER BY internship.id";
+    internship.city, internship.requirements, internship.salary, internship.deadline, company.name, 
+    company.id AS c_id FROM internship INNER JOIN company ON (internship.company_id = company.id)
+     WHERE internship.status = 'open' ORDER BY internship.id";
 
     if(!($result = $conn->query($sql))) {
         header("Location: ../index.php?error=sql");
