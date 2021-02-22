@@ -8,7 +8,7 @@
         echo "<script src='js/manage_internship.js'></script>";
         echo "<div id='candidate_div'></div>";
     } else if( $_SESSION['user_level'] == 'student') {
-        echo "<a href='include/apply_internship.inc.php'><button type='button' id='apply_internship'>Apply</button></a>";
+        echo "<a href='include/apply_internship.inc.php?id=".$_GET['id']."&company=".$_GET['company']."'><button type='button' id='apply_internship'>Apply</button></a>";
     }
 ?>
 
