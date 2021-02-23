@@ -14,6 +14,7 @@
                     echo '<a href="include/logout.inc.php?logout=true">Log out</a>';
                     echo '<a href="index.php">Home</a>';
                     echo '<a href="profile.php">My profile</a>';
+                    echo '<a href="include/generate_resume.inc.php">My CV</a>';
                     if($_SESSION["user_level"] == "company") {
                         echo '<a href="internships.php">Internships Overview</a>';
                     }
