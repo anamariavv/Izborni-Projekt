@@ -58,7 +58,7 @@
         <table id="skill_table">';
         $count = 0;
         foreach($array_skill as $row_skill) {
-            echo '<tr><td id="skill_name'.$count.'">'.$row_skill['name'].'</td><td id="skill_level'.$count.'">'.$row_skill['level'].'</td></tr>';
+            echo '<tr><td hidden id="skill_id'.$count.'">'.$row_skill['id'].'</td><td id="skill_name'.$count.'">'.$row_skill['name'].'</td><td id="skill_level'.$count.'">'.$row_skill['level'].'</td></tr>';
             $count += 1;
         }
     echo '</table></div>
