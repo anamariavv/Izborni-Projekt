@@ -2,14 +2,14 @@
 
     require_once "include/database_connect.inc.php";
 
-    $sql = 'SELECT * FROM resume INNER JOIN student ON (student.oib = resume.id) WHERE id = "' . $_SESSION['oib'] . '"';
-    $sql_education = 'SELECT * FROM resume_education INNER JOIN education ON (education.id = education_id) WHERE resume_id = "'.$_SESSION['oib'].'" GROUP BY education_id, resume_id';
-    $sql_work = 'SELECT * FROM work_experience WHERE resume_id = "'.$_SESSION['oib'].'"';
-    $sql_skill = 'SELECT * FROM resume_skill INNER JOIN skill ON (skill.id = skill_id) WHERE resume_id ="'.$_SESSION['oib'] .'" GROUP BY skill_id, resume_id';
-    $sql_language = 'SELECT * FROM resume_language INNER JOIN language ON (language.id = language_id) WHERE resume_id = "'.$_SESSION['oib'].'" GROUP BY language_id, resume_id';
-    $sql_keyword = 'SELECT * FROM resume_keyword INNER JOIN keyword ON (keyword.id = keyword_id) WHERE resume_keyword.resume_id = "'.$_SESSION['oib'].'" GROUP BY keyword_id, resume_keyword.resume_id';
+    $sql = 'SELECT * FROM resume INNER JOIN student ON (student.oib = resume.id) WHERE id = '.$_SESSION['oib'];
+    $sql_education = 'SELECT * FROM education WHERE resume_id = '.$_SESSION['oib'];
+    $sql_work = 'SELECT * FROM work_experience WHERE resume_id = '.$_SESSION['oib'];
+    $sql_skill = 'SELECT * FROM skill WHERE resume_id = '.$_SESSION['oib'];
+    $sql_language = 'SELECT * FROM language WHERE resume_id = '.$_SESSION['oib'];
+    $sql_keyword = 'SELECT * FROM keyword WHERE resume_id = '.$_SESSION['oib'];
 
-    //resume and student inffo result
+    //resume and student o result
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 
