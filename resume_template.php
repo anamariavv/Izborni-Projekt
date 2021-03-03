@@ -40,9 +40,9 @@
     echo '<h2>Work Experience</h2>
         <div id="work_experience">
         <table id="work_table" width="35%"';
-        $count = 0;
+        $count = 1;
         foreach($array_work as $row_work) {
-            echo '<tr><td id="work_start_month'.$count.'">'.$row_work['start_month'].'</td><td id="work_start_year'.$count.'">'.$row_work['start_year'].'</td><td id="work_end_month'.$count.'">'.$row_work['end_month'].'</td><td id="work_end_year'.$count.'">'.$row_work['end_year'].'</td><td id="work_title'.$count.'">'.$row_work['title'].'</td><td id="work_city'.$count.'">'.$row_work['city'].'</td><td id="work_country'.$count.'">'.$row_work['country'].'</td></tr>';
+            echo '<tr><td hidden id="work_id'.$count.'">'.$row_work['id'].'</td><td id="work_start_month'.$count.'">'.$row_work['start_month'].'</td><td id="work_start_year'.$count.'">'.$row_work['start_year'].'</td><td id="work_end_month'.$count.'">'.$row_work['end_month'].'</td><td id="work_end_year'.$count.'">'.$row_work['end_year'].'</td><td id="work_title'.$count.'">'.$row_work['title'].'</td><td id="work_city'.$count.'">'.$row_work['city'].'</td><td id="work_country'.$count.'">'.$row_work['country'].'</td></tr>';
             echo '<tr><td colspan="7" id="work_description'.$count.'">'.$row_work['description'].'</td></tr>';
             $count += 1;
         }
@@ -73,7 +73,7 @@
         <table id="language_table">';
         $count = 0;
         foreach($array_language as $row_language) {
-            echo '<tr><td id="language_name'.$count.'">'.$row_language['name'].'</td><td id="language_level'.$count.'">'.$row_language['level'].'</td></tr>';
+            echo '<tr><td hidden id="language_id'.$count.'">'.$row_language['id'].'</td><td id="language_name'.$count.'">'.$row_language['name'].'</td><td id="language_level'.$count.'">'.$row_language['level'].'</td></tr>';
             $count += 1;
         }        
     echo '</table></div>
@@ -88,7 +88,7 @@
         <table id="keyword_table">';
         $count = 0;
         foreach($array_keyword as $row_keyword) {
-            echo '<tr><td id="keyword_category'.$count.'">'.$row_keyword['category'].'</td><td id="keyword_word'.$count.'">'.$row_keyword['word'].'</td></tr>';
+            echo '<tr><td hidden id="keyword_id'.$count.'">'.$row_keyword['id'].'</td><td id="keyword_category'.$count.'">'.$row_keyword['category'].'</td><td id="keyword_word'.$count.'">'.$row_keyword['word'].'</td></tr>';
             $count += 1;
         }
     echo '</table></div>
