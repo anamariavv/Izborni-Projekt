@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    //Title editing
+    
+    //---------------------Title editing----------------------
    $("#edit_title").click(function() {
         $(this).attr("disabled", true);
         var $title_div = document.getElementById("title");
@@ -50,15 +51,14 @@ $(document).ready(function() {
         $title_div.appendChild($cancel_title_edit);
     })
 
-    //Introduction editing
+    //---------------------Introduction editing----------------------
     $("#edit_intro").click(function() {
         $(this).attr("disabled", true);
-        //get old values
         
         $old_intro = document.getElementById("intro");
         $old_intro_text = $old_intro.innerHTML;
         $old_intro.innerHTML = "";
-        //create new form with input(textarea) and submit buttons
+      
         var $intro_div = document.getElementById("intro");
         var $intro_form = document.createElement("form");
         $intro_form.setAttribute("id", "intro_form");
@@ -89,11 +89,11 @@ $(document).ready(function() {
                 }
             })
         }
-        //append new form to div
+      
         $intro_form.appendChild($textarea);
         $intro_form.appendChild($submit_new_intro);
         $intro_div.appendChild($intro_form);
-        //create and append cancel button
+      
         $cancel_intro_edit = document.createElement("button");
         $cancel_intro_edit.setAttribute("type", "button");
         $cancel_intro_edit.setAttribute("id", "cancel_intro_edit");
@@ -107,18 +107,17 @@ $(document).ready(function() {
         }
     })
 
-    //education editing
+    //---------------------Education editing----------------------
     $("#edit_education").click(function() {
         $(this).attr("disabled", true);
-        //save old table in case of cancel
+        
         var $education_div = document.getElementById("education");
         var $education_table = document.getElementById("education_table");
+        var $education_body = document.getElementById("education_body");
        
-        //turn table into form with exisitng rows as inputs and submit button
         var $education_form = document.createElement("form");
         $education_form.setAttribute("id", "education_form");
 
-        var count = 0;
         var $start_year; 
         var $end_year; 
         var $title;
@@ -132,8 +131,7 @@ $(document).ready(function() {
         var $new_country = document.createElement("input");
         var $new_city = document.createElement("input");
        
-        for(var i = 0; i < $education_table.rows.length; i++) {
-            //get old values
+        for(var i = 0; i < $education_body.rows.length; i++) {
             var $id1 = "education_start_year" + i;
             var $id2 = "education_end_year" + i;
             var $id3 = "education_title" + i;
@@ -146,7 +144,7 @@ $(document).ready(function() {
             $education_country = document.getElementById($id4).innerHTML;
             $education_city = document.getElementById($id5).innerHTML;
 
-            //new elements -  create and add old values to new fields
+
             var $sy_id = "sy_"+i;
             var $ey_id = "ey_"+i;
             var $title_id = "title_"+i;
@@ -159,28 +157,27 @@ $(document).ready(function() {
             var $new_country = document.createElement("input");
             var $new_city = document.createElement("input");
 
-            //var $new_start_year = document.createElement("input");
             $new_start_year.setAttribute("type", "number");
             $new_start_year.setAttribute("id", $sy_id);
             $new_start_year.setAttribute("placeholder", "Start year");
             $new_start_year.value = $start_year;
-            //var $new_end_year = document.createElement("input");
+            
             $new_end_year.setAttribute("type", "number");
             $new_end_year.setAttribute("id", $ey_id);
             $new_end_year.setAttribute("placeholder", "End year")
             $new_end_year.value = $end_year;
-            //var $new_title = document.createElement("input");
+            
             $new_title.setAttribute("type", "text");
             $new_title.setAttribute("id", $title_id);
             $new_title.setAttribute("placeholder", "Education")
             $new_title.setAttribute("size", "30");
             $new_title.value = $title;
-            //var $new_country = document.createElement("input");
+            
             $new_country.setAttribute("type", "text");
             $new_country.setAttribute("id", $country_id);
             $new_country.setAttribute("placeholder", "Country")
             $new_country.value = $education_country;
-            //var $new_city = document.createElement("input");
+            
             $new_city.setAttribute("type", "text");
             $new_city.setAttribute("id", $city_id);
             $new_city.setAttribute("placeholder", "City")
@@ -193,13 +190,12 @@ $(document).ready(function() {
             $education_form.appendChild($new_city);
             $break = document.createElement("br");
             $education_form.appendChild($break);
-            count++;
         } 
         $education_table.remove();
 
         $education_div.appendChild($education_form);
         
-        //submit button
+       
         var $submit_new_education = document.createElement("input");
         $submit_new_education.setAttribute("type", "submit");
         $submit_new_education.setAttribute("id", "submit_new_education");
@@ -213,9 +209,8 @@ $(document).ready(function() {
                     city: "required",
                 },
                 submitHandler: function() {
-                    //create array for values
                     var education_data = [];
-                    for(var i = 0; i < count; i++) {
+                    for(var i = 0; i < $education_body.rows.length; i++) {
                         item = {};
                         var $sy_id = "sy_"+i;
                         var $ey_id = "ey_"+i;
@@ -237,23 +232,7 @@ $(document).ready(function() {
                         data: {education : education_data},
                         dataType: "json",
                         success: function(response) {
-                            $("#edit_education").attr("disabled", false);
-                            $education_form.remove();
-                            $("#cancel_education_edit").remove();
-                            $education_div.appendChild($education_table);
-                            for(var i = 0; i < $education_table.rows.length; i++) {
-                                var $id1 = "education_start_year" + i;
-                                var $id2 = "education_end_year" + i;
-                                var $id3 = "education_title" + i;
-                                var $id4 = "education_country" + i;
-                                var $id5 = "education_city" + i;
-
-                                document.getElementById($id1).innerHTML = education_data[i]["start_year"];
-                                document.getElementById($id2).innerHTML = education_data[i]["end_year"];
-                                document.getElementById($id3).innerHTML = education_data[i]["title"];
-                                document.getElementById($id4).innerHTML = education_data[i]["country"];
-                                document.getElementById($id5).innerHTML =  education_data[i]["city"];
-                            }
+                            location.reload();
                         },
                         error: function(response) {
                             console.log(response.error);
@@ -266,7 +245,6 @@ $(document).ready(function() {
         }
         $education_form.appendChild($submit_new_education);
      
-        //cancel button
         var $cancel_education_edit = document.createElement("button");
         $cancel_education_edit.setAttribute("type", "button");
         $cancel_education_edit.setAttribute("id", "cancel_education_edit");
@@ -281,14 +259,13 @@ $(document).ready(function() {
         
     })
 
-    //work experience
+    //---------------------Work experience editing----------------------
     $("#edit_work_experience").click(function() {
         $(this).attr("disabled", true);
         var $work_div = document.getElementById("work_experience");
         var $work_table = document.getElementById("work_table");
         var $work_form = document.createElement("form");
 
-        //get old values
         var old_work = [];
         var new_work = [];
 
@@ -483,18 +460,18 @@ $(document).ready(function() {
         }
     })
 
-    //skills
+    //---------------------Skills editing----------------------
     $("#edit_skills").click(function() {
         $(this).attr("disabled", true);
         var $skill_div = document.getElementById("skills");
         var $skill_table = document.getElementById("skill_table");
+        var $skill_body = document.getElementById("skill_body");
         var $skill_form = document.createElement("form");
 
-        //get old values
         var old_skills = [];
         var new_skills = [];
    
-        for(var i = 0; i < $skill_table.rows.length; i++) {
+        for(var i = 0; i < $skill_body.rows.length; i++) {
             skill = {};
             
             var $skill_id = "skill_id"+i;
@@ -505,7 +482,6 @@ $(document).ready(function() {
             skill["level"] = document.getElementById($skill_level).innerHTML;
             old_skills.push(skill);
             
-
             var $new_skill_name = document.createElement("input");
             var $new_skill_name_id = "new_skill_name"+i;
             $new_skill_name.setAttribute("type", "text");
@@ -543,7 +519,7 @@ $(document).ready(function() {
                     level: "required",
                 },
                 submitHandler: function() {
-                    for(var i = 0; i < $skill_table.rows.length; i++) {
+                    for(var i = 0; i < $skill_body.rows.length; i++) {
                         skill = {};
 
                         var $new_skill_name_id = "new_skill_name"+i;
@@ -561,16 +537,7 @@ $(document).ready(function() {
                         data: {skills : new_skills},
                         dataType: "json",
                         success: function(response) {
-                            $("#edit_skills").attr("disabled", false);
-                            $skill_form.remove();
-                            $cancel_skill_edit.remove();
-                            $skill_div.appendChild($skill_table);
-                            for(var i = 0; i < $skill_table.rows.length; i++) {        
-                                var $skill_name = "skill_name"+i;
-                                var $skill_level = "skill_level"+i;
-                                document.getElementById($skill_name).innerHTML = new_skills[i]["name"];
-                                document.getElementById($skill_level).innerHTML = new_skills[i]["level"];
-                            }
+                            location.reload();
                         },
                         error: function(response) {
                             console.log(response.error);
@@ -593,18 +560,18 @@ $(document).ready(function() {
         }
     })
 
-    //languages
+    //---------------------Languages editing----------------------
     $("#edit_languages").click(function() {
         $(this).attr("disabled", true);
         var $language_div = document.getElementById("languages");
         var $language_table = document.getElementById("language_table");
+        var $language_body = document.getElementById("language_body");
         var $language_form = document.createElement("form");
 
-        //get old values
         var old_languages = [];
         var new_languages = [];
    
-        for(var i = 0; i < $language_table.rows.length; i++) {
+        for(var i = 0; i < $language_body.rows.length; i++) {
             language = {};
             
             var $language_id = "language_id"+i;
@@ -653,7 +620,7 @@ $(document).ready(function() {
                     level: "required",
                 },
                 submitHandler: function() {
-                    for(var i = 0; i < $language_table.rows.length; i++) {
+                    for(var i = 0; i < $language_body.rows.length; i++) {
                         language = {};
 
                         var $new_language_name_id = "new_language_name"+i;
@@ -671,16 +638,7 @@ $(document).ready(function() {
                         data: {languages : new_languages},
                         dataType: "json",
                         success: function(response) {
-                            $("#edit_languages").attr("disabled", false);
-                            $language_form.remove();
-                            $cancel_language_edit.remove();
-                            $language_div.appendChild($language_table);
-                            for(var i = 0; i < $language_table.rows.length; i++) {        
-                                var $language_name = "language_name"+i;
-                                var $language_level = "language_level"+i;
-                                document.getElementById($language_name).innerHTML = new_languages[i]["name"];
-                                document.getElementById($language_level).innerHTML = new_languages[i]["level"];
-                            }
+                           location.reload();
                         },
                         error: function(response) {
                             console.log(response.error);
@@ -703,18 +661,18 @@ $(document).ready(function() {
         }
     })
 
-    //keywords
+    //---------------------Keywords editing----------------------
     $("#edit_keywords").click(function() {
         $(this).attr("disabled", true);
         var $keyword_div = document.getElementById("keywords");
         var $keyword_table = document.getElementById("keyword_table");
         var $keyword_form = document.createElement("form");
+        var $keyword_body = document.getElementById("keyword_body");
 
-        //get old values
         var old_keywords = [];
         var new_keywords = [];
-   
-        for(var i = 0; i < $keyword_table.rows.length; i++) {
+    
+        for(var i = 0; i < $keyword_body.rows.length; i++) {
             keyword = {};
             
             var $keyword_id = "keyword_id"+i;
@@ -738,7 +696,7 @@ $(document).ready(function() {
             $new_keyword_word.setAttribute("id", $new_keyword_word_id);
             $new_keyword_word.setAttribute("placeholder", "Word");
             $new_keyword_word.value = keyword["word"];
-            
+          
             $break = document.createElement("br");
            
             $keyword_form.appendChild($new_keyword_category);
@@ -762,7 +720,7 @@ $(document).ready(function() {
                     word: "required",
                 },
                 submitHandler: function() {
-                    for(var i = 0; i < $keyword_table.rows.length; i++) {
+                    for(var i = 0; i < $keyword_body.rows.length; i++) {
                         keyword = {};
 
                         var $new_keyword_category_id = "new_keyword_category"+i;
@@ -780,16 +738,7 @@ $(document).ready(function() {
                         data: {keywords : new_keywords},
                         dataType: "json",
                         success: function(response) {
-                            $("#edit_keywords").attr("disabled", false);
-                            $keyword_form.remove();
-                            $cancel_keyword_edit.remove();
-                            $keyword_div.appendChild($keyword_table);
-                            for(var i = 0; i < $keyword_table.rows.length; i++) {        
-                                var $keyword_category = "keyword_category"+i;
-                                var $keyword_word = "keyword_word"+i;
-                                document.getElementById($keyword_category).innerHTML = new_keywords[i]["category"];
-                                document.getElementById($keyword_word).innerHTML = new_keywords[i]["word"];
-                            }
+                            location.reload();
                         },
                         error: function(response) {
                             console.log(response.error);
@@ -812,5 +761,520 @@ $(document).ready(function() {
         }
     })
 
+
+    //---------------------Education adding----------------------
+
+    $("#add_education").click(function() {
+        $(this).attr("disabled", true);
+        var $add_education_form = document.createElement("form");
+        var $submit_add_education = document.createElement("input");
+        $add_education_form.setAttribute("id", "add_education_form");
+                
+        var $education_div = document.getElementById("education");
+    
+        var $sy_id = "add_sy";
+        var $ey_id = "add_ey";
+        var $title_id = "add_title";
+        var $country_id = "add_country";
+        var $city_id = "add_city";
+
+        var $add_start_year = document.createElement("input");
+        var $add_end_year = document.createElement("input");
+        var $add_title = document.createElement("input");
+        var $add_country = document.createElement("input");
+        var $add_city = document.createElement("input");
+
+        $add_start_year.setAttribute("type", "number");
+        $add_start_year.setAttribute("id", $sy_id);
+        $add_start_year.setAttribute("placeholder", "Start year");
+
+        $add_end_year.setAttribute("type", "number");
+        $add_end_year.setAttribute("id", $ey_id);
+        $add_end_year.setAttribute("placeholder", "End year")
+
+        $add_title.setAttribute("type", "text");
+        $add_title.setAttribute("id", $title_id);
+        $add_title.setAttribute("placeholder", "Education")
+        $add_title.setAttribute("size", "30");
+        
+        $add_country.setAttribute("type", "text");
+        $add_country.setAttribute("id", $country_id);
+        $add_country.setAttribute("placeholder", "Country")
+        
+        $add_city.setAttribute("type", "text");
+        $add_city.setAttribute("id", $city_id);
+        $add_city.setAttribute("placeholder", "City")
+
+        $submit_add_education.setAttribute("type", "submit");
+        $submit_add_education.setAttribute("id", "submit_add_education");
+        $submit_add_education.innerText = "Submit";
+        $submit_add_education.onclick = function() {
+
+            $($add_education_form).validate({
+                rules: {
+                    title: "required",
+                    country: "required",
+                    city: "required",
+                },
+                submitHandler: function() {
+                    var new_education = [];
+                    education = {};
+                    var $sy_id = "add_sy";
+                    var $ey_id = "add_ey";
+                    var $title_id = "add_title";
+                    var $country_id = "add_country";
+                    var $city_id = "add_city";
+
+                    education["start_year"] = document.getElementById($sy_id).value;
+                    education["end_year"] = document.getElementById($ey_id).value;
+                    education["title"] = document.getElementById($title_id).value;
+                    education["country"] = document.getElementById($country_id).value;
+                    education["city"] = document.getElementById($city_id).value;
+                    new_education.push(education)                    
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        dataType: "json",
+                        data: {add_education : new_education},
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            })
+            
+        }
+
+        var $cancel_add_row = document.createElement("button");
+        $cancel_add_row_id = "cancel_add_row";
+        $cancel_add_row.innerText = "Remove";
+        $cancel_add_row.setAttribute("id", $cancel_add_row_id);
+        $cancel_add_row.onclick = function() {
+            $add_education_form.remove();
+            $("#add_education").attr("disabled", false);
+            $(this).remove();
+        }
+
+        $break = document.createElement("br");
+
+        $add_education_form.appendChild($add_start_year);
+        $add_education_form.appendChild($add_end_year);
+        $add_education_form.appendChild($add_title);
+        $add_education_form.appendChild($add_country);
+        $add_education_form.appendChild($add_city);
+        $add_education_form.appendChild($cancel_add_row);
+        $add_education_form.appendChild($break);
+        
+        $education_div.appendChild($add_education_form);
+        $add_education_form.appendChild($submit_add_education);
+    })
+
+
+    //---------------------Work experience adding----------------------
+
+     $("#add_work").click(function() {
+        $(this).attr("disabled", true);
+        var $add_work_form = document.createElement("form");
+        var $submit_add_work = document.createElement("input");
+        $add_work_form.setAttribute("id", "add_work_form");
+                
+        var $work_div = document.getElementById("work_experience");
+    
+        var $sm_id = "add_sm_work";
+        var $sy_id = "add_sy_work";
+        var $em_id = "add_em_work";
+        var $ey_id = "add_ey_work";
+        var $title_id = "add_title_work";
+        var $country_id = "add_country_work";
+        var $city_id = "add_city_work";
+        var $desc_id = "add_description_id";
+
+        var $add_start_year = document.createElement("input");
+        var $add_end_year = document.createElement("input");
+        var $add_start_month = document.createElement("input");
+        var $add_end_month = document.createElement("input");
+        var $add_title = document.createElement("input");
+        var $add_country = document.createElement("input");
+        var $add_city = document.createElement("input");
+        var $add_description = document.createElement("textarea");
+        var $submit_add_work = document.createElement("input");
+
+        $add_description.setAttribute("form", "add_work_form");
+        $add_description.setAttribute("id", $desc_id);
+        $add_description.setAttribute("placeholder", "Description");
+
+        $add_start_month.setAttribute("type", "number");
+        $add_start_month.setAttribute("id", $sm_id);
+        $add_start_month.setAttribute("placeholder", "Start month");
+
+        $add_end_month.setAttribute("type", "number");
+        $add_end_month.setAttribute("id", $em_id);
+        $add_end_month.setAttribute("placeholder", "End month");
+
+        $add_start_year.setAttribute("type", "number");
+        $add_start_year.setAttribute("id", $sy_id);
+        $add_start_year.setAttribute("placeholder", "Start year");
+
+        $add_end_year.setAttribute("type", "number");
+        $add_end_year.setAttribute("id", $ey_id);
+        $add_end_year.setAttribute("placeholder", "End year")
+
+        $add_title.setAttribute("type", "text");
+        $add_title.setAttribute("id", $title_id);
+        $add_title.setAttribute("placeholder", "Work experience")
+        $add_title.setAttribute("size", "30");
+        
+        $add_country.setAttribute("type", "text");
+        $add_country.setAttribute("id", $country_id);
+        $add_country.setAttribute("placeholder", "Country")
+        
+        $add_city.setAttribute("type", "text");
+        $add_city.setAttribute("id", $city_id);
+        $add_city.setAttribute("placeholder", "City")
+
+        $submit_add_work.setAttribute("type", "submit");
+        $submit_add_work.setAttribute("id", "submit_add_work");
+        $submit_add_work.innerText = "Submit";
+        $submit_add_work.onclick = function() {
+
+            $($add_work_form).validate({
+                rules: {
+                    title: "required",
+                    country: "required",
+                    city: "required",
+                },
+                submitHandler: function() {
+                    var new_work= [];
+                    work = {};
+
+                    var $sm_id = "add_sm_work";
+                    var $sy_id = "add_sy_work";
+                    var $em_id = "add_em_work";
+                    var $ey_id = "add_ey_work";
+                    var $title_id = "add_title_work";
+                    var $country_id = "add_country_work";
+                    var $city_id = "add_city_work";
+                    var $desc_id = "add_description_id";
+
+                    work["start_year"] = document.getElementById($sy_id).value;
+                    work["start_month"] = document.getElementById($sm_id).value;
+                    work["end_month"] = document.getElementById($em_id).value;
+                    work["end_year"] = document.getElementById($ey_id).value;
+                    work["title"] = document.getElementById($title_id).value;
+                    work["country"] = document.getElementById($country_id).value;
+                    work["city"] = document.getElementById($city_id).value;
+                    work["description"] = document.getElementById($desc_id).value;
+                    new_work.push(work)                    
+                    
+
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        dataType: "json",
+                        data: {add_work : new_work},
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            })
+            
+        }
+
+        var $cancel_add_row = document.createElement("button");
+        $cancel_add_row_id = "cancel_add_row";
+        $cancel_add_row.innerText = "Remove";
+        $cancel_add_row.setAttribute("id", $cancel_add_row_id);
+        $cancel_add_row.onclick = function() {
+            $add_work_form.remove();
+            $("#add_work").attr("disabled", false);
+            $(this).remove();
+        }
+
+        $break = document.createElement("br");
+
+        $add_work_form.appendChild($add_start_year);
+        $add_work_form.appendChild($add_end_year);
+        $add_work_form.appendChild($add_start_month);
+        $add_work_form.appendChild($add_end_month);
+        $add_work_form.appendChild($add_title);
+        $add_work_form.appendChild($add_country);
+        $add_work_form.appendChild($add_city);
+        $add_work_form.appendChild($add_description);
+        $add_work_form.appendChild($submit_add_work);      
+     
+        $add_work_form.appendChild($cancel_add_row);
+        $add_work_form.appendChild($break);
+        
+        $work_div.appendChild($add_work_form);
+    })
+
+    //---------------------Skills adding----------------------
+
+    $("#add_skill").click(function() {
+        $(this).attr("disabled", true);
+        var $add_skill_form = document.createElement("form");
+        var $submit_add_skill = document.createElement("input");
+        $add_skill_form.setAttribute("id", "add_skill_form");
+                
+        var $skill_div = document.getElementById("skills");
+    
+        var $name_id = "add_name_skill";
+        var $level_id = "add_level_skill";    
+
+        var $add_name = document.createElement("input");
+        var $add_level = document.createElement("input");
+
+        $add_name.setAttribute("type", "text");
+        $add_name.setAttribute("id", $name_id);
+        $add_name.setAttribute("placeholder", "Skill");
+
+        $add_level.setAttribute("type", "number");
+        $add_level.setAttribute("id", $level_id);
+        $add_level.setAttribute("placeholder", "Level");
+
+
+        $submit_add_skill.setAttribute("type", "submit");
+        $submit_add_skill.setAttribute("id", "submit_add_skill");
+        $submit_add_skill.innerText = "Submit";
+        $submit_add_skill.onclick = function() {
+
+            $($add_skill_form).validate({
+                rules: {
+                    name: "required",
+                    level: "required",
+                },
+                submitHandler: function() {
+                    var new_skill = [];
+                    skill = {};
+
+                    var $name_id = "add_name_skill";
+                    var $level_id = "add_level_skill";
+
+                    skill["name"] = document.getElementById($name_id).value;
+                    skill["level"] = document.getElementById($level_id).value;
+
+                    new_skill.push(skill)                    
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        dataType: "json",
+                        data: {add_skill : new_skill},
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            })
+            
+        }
+
+        var $cancel_add_row = document.createElement("button");
+        $cancel_add_row_id = "cancel_add_row";
+        $cancel_add_row.innerText = "Remove";
+        $cancel_add_row.setAttribute("id", $cancel_add_row_id);
+        $cancel_add_row.onclick = function() {
+            $add_skill_form.remove();
+            $("#add_skill").attr("disabled", false);
+            $(this).remove();
+        }
+
+        $break = document.createElement("br");
+
+        $add_skill_form.appendChild($add_name);
+        $add_skill_form.appendChild($add_level);
+        $add_skill_form.appendChild($submit_add_skill);      
+     
+        $add_skill_form.appendChild($cancel_add_row);
+        $add_skill_form.appendChild($break);
+        
+        $skill_div.appendChild($add_skill_form);
+
+    })
+    
+
+    //---------------------Language adding----------------------
+
+    $("#add_language").click(function() {
+        $(this).attr("disabled", true);
+        var $add_language_form = document.createElement("form");
+        var $submit_add_language = document.createElement("input");
+        $add_language_form.setAttribute("id", "add_language_form");
+                
+        var $language_div = document.getElementById("languages");
+    
+        var $name_id = "add_name_language";
+        var $level_id = "add_level_language";    
+
+        var $add_name = document.createElement("input");
+        var $add_level = document.createElement("input");
+
+        $add_name.setAttribute("type", "text");
+        $add_name.setAttribute("id", $name_id);
+        $add_name.setAttribute("placeholder", "Language");
+
+        $add_level.setAttribute("type", "number");
+        $add_level.setAttribute("id", $level_id);
+        $add_level.setAttribute("placeholder", "Level");
+
+
+        $submit_add_language.setAttribute("type", "submit");
+        $submit_add_language.setAttribute("id", "submit_add_language");
+        $submit_add_language.innerText = "Submit";
+        $submit_add_language.onclick = function() {
+
+            $($add_language_form).validate({
+                rules: {
+                    name: "required",
+                    level: "required",
+                },
+                submitHandler: function() {
+                    var new_language = [];
+                    language = {};
+
+                    var $name_id = "add_name_language";
+                    var $level_id = "add_level_language";
+
+                    language["name"] = document.getElementById($name_id).value;
+                    language["level"] = document.getElementById($level_id).value;
+
+                    new_language.push(language)                    
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        dataType: "json",
+                        data: {add_language : new_language},
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            })
+            
+        }
+
+        var $cancel_add_row = document.createElement("button");
+        $cancel_add_row_id = "cancel_add_row";
+        $cancel_add_row.innerText = "Remove";
+        $cancel_add_row.setAttribute("id", $cancel_add_row_id);
+        $cancel_add_row.onclick = function() {
+            $add_language_form.remove();
+            $("#add_language").attr("disabled", false);
+            $(this).remove();
+        }
+
+        $break = document.createElement("br");
+
+        $add_language_form.appendChild($add_name);
+        $add_language_form.appendChild($add_level);
+        $add_language_form.appendChild($submit_add_language);      
+     
+        $add_language_form.appendChild($cancel_add_row);
+        $add_language_form.appendChild($break);
+        
+        $language_div.appendChild($add_language_form);
+
+    })
+
+    //---------------------Keyword adding----------------------
+
+    $("#add_keyword").click(function() {
+        $(this).attr("disabled", true);
+        var $add_keyword_form = document.createElement("form");
+        var $submit_add_keyword = document.createElement("input");
+        $add_keyword_form.setAttribute("id", "add_keyword_form");
+                
+        var $keyword_div = document.getElementById("keywords");
+    
+        var $category_id = "add_category_keyword";
+        var $word_id = "add_word_keyword";    
+
+        var $add_category = document.createElement("input");
+        var $add_word = document.createElement("input");
+
+        $add_category.setAttribute("type", "text");
+        $add_category.setAttribute("id", $category_id);
+        $add_category.setAttribute("placeholder", "Category");
+
+        $add_word.setAttribute("type", "text");
+        $add_word.setAttribute("id", $word_id);
+        $add_word.setAttribute("placeholder", "Word");
+
+
+        $submit_add_keyword.setAttribute("type", "submit");
+        $submit_add_keyword.setAttribute("id", "submit_add_keyword");
+        $submit_add_keyword.innerText = "Submit";
+        $submit_add_keyword.onclick = function() {
+
+            $($add_keyword_form).validate({
+                rules: {
+                    name: "required",
+                    level: "required",
+                },
+                submitHandler: function() {
+                    var new_keyword = [];
+                    keyword = {};
+
+                    var $category_id = "add_category_keyword";
+                    var $word_id = "add_word_keyword";
+
+                    keyword["category"] = document.getElementById($category_id).value;
+                    keyword["word"] = document.getElementById($word_id).value;
+
+                    new_keyword.push(keyword)                    
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        dataType: "json",
+                        data: {add_keyword : new_keyword},
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            })
+            
+        }
+
+        var $cancel_add_row = document.createElement("button");
+        $cancel_add_row_id = "cancel_add_row";
+        $cancel_add_row.innerText = "Remove";
+        $cancel_add_row.setAttribute("id", $cancel_add_row_id);
+        $cancel_add_row.onclick = function() {
+            $add_keyword_form.remove();
+            $("#add_keyword").attr("disabled", false);
+            $(this).remove();
+        }
+
+        $break = document.createElement("br");
+
+        $add_keyword_form.appendChild($add_category);
+        $add_keyword_form.appendChild($add_word);
+        $add_keyword_form.appendChild($submit_add_keyword);      
+     
+        $add_keyword_form.appendChild($cancel_add_row);
+        $add_keyword_form.appendChild($break);
+        
+        $keyword_div.appendChild($add_keyword_form);
+    })
 
 })
