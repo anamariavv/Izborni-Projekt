@@ -55,15 +55,14 @@
 
            $sql = 'UPDATE skill SET name = ?, level = ? WHERE id = ?';
             
-            
             if(!($stmt = $conn->prepare($sql))) {
-                $message = "SQL error";
+                $message = $conn->error;
             }
-            if(!($stmt->bind_param("sis", $category, $level, $id))) {
-                $message = "SQL error";
+            if(!($stmt->bind_param("sii", $name, $level, $id))) {
+                $message = $conn->error;
             }
             if(!($stmt->execute())) {
-                $message = "SQL error";
+                $message = $conn->error;
             }
 
         }
@@ -140,6 +139,121 @@
             }
         }
     }
+
+    if(isset($_POST['add_education'])) {   
+        
+        foreach ($_POST['add_education'] as $row) {
+            $start_year = mysqli_real_escape_string($conn, $row['start_year']);
+            $end_year = mysqli_real_escape_string($conn, $row['end_year']);
+            $title = mysqli_real_escape_string($conn, $row['title']);
+            $country = mysqli_real_escape_string($conn, $row['country']);
+            $city = mysqli_real_escape_string($conn, $row['city']);
+
+            $sql = 'INSERT INTO education(start_year, end_year, title, country, city, resume_id) VALUES (?,?,?,?,?,?)';
+            
+            if(!($stmt = $conn->prepare($sql))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->bind_param("iisssi", $start_year, $end_year, $title, $country, $city, $_SESSION['oib']))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->execute())) {
+                $message = "SQL error";
+            }
+        }
+
+    }
+
+
+    if(isset($_POST['add_work'])) {
+        
+        foreach ($_POST['add_work'] as $row) {
+           $start_month = mysqli_real_escape_string($conn, $row['start_month']);
+           $start_year = mysqli_real_escape_string($conn, $row['start_year']);
+           $end_month = mysqli_real_escape_string($conn, $row['end_month']);
+           $end_year = mysqli_real_escape_string($conn, $row['end_year']);
+           $title = mysqli_real_escape_string($conn, $row['title']);
+           $city = mysqli_real_escape_string($conn, $row['city']);
+           $country = mysqli_real_escape_string($conn, $row['country']);
+           $description = mysqli_real_escape_string($conn, $row['description']);
+           
+           $sql = 'INSERT INTO work_experience(start_month, end_month, start_year, end_year, title, country, city, description, resume_id) VALUES (?,?,?,?,?,?,?,?,?)';
+            
+            if(!($stmt = $conn->prepare($sql))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->bind_param("iiiissssi", $start_month, $end_month, $start_year, $end_year, $title, $country, $city, $description, $_SESSION['oib']))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->execute())) {
+                $message = "SQL error";
+            }
+        }
+    }
+
+    if(isset($_POST['add_skill'])) {
+
+        foreach ($_POST['add_skill'] as $row) {
+           $name = mysqli_real_escape_string($conn, $row['name']);
+           $level = mysqli_real_escape_string($conn, $row['level']);
+
+           $sql = 'INSERT INTO skill(name, level, resume_id) VALUES (?,?,?)';
+            
+            if(!($stmt = $conn->prepare($sql))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->bind_param("sii", $name, $level, $_SESSION['oib']))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->execute())) {
+                $message = "SQL error";
+            }
+
+        }
+    }
+
+    if(isset($_POST['add_language'])) {
+
+        foreach ($_POST['add_language'] as $row) {
+           $name = mysqli_real_escape_string($conn, $row['name']);
+           $level = mysqli_real_escape_string($conn, $row['level']);
+
+           $sql = 'INSERT INTO language(name, level, resume_id) VALUES (?,?,?)';
+            
+            
+            if(!($stmt = $conn->prepare($sql))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->bind_param("sis", $name, $level, $_SESSION['oib']))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->execute())) {
+                $message = "SQL error";
+            }
+
+        }
+    }
+
+    if(isset($_POST['add_keyword'])) {
+
+        foreach ($_POST['add_keyword'] as $row) {
+           $category = mysqli_real_escape_string($conn, $row['category']);
+           $word = mysqli_real_escape_string($conn, $row['word']);
+
+           $sql = 'INSERT INTO keyword(category, word, resume_id) VALUES(?,?,?)';
+            
+            if(!($stmt = $conn->prepare($sql))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->bind_param("ssi", $category, $word, $_SESSION['oib']))) {
+                $message = "SQL error";
+            }
+            if(!($stmt->execute())) {
+                $message = "SQL error";
+            }
+        }
+    }
+
     echo json_encode($message);
 
   
