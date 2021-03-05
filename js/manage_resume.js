@@ -106,6 +106,7 @@ $(document).ready(function() {
             $(this).remove();
         }
     })
+    
 
     //---------------------Education editing----------------------
     $("#edit_education").click(function() {
@@ -132,18 +133,21 @@ $(document).ready(function() {
         var $new_city = document.createElement("input");
        
         for(var i = 0; i < $education_body.rows.length; i++) {
+            var $id0 = "education_id" + i;
             var $id1 = "education_start_year" + i;
             var $id2 = "education_end_year" + i;
             var $id3 = "education_title" + i;
             var $id4 = "education_country" + i;
             var $id5 = "education_city" + i;
+            education = [];
+
+            education["id"] = document.getElementById($id0).innerHTML;
             $start_year = document.getElementById($id1).innerHTML;
             $end_year = document.getElementById($id2).innerHTML;
             $title = document.getElementById($id3).innerHTML;
             titles[i] = $title;
             $education_country = document.getElementById($id4).innerHTML;
             $education_city = document.getElementById($id5).innerHTML;
-
 
             var $sy_id = "sy_"+i;
             var $ey_id = "ey_"+i;
@@ -183,11 +187,34 @@ $(document).ready(function() {
             $new_city.setAttribute("placeholder", "City")
             $new_city.value = $education_city;
 
+            var $delete_education = document.createElement("button");
+            $delete_education_id = "delete_education_"+i;
+            $delete_education.setAttribute("id", $delete_education_id);
+            $delete_education.setAttribute("type", "button");
+            $delete_education.innerText = "Delete";
+            $delete_education.onclick = function() {
+                if(window.confirm("Are you sure you want to delete this education?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        data: {delete_education : education["id"]},
+                        dataType: "json",
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            }
+
             $education_form.appendChild($new_start_year);
             $education_form.appendChild($new_end_year);
             $education_form.appendChild($new_title);
             $education_form.appendChild($new_country);
             $education_form.appendChild($new_city);
+            $education_form.appendChild($delete_education);
             $break = document.createElement("br");
             $education_form.appendChild($break);
         } 
@@ -260,6 +287,7 @@ $(document).ready(function() {
     })
 
     //---------------------Work experience editing----------------------
+
     $("#edit_work_experience").click(function() {
         $(this).attr("disabled", true);
         var $work_div = document.getElementById("work_experience");
@@ -350,6 +378,28 @@ $(document).ready(function() {
             $new_work_description.setAttribute("cols", "50");
             $new_work_description.setAttribute("rows", "10");
             $new_work_description.value = work["description"];
+
+            var $delete_work = document.createElement("button");
+            $delete_work_id = "delete_work_"+i;
+            $delete_work.setAttribute("id", $delete_work_id);
+            $delete_work.setAttribute("type", "button");
+            $delete_work.innerText = "Delete";
+            $delete_work.onclick = function() {
+                if(window.confirm("Are you sure you want to delete this work?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        data: {delete_work : work["id"]},
+                        dataType: "json",
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            }
                         
             $break = document.createElement("br");
            
@@ -361,6 +411,7 @@ $(document).ready(function() {
             $work_form.appendChild($new_work_city);
             $work_form.appendChild($new_work_country);
             $work_form.appendChild($new_work_description);
+            $work_form.appendChild($delete_work);
             $work_form.appendChild($break);
         }
 
@@ -495,11 +546,34 @@ $(document).ready(function() {
             $new_skill_level.setAttribute("id", $new_skill_level_id);
             $new_skill_level.setAttribute("placeholder", "Level");
             $new_skill_level.value = skill["level"];
+
+            var $delete_skill = document.createElement("button");
+            $delete_skill_id = "delete_skill_"+i;
+            $delete_skill.setAttribute("id", $delete_skill_id);
+            $delete_skill.setAttribute("type", "button");
+            $delete_skill.innerText = "Delete";
+            $delete_skill.onclick = function() {
+                if(window.confirm("Are you sure you want to delete this skill?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        data: {delete_skill : skill["id"]},
+                        dataType: "json",
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            }
             
             $break = document.createElement("br");
            
             $skill_form.appendChild($new_skill_name);
             $skill_form.appendChild($new_skill_level);
+            $skill_form.appendChild($delete_skill);
             $skill_form.appendChild($break);
         }
 
@@ -596,11 +670,34 @@ $(document).ready(function() {
             $new_language_level.setAttribute("id", $new_language_level_id);
             $new_language_level.setAttribute("placeholder", "Level");
             $new_language_level.value = language["level"];
+
+            var $delete_language = document.createElement("button");
+            $delete_language_id = "delete_language_"+i;
+            $delete_language.setAttribute("id", $delete_language_id);
+            $delete_language.setAttribute("type", "button");
+            $delete_language.innerText = "Delete";
+            $delete_language.onclick = function() {
+                if(window.confirm("Are you sure you want to delete this language?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        data: {delete_language : language["id"]},
+                        dataType: "json",
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            }
             
             $break = document.createElement("br");
            
             $language_form.appendChild($new_language_name);
             $language_form.appendChild($new_language_level);
+            $language_form.appendChild($delete_language);
             $language_form.appendChild($break);
         }
 
@@ -662,6 +759,7 @@ $(document).ready(function() {
     })
 
     //---------------------Keywords editing----------------------
+
     $("#edit_keywords").click(function() {
         $(this).attr("disabled", true);
         var $keyword_div = document.getElementById("keywords");
@@ -697,10 +795,33 @@ $(document).ready(function() {
             $new_keyword_word.setAttribute("placeholder", "Word");
             $new_keyword_word.value = keyword["word"];
           
+            var $delete_keyword = document.createElement("button");
+            $delete_keyword_id = "delete_keyword_"+i;
+            $delete_keyword.setAttribute("id", $delete_keyword_id);
+            $delete_keyword.setAttribute("type", "button");
+            $delete_keyword.innerText = "Delete";
+            $delete_keyword.onclick = function() {
+                if(window.confirm("Are you sure you want to delete this keyword?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "include/edit_resume.inc.php",
+                        data: {delete_keyword : keyword["id"]},
+                        dataType: "json",
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(response) {
+                            console.log(response.error);
+                        }
+                    })
+                }
+            }
+
             $break = document.createElement("br");
            
             $keyword_form.appendChild($new_keyword_category);
             $keyword_form.appendChild($new_keyword_word);
+            $keyword_form.appendChild($delete_keyword);
             $keyword_form.appendChild($break);
         }
 
