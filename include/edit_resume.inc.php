@@ -254,6 +254,91 @@
         }
     }
 
+    if(isset($_POST['delete_keyword'])) {
+
+        $id = mysqli_real_escape_string($conn, $_POST['delete_keyword']);
+
+        $sql = 'DELETE FROM keyword WHERE id = ?';
+        
+        if(!($stmt = $conn->prepare($sql))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->bind_param("i", $id))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->execute())) {
+            $message = "SQL error";
+        }
+    }
+
+    if(isset($_POST['delete_language'])) {
+
+        $id = mysqli_real_escape_string($conn, $_POST['delete_language']);
+
+        $sql = 'DELETE FROM language WHERE id = ?';
+        
+        if(!($stmt = $conn->prepare($sql))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->bind_param("i", $id))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->execute())) {
+            $message = "SQL error";
+        }
+    }
+
+    if(isset($_POST['delete_skill'])) {
+
+        $id = mysqli_real_escape_string($conn, $_POST['delete_skill']);
+
+        $sql = 'DELETE FROM skill WHERE id = ?';
+        
+        if(!($stmt = $conn->prepare($sql))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->bind_param("i", $id))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->execute())) {
+            $message = "SQL error";
+        }
+    }
+
+    if(isset($_POST['delete_education'])) {
+
+        $id = mysqli_real_escape_string($conn, $_POST['delete_education']);
+
+        $sql = 'DELETE FROM education WHERE id = ?';
+        
+        if(!($stmt = $conn->prepare($sql))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->bind_param("i", $id))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->execute())) {
+            $message = "SQL error";
+        }
+    }
+
+    if(isset($_POST['delete_work'])) {
+
+        $id = mysqli_real_escape_string($conn, $_POST['delete_work']);
+
+        $sql = 'DELETE FROM work_experience WHERE id = ?';
+        
+        if(!($stmt = $conn->prepare($sql))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->bind_param("i", $id))) {
+            $message = "SQL error";
+        }
+        if(!($stmt->execute())) {
+            $message = "SQL error";
+        }
+    }
+    
     echo json_encode($message);
 
   
