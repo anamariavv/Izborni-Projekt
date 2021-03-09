@@ -10,7 +10,7 @@
         <?php
             foreach($result_array as $row) {
                 if($row['status'] == 'open' && $row['company_id'] == $_SESSION['id']) {
-                    echo "<tr><td>".$row['id']."</td><td>".$row['position']."</td><td>".$row['city']."</td><td>".$row['status']."</td><td>".$row['deadline']."</td><td><a href='internship_".$row['id'].".php'><button type='button'>View</button></a></td></tr>";
+                    echo "<tr><td>".$row['id']."</td><td>".$row['position']."</td><td>".$row['city']."</td><td>".$row['status']."</td><td>".$row['deadline']."</td><td><a href='internship_".$row['id'].".php?id=".$row['id']."'><button type='button'>View</button></a></td></tr>";
                 }
             }
         ?>
