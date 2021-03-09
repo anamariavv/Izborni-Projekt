@@ -2,12 +2,18 @@
 
     require_once "include/database_connect.inc.php";
 
-    $sql = 'SELECT * FROM resume INNER JOIN student ON (student.oib = resume.id) WHERE id = '.$_SESSION['oib'];
-    $sql_education = 'SELECT * FROM education WHERE resume_id = '.$_SESSION['oib'];
-    $sql_work = 'SELECT * FROM work_experience WHERE resume_id = '.$_SESSION['oib'];
-    $sql_skill = 'SELECT * FROM skill WHERE resume_id = '.$_SESSION['oib'];
-    $sql_language = 'SELECT * FROM language WHERE resume_id = '.$_SESSION['oib'];
-    $sql_keyword = 'SELECT * FROM keyword WHERE resume_id = '.$_SESSION['oib'];
+    if($_SESSION['user_level'] == 'student') {
+        $oib = $_SESSION['oib'];
+    } else if($_SESSION['user_level'] == 'company') {
+        $oib = $_GET['oib'];
+    }
+
+    $sql = 'SELECT * FROM resume INNER JOIN student ON (student.oib = resume.id) WHERE id = '.$oib;
+    $sql_education = 'SELECT * FROM education WHERE resume_id = '.$oib;
+    $sql_work = 'SELECT * FROM work_experience WHERE resume_id = '.$oib;
+    $sql_skill = 'SELECT * FROM skill WHERE resume_id = '.$oib;
+    $sql_language = 'SELECT * FROM language WHERE resume_id = '.$oib;
+    $sql_keyword = 'SELECT * FROM keyword WHERE resume_id = '.$oib;
 
     //resume and student o result
     $result = $conn->query($sql);
