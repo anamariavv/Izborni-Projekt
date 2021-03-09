@@ -7,63 +7,7 @@ $(document).ready(function(){
     $("#close_internship").click(function() {
         //when closing internship->notify eliminated candidates and remove them from applied list
     })
-    $("#show_candidates").click(function() {
-        $(this).attr("disabled", true);
-        var $i_id = document.getElementById("id").innerText;
-
-        $.ajax({
-            type: "POST",
-            url: "include/display_candidates.inc.php",
-            data: {id : $i_id},
-            dataType: "json",
-            success: function(response) {
-                var $candidate_list = document.getElementById("candidate_div");
-                var $table = document.createElement("table");
-                var $tr1 = document.createElement("tr");
-                var $th1 = document.createElement("th");
-                $th1.setAttribute("colspan", 3);
-                $th1.innerText = "Applicants";
-                var $tr2 = document.createElement("tr");
-                var $th2 = document.createElement("th");
-                var $th3 = document.createElement("th");
-                var $th4 = document.createElement("th");
-                $th2.innerText = "OIB";
-                $th3.innerText = "Firstname";
-                $th4.innerText = "Lastname";
-                $tr2.appendChild($th2);
-                $tr2.appendChild($th3);
-                $tr2.appendChild($th4);
-                $tr1.appendChild($th1);
-                $table.appendChild($tr1);
-                $table.appendChild($tr2);
-                $candidate_list.appendChild($table);
-                for(var i = 0; i < response.length; i++) {
-                    var cols = response[i];
-                    $tri = document.createElement("tr");
-                    for(var key in cols) {
-                        //console.log(key + " " +response[i][key]);
-                        $td = document.createElement("td");
-                        $td.innerText = response[i][key];
-                        $tri.appendChild($td);
-                    }
-                    $table.appendChild($tri);
-               }  
-               $hide_applicants = document.createElement("button");
-               $hide_applicants.setAttribute("type", "button");
-               $hide_applicants.innerText = "Hide";
-               $candidate_list.appendChild($hide_applicants); 
-               $hide_applicants.onclick = function delete_candidate_list() {
-                    $("#show_candidates").attr("disabled", false);
-                    $table.remove();
-                    $(this).remove();
-               }                         
-            }, 
-            error: function(response) {
-                console.log(response.error);
-            }
-        })
-        //display all candidates as links in candidate_div
-    })
+    
     $("#edit_internship").click(function() {
         //switch from table to form
         $(this).attr("disabled", true);
@@ -84,7 +28,6 @@ $(document).ready(function(){
 
         $div_element.innerHTML = "";
 
-        
         //create form
         var $new_form = document.createElement("form");
         $new_form.setAttribute("id", "edit_internship_form");
