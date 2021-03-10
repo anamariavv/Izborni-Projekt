@@ -8,7 +8,7 @@
         echo "<script src='js/manage_internship.js'></script>";
         echo "<div id='candidate_div'>";
         echo "<table>";
-        echo "<thead><tr><th>OIB</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th></tr></thead>";
+        echo "<thead><tr><th>OIB</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th><th colspan='2'>Acceptance</th></tr></thead>";
         echo "<tbody id='applicants'>";
     
         foreach ($result_array as $row) {
@@ -34,7 +34,7 @@
             $keyword_array = $result->fetch_all(MYSQLI_ASSOC);
 
             $link_string = 'resume_'.$row["oib"].'.php?oib='.$row["oib"];
-            echo "<tr><td>".$row['oib']."</td><td>".$row['firstname']."</td><td>".$row['lastname']."</td><td><a href='".$link_string."'>View</a></td>";
+            echo "<tr><td id='stu_oib'>".$row['oib']."</td><td>".$row['firstname']."</td><td>".$row['lastname']."</td><td><a href='".$link_string."' target='_blank'>View</a></td>";
             echo "<td>";
             $flag = 1;
             foreach($keyword_array as $word) {
@@ -47,7 +47,11 @@
                 }
             }
             echo "</td>";
-            echo "<td><a href='include/acceptance.inc.php?oib=".$row['oib']."&id=".$_GET['id']."&status=reject'><button type='button' name='reject' id='".$row['oib']."'>Reject</button></a></td><td><a href='include/acceptance.inc.php?oib=".$row['oib']."&id=".$_GET['id']."&status=accept'><button type='button'name='accept' id='".$row['oib']."'>Accept</button></a></td></tr>";
+            if($row['acceptance'] == 'pending') {
+                echo "<td id='rejection'><button type='button' name='reject' id='".$row['oib']."'>Reject</button></td><td id='acceptance'><button type='button'name='accept' id='".$row['oib']."'>Accept</button></td></tr>";
+            } else if($row['acceptance'] == 'accepted') {
+                echo "<td>Student accepted</td>";
+            }
             
         }
         echo "</tbody></table></div>";
