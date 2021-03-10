@@ -1,7 +1,7 @@
 <?php
     require_once "database_connect.inc.php";
 
-    $sql = "SELECT student.oib, student.firstname, student.lastname FROM student INNER JOIN application
+    $sql = "SELECT student.oib, student.firstname, student.lastname, application.acceptance FROM student INNER JOIN application
     ON (student.oib = application.student_oib) WHERE application.internship_id = ?";
 
     if(!($stmt = $conn->prepare($sql))) {
