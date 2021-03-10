@@ -1,11 +1,121 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $("#delete_internship").click(function() {
-        if(confirm("Are you sure you want to delete this internship?")) {
-            //when deleting internship->notify all candidates and then remove them from applied list (insert notifications table into database)
+        if(window.confirm("Are you sure you want to delete this internship? It will be removed completely and it won't appear in the archive")) {
+            var students = [];
+            var item = {};
+            
+            var $applicant_list = document.getElementById("applicants");
+            if($applicant_list.rows.length == 0) {
+                item["status"] = "empty";
+                item["internship"] = document.getElementById("id").innerHTML;
+                students.push(item);
+            }
+            for(var i = 0; i < $applicant_list.rows.length; i++) {
+                var item = {};
+                var $row = $applicant_list.rows[i];
+                item["oib"] = $row.firstElementChild.innerHTML;
+                item["internship"] = document.getElementById("id").innerHTML;
+                students.push(item); 
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "include/edit_internship.inc.php",
+                data: {delete : students},
+                dataType: "json",
+                success: function() {
+                    window.location = "internships.php";
+                },
+                error: function(response) {
+                    console.log(response.error);
+                }
+            })
+            
         }
     })
     $("#close_internship").click(function() {
-        //when closing internship->notify eliminated candidates and remove them from applied list
+        if(window.confirm("Are you sure you want to close the internship? This will automatically reject all pending applications")) {
+            var students = [];
+            var item = {};
+            var $applicant_list = document.getElementById("applicants");
+            if($applicant_list.rows.length == 0) {
+                item["status"] = "empty";
+                item["internship"] = document.getElementById("id").innerHTML;
+                students.push(item);
+            }
+            for(var i = 0; i < $applicant_list.rows.length; i++) {
+                var item = {};
+                var $row = $applicant_list.rows[i];
+                item["oib"] = $row.firstElementChild.innerHTML;
+                item["internship"] = document.getElementById("id").innerHTML;
+                students.push(item); 
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "include/edit_internship.inc.php",
+                data: {close : students},
+                dataType: "json",
+                success: function() {
+                    window.location = "internships.php";
+                },
+                error: function(response) {
+                    console.log(response.error);
+                }
+            })
+            
+        }
+    })
+
+    $("[name='reject']").click(function() {
+        var rejection_data = [];
+        item = {};
+        item["internship"] = document.getElementById("id").innerHTML;
+        item["oib"] = this.id;
+
+        if(window.confirm("Are you sure you want to reject the student?")) {
+            if((item["reason"] = prompt("Please provide a rejection reason for the student")) != null) {
+                rejection_data.push(item)
+
+                $.ajax({
+                    type: "POST",
+                    url: "include/acceptance.inc.php",
+                    data: {reject : rejection_data},
+                    dataType: "json",
+                    success: function() {
+                        location.reload();
+                    },
+                    error: function(response) {
+                        console.log(response.error);
+                    }
+                })
+            }
+        }
+
+    })
+
+    $("[name='accept']").click(function() {
+        var acceptance_data = [];
+        item = {};
+        item["internship"] = document.getElementById("id").innerHTML;
+        item["oib"] = this.id;
+        acceptance_data.push(item)
+
+        if(window.confirm("Are you sure you want to accept this student?")) {
+            $.ajax({
+                type: "POST",
+                url: "include/acceptance.inc.php",
+                data: {accept : acceptance_data},
+                dataType: "json",
+                success: function() {
+                    location.reload();
+                },
+                error: function(response) {
+                    console.log(response.error);
+                }
+            })
+        }
+
     })
     
     $("#edit_internship").click(function() {
