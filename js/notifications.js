@@ -25,7 +25,7 @@ $(document).ready(function() {
                     $option_text.innerText = "No new notifications";
                     $new_option.appendChild($option_text);
                     $bell_div.appendChild($new_option);   
-                    $bell_div.setAttribute("style", "display: none;");     
+                    $bell_div.setAttribute("style", "display: none;");   
                 }
                 for(i = 0; i < response.length; i++) {
                     notifications.push(response[i]);
@@ -47,6 +47,15 @@ $(document).ready(function() {
     get_notifications(notifications);
 
     $bell.onclick = function() {
+        $.ajax({
+            type: "POST",
+            url: "include/get_notifications.inc.php",
+            data: {read: notifications},
+            dataType: "json",
+            error: function(response) {
+                console.log(response.error);
+            }
+        })
        $("#notification_div").toggle();
     }
 
