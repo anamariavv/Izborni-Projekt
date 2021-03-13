@@ -22,16 +22,18 @@
 
         $result_array = $result->fetch_all(MYSQLI_ASSOC);
         $message = $result_array;
-        echo json_encode($message);
-       
-        foreach($result_array as $row) {
+      
+    } else if(isset($_POST['read'])) {
+
+        foreach($_POST['read'] as $row) {
             $sql = "UPDATE notification SET status = 'read' WHERE id = " . $row['id'];
 
             if(!($result = $conn->query($sql))) {
-                echo "SQL error";
+                $message =  "SQL error";
             }            
         }
     }
-    
+ 
+    echo json_encode($message);
 
     
