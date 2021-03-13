@@ -20,6 +20,19 @@
                     if($_SESSION["user_level"] == "company") {
                         echo '<a href="internships.php">Internships Overview</a>';
                     }
+                    $notif_id_data;
+                    if($_SESSION['user_level'] == 'student') {
+                        $notif_id_data = $_SESSION['oib'];
+                        $notif_id_type = $_SESSION['user_level'];
+                    } else {
+                        $notif_id_data = $_SESSION['id'];
+                        $notif_id_type = $_SESSION['user_level'];
+                    }
+                    echo "<input id='notif_id' type='hidden' value='".$notif_id_data."'></hidden>";
+                    echo "<input id='notif_id_type' type='hidden' value='".$notif_id_type."'></hidden>";
+                    echo '<script src="js/notifications.js"></script>';
+                    echo '<button type=notifications name="notifications" id="notifications">Notifications</button>';
+                    echo '<div id="notification_div"></div>';
                 } else {
                     echo '<a href="login.php">Log in</a>'; 
                     echo '<a href="signup.php">Register as student</a>'; 
