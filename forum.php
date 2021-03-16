@@ -7,7 +7,7 @@
     echo "<h1>".$_GET['name']." internship discussion</h1>";
     echo "<div><h3>Welcome to company forums!</h3></div>";
     echo "<div><p>This forum is meant for students to share their internship experience for this company.
-        Please be respectful of one another. Inappropriate comments will not be approved or diplayed.</p></div>";
+        Please be respectful of one another. Comments will appear once approved by an administrator - inappropriate comments will not be approved or diplayed.</p></div>";
 
     foreach($review_array as $review) {
 
