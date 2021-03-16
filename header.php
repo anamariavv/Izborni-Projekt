@@ -33,6 +33,7 @@
                     echo '<script src="js/notifications.js"></script>';
                     echo '<button type=notifications name="notifications" id="notifications">Notifications</button>';
                     echo '<div id="notification_div"></div>';
+                    echo '<a href="company_forums.php">Company forums</a>';
                 } else {
                     echo '<a href="login.php">Log in</a>'; 
                     echo '<a href="signup.php">Register as student</a>'; 
