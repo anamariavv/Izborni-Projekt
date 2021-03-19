@@ -6,9 +6,6 @@
     <form action="include/login.inc.php" method="post" target="_self">
         Email: <input type="text" id="email" name="email"><br>
         Password: <input type="password" id="password" name="password"><br>
-        Are you a student or company? <br>
-        Student <input type="radio" id="type" value="student" name="type"><br>
-        Company <input type="radio" id="type" value="company" name="type"><br>
         <input type="submit" value="Log in" name="loginsubmit"><br>
     </form>
 
