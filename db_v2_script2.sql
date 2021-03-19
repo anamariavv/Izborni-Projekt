@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Mar 02, 2021 at 05:50 PM
+-- Generation Time: Mar 16, 2021 at 03:32 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `application` (
   `internship_id` varchar(64) NOT NULL,
   `company_id` varchar(64) NOT NULL,
   `student_oib` bigint(20) NOT NULL,
+  `acceptance` varchar(64) NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`internship_id`,`student_oib`,`company_id`),
   KEY `fk_internship_has_student_student1_idx` (`student_oib`),
   KEY `fk_internship_has_student_internship1_idx` (`internship_id`,`company_id`)
@@ -82,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `education` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_education_resume1_idx` (`resume_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `keyword` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_keyword_resume_idx` (`resume_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `language` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_language_resume1_idx` (`resume_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -151,13 +152,13 @@ DROP TABLE IF EXISTS `notification`;
 CREATE TABLE IF NOT EXISTS `notification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `notif_text` mediumtext NOT NULL,
-  `status` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL DEFAULT 'unread',
   `student_oib` bigint(20) DEFAULT NULL,
   `company_id` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_notification_student1_idx` (`student_oib`),
   KEY `fk_notification_company1_idx` (`company_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -182,9 +183,9 @@ CREATE TABLE IF NOT EXISTS `resume` (
 
 DROP TABLE IF EXISTS `review`;
 CREATE TABLE IF NOT EXISTS `review` (
-  `id` varchar(64) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int(11) NOT NULL,
+  `status` varchar(64) NOT NULL DEFAULT 'pending',
   `text` longtext NOT NULL,
   `company_id` varchar(64) NOT NULL,
   `student_oib` bigint(20) DEFAULT NULL,
@@ -192,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_review_company1_idx` (`company_id`),
   KEY `fk_review_student1_idx` (`student_oib`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -209,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `skill` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_skill_resume1_idx` (`resume_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
