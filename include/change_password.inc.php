@@ -9,18 +9,24 @@
     }
 
     if($_SESSION["user_level"] == "student") {
+        $table = "student";
         $column = "oib";
         $data = $_SESSION[$column];
+    } else if($_SESSION["user_level"] == "company") {
+        $table = "company";
+        $column = "id";
+        $data = "'".$_SESSION[$column]."'";
     } else {
+        $table = "admin";
         $column = "id";
         $data = "'".$_SESSION[$column]."'";
     }
 
     $password_hashed = password_hash($password, PASSWORD_BCRYPT);
-    $sql = "UPDATE " . $_SESSION["user_level"] . " SET " .$_SESSION["user_level"]. ".password = '" .$password_hashed. "' " . "WHERE " . $column . " = " . $data;
+    $sql = "UPDATE " . $table . " SET password = '" .$password_hashed. "' " . "WHERE " . $column . " = " . $data;
     
     if(!($conn->query($sql))) {
-        $ajax_message = "sql error";
+        $ajax_message = $conn->error;
     } 
     
     if(empty($ajax_message)) {

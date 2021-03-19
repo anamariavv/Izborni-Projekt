@@ -5,8 +5,12 @@
        $table = "student";
        $column = "oib";
        $data = $_SESSION[$column];
-    } else {
+    } else if($_SESSION["user_level"] == "company"){
         $table = "company";
+        $column = "id";
+        $data = " '$_SESSION[$column]' ";
+    } else {
+        $table = "admin";
         $column = "id";
         $data = " '$_SESSION[$column]' ";
     }
