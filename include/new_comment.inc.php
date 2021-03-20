@@ -22,5 +22,14 @@
         exit();
     }
 
+    $sql = "SELECT id FROM admin";
+    $result = $conn->query($sql);
+    $admins = $result->fetch_all(MYSQLI_ASSOC);
+    var_dump($admins);
+    foreach($admins as $admin) {
+        $sql = 'INSERT INTO notification(notif_text, admin_id) VALUES
+         ("Dear administrator, a new comment has been made on the '.$company_name.' forum. Please review it.", "'.$admin['id'].'")'; 
+        $conn->query($sql);
+    }
     header("Location: ../forum.php?company=".$company."&name=".$company_name);
     exit();

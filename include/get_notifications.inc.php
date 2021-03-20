@@ -9,8 +9,11 @@
 
         if($_POST['data'][0]['type'] == 'student') {
             $column = "student_oib";
-        } else {
+        } else if($_POST['data'][0]['type'] == 'company') {
             $column = "company_id";
+            $data = "'".$_POST['data'][0]['identification']."'";
+        } else {
+            $column = "admin_id";
             $data = "'".$_POST['data'][0]['identification']."'";
         }
 

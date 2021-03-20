@@ -1,7 +1,7 @@
 <?php
     require_once "database_connect.inc.php";
 
-    $sql = ' SELECT * FROM internship ';
+    $sql = 'SELECT internship.id, internship.created, internship.salary, internship.position, internship.description, internship.city, internship.requirements, internship.status, internship.deadline, company.id AS company_id FROM internship inner JOIN company ON (company.id = internship.company_id) ';
 
     $result = $conn->query($sql);
     $result_array = $result->fetch_all(MYSQLI_ASSOC);
@@ -20,6 +20,7 @@
             </table>
         </div>";      
         $src_code .= $src_data;
+        $src_code .= '<?php $company_id = "'.$row['company_id'].'" ?>';
         $src_code .= file_get_contents("template.php");
         $src_code .= file_get_contents("footer.php");
 

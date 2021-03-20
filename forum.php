@@ -10,16 +10,29 @@
         Please be respectful of one another. Comments will appear once approved by an administrator - inappropriate comments will not be approved or diplayed.</p></div>";
 
     foreach($review_array as $review) {
-
-        echo "<span>";
-        if($review['picture']) {
-            echo "<span><img src='".$review['picture']."' width='40' height='40'></img></span>";
-        }
-        echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']."</span></br>".$review['text']."<br></span>";
-        if($review['oib'] == $_SESSION['oib']) {
-            echo "<button type='button' name='delete_comment' value='".$review['oib']."'>Delete</button>";
-        }
-        echo "</br>";
+        if($review['status'] == 'approved') {
+            echo "<span>";
+            if($review['picture']) {
+                echo "<span><img src='".$review['picture']."' width='40' height='40'></img></span>";
+            }
+            echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']."</span></br>".$review['text']."<br></span>";
+            if($_SESSION['user_level'] == 'student') {
+                if($review['oib'] == $_SESSION['oib']) {
+                    echo "<button type='button' name='delete_comment' value='".$review['oib']."'>Delete</button>";
+                }
+            }
+            echo "</br>";
+        } else if ($review['status'] == 'pending') {
+            if(($_SESSION['user_level'] == 'student' && $_SESSION['oib'] == $review['oib']) || ($_SESSION['user_level'] == 'administrator')) {
+                echo "<span>";
+                if($review['picture']) {
+                    echo "<span><img src='".$review['picture']."' width='40' height='40'></img></span>";
+                }
+                echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']." -Comment pending approval </span></br>".$review['text']."<br></span>";
+                echo "</br>";
+            }
+            
+        } 
     }   
 
     //napravi form za novi komentar

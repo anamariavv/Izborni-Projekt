@@ -8,6 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <script src="js/jquery-3.5.1.min.js"></script>
         <script src="js/jquery.validate.js"></script>
+        <link rel="stylesheet" href="css/main.css">
         <ul>
             <?php
                 if(isset($_SESSION["status"])) {
@@ -34,6 +35,13 @@
                     echo '<button type=notifications name="notifications" id="notifications">Notifications</button>';
                     echo '<div id="notification_div"></div>';
                     echo '<a href="company_forums.php">Company forums</a>';
+                    if($_SESSION["user_level"] == "administrator") {
+                        echo '<div class="dropdown"><button class="dropdown_button">Administrator tools</button><div class="dropdown_content">
+                        <a href="user_list.php">User list</a>
+                        <a href="approve_comments.php">Comment approval</a>
+                        <a href="add_administrator.php">Add administrator</a>
+                        </div></div>';
+                    }
                 } else {
                     echo '<a href="login.php">Log in</a>'; 
                     echo '<a href="signup.php">Register as student</a>'; 
