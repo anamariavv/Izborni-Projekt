@@ -10,7 +10,7 @@
         }
         echo json_encode($message);
     } else {
-        $sql = "SELECT date_format(review.created, '%H:%i %d.%m.%y.') as 'time', review.id, review.status, review.text, company.name, student.firstname, student.lastname, student.oib, student.picture FROM review INNER JOIN company ON (review.company_id = company.id) INNER JOIN student ON (student.oib = review.student_oib) WHERE company.id = '".$_GET['company']."' AND status = 'approved'";
+        $sql = 'SELECT date_format(review.created, "%H:%i %d.%m.%Y.") as "time", review.id, review.status, review.text, company.name, student.firstname, student.lastname, student.oib, student.picture FROM review INNER JOIN company ON (review.company_id = company.id) INNER JOIN student ON (student.oib = review.student_oib) WHERE company.id = "'.$_GET['company'].'"';
     
         $result = $conn->query($sql);
         $review_array = $result->fetch_all(MYSQLI_ASSOC);
