@@ -18,10 +18,15 @@ The main goal of this web app is to make finding student internships easier, for
 ## Project status - in progress
 ### To-do:
 - ~Database creation & connection~
-- Database documentation
 - ~User registration~
 - ~Company registration~
 - ~Log in, log out~
+- ~Profile editing~
+- ~Internship creation, application, editing~
+- ~Student Forum~
+- ~Notifications~
+- ~Administrator features~
+- Documentation
 ## Contributors
 Anamaria Vargić - Student  
 
