@@ -1,6 +1,6 @@
 
 <?php
-    if(!isset($_GET['closed']) && $_SESSION['user_level'] == 'company') {
+    if(!isset($_GET['closed']) && ($_SESSION['user_level'] == 'company') && ($_SESSION['id'] == $company_id)) {
         require_once "include/display_candidates.inc.php";
         echo "<button type='button' id='edit_internship'>Edit</button>
         <button type='button' id='delete_internship'>Delete</button>

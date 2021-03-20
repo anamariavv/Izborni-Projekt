@@ -38,8 +38,8 @@
                     if($_SESSION["user_level"] == "administrator") {
                         echo '<div class="dropdown"><button class="dropdown_button">Administrator tools</button><div class="dropdown_content">
                         <a href="user_list.php">User list</a>
-                        <a href="">Comment approval</a>
-                        <a href="">Add administrator</a>
+                        <a href="approve_comments.php">Comment approval</a>
+                        <a href="add_administrator.php">Add administrator</a>
                         </div></div>';
                     }
                 } else {
