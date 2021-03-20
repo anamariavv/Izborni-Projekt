@@ -90,10 +90,7 @@ $(document).ready(function(){
                         dataType: "json",
                         data: $data_array,
                         success: function() {
-                            alert("Internship created successfully!");
-                            $("#new_internship_form").remove();
-                            $("#cancel_new_internship").remove();
-                            $("#new_internship").attr("disabled", false);
+                            location.reload();
                         },
                         error: function(data) {
                             alert("An error occured: " + data);
