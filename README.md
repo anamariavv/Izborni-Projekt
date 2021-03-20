@@ -22,7 +22,7 @@ The main goal of this web app is to make finding student internships easier, for
 - ~Company registration~
 - ~Log in, log out~
 - ~Profile editing~
-- ~Online CV creationn for students~
+- ~Online CV creation for students~
 - ~Internship creation, application, editing~
 - ~Student Forum~
 - ~Notifications~
