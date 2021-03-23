@@ -304,13 +304,37 @@ $(document).ready(function() {
             })
         }
 
+        $break = document.createElement("br");
+        $text1 = document.createElement("p");
+        $text1.innerText = "Internship ID: ";
+        $text2 = document.createElement("p");
+        $text2.innerText = "Position: ";
+        $text3 = document.createElement("p");
+        $text3.innerText = "Job description: ";
+        $text4 = document.createElement("p");
+        $text4.innerText = "City: ";
+        $text5 = document.createElement("p");
+        $text5.innerText = "Requirements: ";
+        $text6 = document.createElement("p");
+        $text6.innerText = "Salary: ";
+        $text7 = document.createElement("p");
+        $text7.innerText = "Application Deadline: ";
+
+        $new_form.appendChild($text1);
         $new_form.appendChild($new_input_1);
+        $new_form.appendChild($text2);
         $new_form.appendChild($new_input_2);
+        $new_form.appendChild($text3);
         $new_form.appendChild($new_input_3);
-        $new_form.appendChild($new_input_4);
+        $new_form.appendChild($text5);
         $new_form.appendChild($new_input_5);
+        $new_form.appendChild($text4);
+        $new_form.appendChild($new_input_4);
+        $new_form.appendChild($text6);
         $new_form.appendChild($new_input_6);
+        $new_form.appendChild($text7);
         $new_form.appendChild($new_input_7);
+        $new_form.appendChild($break);
         $new_form.appendChild($new_input_8);
 
         $div_element.appendChild($new_form);
