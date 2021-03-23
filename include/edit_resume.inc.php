@@ -92,7 +92,7 @@
     }
 
     if(isset($_POST['keywords'])) {
-
+        
         foreach ($_POST['keywords'] as $row) {
            $id = mysqli_real_escape_string($conn, $row['id']);
            $category = mysqli_real_escape_string($conn, $row['category']);

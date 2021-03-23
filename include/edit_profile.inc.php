@@ -13,7 +13,7 @@
         $cname = mysqli_real_escape_string($conn, $_POST['cname']);
         $field = mysqli_real_escape_string($conn, $_POST['field']);
         $website = mysqli_real_escape_string($conn, $_POST['website']);
-        $description = mysqli_real_escape_string($conn, $_POST['description']);
+        $description = mysqli_real_escape_string($conn, $_POST['description_new']);
     }
 
     $email = mysqli_real_escape_string($conn, $_POST['email']);
