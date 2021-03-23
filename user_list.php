@@ -24,7 +24,7 @@
 
     <?php
         echo "<table>";
-        echo "<tr><th>First name</th><th>Last name</th><th>Email</th><th>Phone number</th><th>OIB</th><th>Age</th><th>Address</th><th>City</th><th>Postal code</th><th>University</th></tr>";
+        echo "<tr><th>First name</th><th>Last name</th><th>Email</th><th>Phone number</th><th>TIN</th><th>Age</th><th>Address</th><th>City</th><th>Postal code</th><th>University</th></tr>";
         foreach($students as $student) {
             echo "<tr><td>".$student['firstname']."</td><td>".$student['lastname']."</td><td>".$student['email']."</td><td>".$student['phone_number']."</td><td>".$student['oib']."</td><td>".$student['age']."</td><td>".$student['address']."</td><td>".$student['city']."</td><td>".$student['postal_code']."</td><td>".$student['university']."</td><td><a href='send_notification.php?type=student&id=".$student['oib']."' target='_self'><button type='button'>Send custom notification</button></a></td><td><a href='reset_password.php?type=student&id=".$student['oib']."&email=".$student['email']."&name=".$student['firstname']."' target='_self'><button type='button'>Reset password</button></a></td></tr>";
         }

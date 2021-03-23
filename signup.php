@@ -7,7 +7,7 @@
 <form action="include/signup.inc.php" method="post" target="_self" name="signupform">
     Firstname: <input type="text" id="firstname" name="firstname"><br>
     Lastname: <input type="text" id="lastname" name="lastname"><br>
-    OIB: <input type="number" id="oib" name="oib"><br> <!--nije oib na engleskom->dodaj pored polja-->
+    TIN*: <input type="number" id="oib" name="oib"><br> <!--nije oib na engleskom->dodaj pored polja-->
     Age: <input type="number" id="age" name="age"><br>
     E-mail: <input type="email" id="email" name="email"><br>
     City: <input type="text" id="city" name="city"><br> 
@@ -16,6 +16,9 @@
     Please confirm password: <input type="password" id="pwd2" name="pwd2"><br> 
     <input type="submit" value="Sign up!" name="signupsubmit">  
 </form>
+
+<div>TIN* (Tax Identification Number) <br> The personal identification number is a constant identifier of any person (natural or legal) that the
+public authorities use in the official records, in their everyday work and by data exchange. E.g. (Croatia - OIB, Germany - Steuer-ID, Italy - Codice fiscale) </div>
 
 <script src="js/signup.js"></script> 
 

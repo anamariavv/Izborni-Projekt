@@ -9,6 +9,10 @@
         <input type="submit" value="Log in" name="loginsubmit"><br>
     </form>
 
+    <div>
+        <p><a href="">Forgot your password?</a></p>    
+    </div>
+
 <?php 
     if(isset($_GET["error"])) {
         if($_GET["error"] == "sql") {
