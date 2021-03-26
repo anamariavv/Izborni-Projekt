@@ -175,20 +175,26 @@ $(document).ready(function() {
             var $country_id = "country_"+i;
             var $city_id = "city_"+i;
 
-            var $new_start_year = document.createElement("input");
-            var $new_end_year = document.createElement("input");
+            var $new_start_year = document.createElement("select");
+            var $new_end_year = document.createElement("select");
             var $new_title = document.createElement("input");
             var $new_country = document.createElement("input");
             var $new_city = document.createElement("input");
 
-            $new_start_year.setAttribute("type", "number");
             $new_start_year.setAttribute("id", $sy_id);
-            $new_start_year.setAttribute("placeholder", "Start year");
+            for(var year = 1970; year <= 2021; year++) {
+                var $option = document.createElement("option");
+                $option.text = year;
+                $new_start_year.appendChild($option);
+            }
             $new_start_year.value = $start_year;
             
-            $new_end_year.setAttribute("type", "number");
             $new_end_year.setAttribute("id", $ey_id);
-            $new_end_year.setAttribute("placeholder", "End year")
+            for(var year = 1970; year <= 2021; year++) {
+                var $option = document.createElement("option");
+                $option.text = year;
+                $new_end_year.appendChild($option);
+            }
             $new_end_year.value = $end_year;
             
             $new_title.setAttribute("type", "text");
@@ -229,10 +235,25 @@ $(document).ready(function() {
                 }
             }
 
+            var $text1 = document.createElement("span");
+            $text1.innerText = "Start year: ";
+            var $text2 = document.createElement("span");
+            $text2.innerText = "End year: ";
+            var $text3 = document.createElement("span");
+            $text3.innerText = "Education: ";
+            var $text4 = document.createElement("span");
+            $text4.innerText = "Country: ";
+            var $text5 = document.createElement("span");
+            $text5.innerText = "City: ";
+            $education_form.appendChild($text1);
             $education_form.appendChild($new_start_year);
+            $education_form.appendChild($text2);
             $education_form.appendChild($new_end_year);
+            $education_form.appendChild($text3);
             $education_form.appendChild($new_title);
+            $education_form.appendChild($text4);
             $education_form.appendChild($new_country);
+            $education_form.appendChild($text5);
             $education_form.appendChild($new_city);
             $education_form.appendChild($delete_education);
             $break = document.createElement("br");
@@ -346,32 +367,46 @@ $(document).ready(function() {
             work["description"] = document.getElementById($work_description).innerHTML;
             old_work.push(work);  
             
-            var $new_work_sm = document.createElement("input");
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            var $new_work_sm = document.createElement("select");
             var $new_work_sm_id = "new_work_sm"+i;
-            $new_work_sm.setAttribute("type", "number");
             $new_work_sm.setAttribute("id", $new_work_sm_id);
-            $new_work_sm.setAttribute("placeholder", "Start month");
+            for(var month = 0; month < months.length; month++) {
+                var $option = document.createElement("option");
+                $option.text = months[month];
+                $new_work_sm.appendChild($option);
+            }
             $new_work_sm.value = work["start_month"];
 
-            var $new_work_sy = document.createElement("input");
+            var $new_work_sy = document.createElement("select");
             var $new_work_sy_id = "new_work_sy"+i;
-            $new_work_sy.setAttribute("type", "number");
             $new_work_sy.setAttribute("id", $new_work_sy_id);
-            $new_work_sy.setAttribute("placeholder", "Start year");
+            for(var year = 1970; year <= 2021; year++) {
+                var $option = document.createElement("option");
+                $option.text = year;
+                $new_work_sy.appendChild($option);
+            }
             $new_work_sy.value = work["start_year"];
 
-            var $new_work_em = document.createElement("input");
+            var $new_work_em = document.createElement("select");
             var $new_work_em_id = "new_work_em"+i;
-            $new_work_em.setAttribute("type", "number");
             $new_work_em.setAttribute("id", $new_work_em_id);
-            $new_work_em.setAttribute("placeholder", "End month");
+            for(var month = 0; month < months.length; month++) {
+                var $option = document.createElement("option");
+                $option.text = months[month];
+                $new_work_em.appendChild($option);
+            }
             $new_work_em.value = work["end_month"];
 
-            var $new_work_ey = document.createElement("input");
+            var $new_work_ey = document.createElement("select");
             var $new_work_ey_id = "new_work_ey"+i;
-            $new_work_ey.setAttribute("type", "number");
             $new_work_ey.setAttribute("id", $new_work_ey_id);
-            $new_work_ey.setAttribute("placeholder", "End year");
+            for(var year = 1970; year <= 2021; year++) {
+                var $option = document.createElement("option");
+                $option.text = year;
+                $new_work_ey.appendChild($option);
+            }
             $new_work_ey.value = work["end_year"];
 
             var $new_work_title = document.createElement("input");
@@ -396,7 +431,7 @@ $(document).ready(function() {
             $new_work_country.value = work["country"];
 
             var $new_work_description = document.createElement("textarea");
-            var $new_work_description_id = "new_work_description"+1;
+            var $new_work_description_id = "new_work_description"+i;
             $new_work_description.setAttribute("form", "work_form");
             $new_work_description.setAttribute("id", $new_work_description_id);
             $new_work_description.setAttribute("placeholder", "Description");
@@ -410,11 +445,14 @@ $(document).ready(function() {
             $delete_work.setAttribute("type", "button");
             $delete_work.innerText = "Delete";
             $delete_work.onclick = function() {
+                console.log(old_work);
                 if(window.confirm("Are you sure you want to delete this work?")) {
+                    var $target = this.id.substr(-1)-1;
+                    var $w_id = old_work[$target]["id"];
                     $.ajax({
                         type: "POST",
                         url: "include/edit_resume.inc.php",
-                        data: {delete_work : work["id"]},
+                        data: {delete_work : $w_id},
                         dataType: "json",
                         success: function(response) {
                             location.reload();
@@ -427,14 +465,39 @@ $(document).ready(function() {
             }
                         
             $break = document.createElement("br");
-           
+
+            var $text1 = document.createElement("span");
+            $text1.innerText = "Start month: ";
+            var $text2 = document.createElement("span");
+            $text2.innerText = "Start year: ";
+            var $text3 = document.createElement("span");
+            $text3.innerText = "End month: ";
+            var $text4 = document.createElement("span");
+            $text4.innerText = "End year: ";
+            var $text5 = document.createElement("span");
+            $text5.innerText = "Work title: ";
+            var $text6 = document.createElement("span");
+            $text6.innerText = "Country: ";
+            var $text7 = document.createElement("span");
+            $text7.innerText = "City: ";
+            var $text8 = document.createElement("span");
+            $text8.innerText = "Work description: ";
+            
+            $work_form.appendChild($text1);
             $work_form.appendChild($new_work_sm);
+            $work_form.appendChild($text2);
             $work_form.appendChild($new_work_sy);
+            $work_form.appendChild($text3);
             $work_form.appendChild($new_work_em);
+            $work_form.appendChild($text4);
             $work_form.appendChild($new_work_ey);
+            $work_form.appendChild($text5);
             $work_form.appendChild($new_work_title);
+            $work_form.appendChild($text6);
             $work_form.appendChild($new_work_city);
+            $work_form.appendChild($text7);
             $work_form.appendChild($new_work_country);
+            $work_form.appendChild($text8);
             $work_form.appendChild($new_work_description);
             $work_form.appendChild($delete_work);
             $work_form.appendChild($break);
@@ -448,7 +511,7 @@ $(document).ready(function() {
         $submit_new_work.setAttribute("id", "submit_new_work");
         $submit_new_work.setAttribute("value", "Save");
         $work_form.appendChild($submit_new_work);
-
+        
         $submit_new_work.onclick = function() {
             
             $($work_form).validate({
@@ -456,7 +519,7 @@ $(document).ready(function() {
                     var $flag = 1;
                     for(var i = 1; i <= $work_table.rows.length/2; i++) {
                         work = {};
-
+                        
                         var $new_work_sm_id = "new_work_sm"+i;
                         var $new_work_sy_id = "new_work_sy"+i;
                         var $new_work_em_id = "new_work_em"+i;
@@ -465,7 +528,7 @@ $(document).ready(function() {
                         var $new_work_city_id = "new_work_city"+i;
                         var $new_work_country_id = "new_work_country"+i;
                         var $new_work_description_id = "new_work_description"+i;
-                       
+    
                         work["id"] = old_work[i-1]["id"];
                         work["start_month"] = document.getElementById($new_work_sm_id).value;
                         work["start_year"] = document.getElementById($new_work_sy_id).value;
@@ -542,11 +605,14 @@ $(document).ready(function() {
             $new_skill_name.setAttribute("placeholder", "Skill");
             $new_skill_name.value = skill["name"];
 
-            var $new_skill_level = document.createElement("input");
+            var $new_skill_level = document.createElement("select");
             var $new_skill_level_id = "new_skill_level"+i;
-            $new_skill_level.setAttribute("type", "number");
             $new_skill_level.setAttribute("id", $new_skill_level_id);
-            $new_skill_level.setAttribute("placeholder", "Level");
+            for(var num = 1; num <= 5; num++) {
+                var $option = document.createElement("option");
+                $option.text = num;
+                $new_skill_level.appendChild($option);
+            }
             $new_skill_level.value = skill["level"];
 
             var $delete_skill = document.createElement("button");
@@ -556,10 +622,12 @@ $(document).ready(function() {
             $delete_skill.innerText = "Delete";
             $delete_skill.onclick = function() {
                 if(window.confirm("Are you sure you want to delete this skill?")) {
+                    var $target = this.id.substr(-1);
+                    var $sk_id = old_skills[$target]["id"];
                     $.ajax({
                         type: "POST",
                         url: "include/edit_resume.inc.php",
-                        data: {delete_skill : skill["id"]},
+                        data: {delete_skill : $sk_id},
                         dataType: "json",
                         success: function(response) {
                             location.reload();
@@ -572,8 +640,14 @@ $(document).ready(function() {
             }
             
             $break = document.createElement("br");
-           
+            
+            var $text1 = document.createElement("span");
+            $text1.innerText = "Skill: ";
+            var $text2 = document.createElement("span");
+            $text2.innerText = "Level: ";
+            $skill_form.appendChild($text1);
             $skill_form.appendChild($new_skill_name);
+            $skill_form.appendChild($text2);
             $skill_form.appendChild($new_skill_level);
             $skill_form.appendChild($delete_skill);
             $skill_form.appendChild($break);
@@ -650,8 +724,8 @@ $(document).ready(function() {
 
         var old_languages = [];
         var new_languages = [];
-   
-        for(var i = 0; i < $language_body.rows.length; i++) {
+        var i;
+        for(i = 0; i < $language_body.rows.length; i++) {
             language = {};
             
             var $language_id = "language_id"+i;
@@ -660,21 +734,44 @@ $(document).ready(function() {
             language["id"] = document.getElementById($language_id).innerHTML;
             language["name"] = document.getElementById($language_name).innerHTML;
             language["level"] = document.getElementById($language_level).innerHTML;
+
             old_languages.push(language);
             
-
-            var $new_language_name = document.createElement("input");
+            var language_list = ["Afar","Abkhazian","Avestan","Afrikaans","Akan","Amharic","Aragonese","Arabic","Assamese","Avaric",
+            "Aymara","Azerbaijani","Bashkir","Belarusian","Bulgarian","Bihari languages","Bambara","Bislama","Bengali","Tibetan","Breton",
+            "Bosnian","Catalan","Valencian","Chechen","Chamorro","Corsican","Cree","Czech","Church Slavic","Chuvash","Welsh","Danish","German",
+            "Divehi","Maldivian","Dzongkha","Ewe","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian","Fulah",
+            "Finnish","Fijian","Faroese","French","Western Frisian","Irish","Gaelic" ,"Scottish Gaelic","Galician","Guarani","Gujarati","Manx",
+            "Hausa","Hebrew","Hindi","Hiri Motu","Croatian","Haitian","Haitian Creole","Hungarian","Armenian","Herero","Interlingua",
+            "Indonesian","Interlingue","Igbo","Sichuan Yi","Inupiaq","Ido","Icelandic","Italian","Inuktitut","Japanese","Javanese","Georgian",
+            "Kongo","Kikuyu","Kuanyama","Kazakh","Kalaallisut","Central Khmer","Kannada","Korean","Kanuri","Kashmiri","Kurdish","Komi",
+            "Cornish","Kirghiz","Latin","Luxembourgish","Ganda","Limburgan","Lingala","Lao","Lithuanian","Luba-Katanga","Latvian","Malagasy",
+            "Marshallese","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese","Burmese","Nauru","Bokmål","Ndebele",
+            "Nepali","Ndonga","Dutch","Norwegian Nynorsk","Norwegian","Ndebele","Navajo","Chichewa","Ojibwa","Oromo","Oriya","Ossetian",
+            "Panjabi","Pali","Polish","Pushto","Portuguese","Quechua","Romansh","Rundi","Romanian","Moldavian","Russian","Kinyarwanda",
+            "Sanskrit","Sardinian","Sindhi","Northern","Sango","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Albanian","Serbian",
+            "Swati","Sotho","Sundanese","Swedish","Swahili","Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen","Tagalog","Tswana","Tonga",
+            "Turkish","Tsonga","Tatar","Twi","Tahitian","Uighur","Ukrainian","Urdu","Uzbek","Venda","Vietnamese","Volapük","Walloon","Wolof",
+            "Xhosa","Yiddish","Yoruba","Zhuang","Chinese","Zulu"];
+           
+            var $new_language_name = document.createElement("select");
             var $new_language_name_id = "new_language_name"+i;
-            $new_language_name.setAttribute("type", "text");
             $new_language_name.setAttribute("id", $new_language_name_id);
-            $new_language_name.setAttribute("placeholder", "language");
+            for(var index = 0; index < language_list.length; index++) {
+                var $option = document.createElement("option");
+                $option.text = language_list[index];
+                $new_language_name.appendChild($option);
+            }
             $new_language_name.value = language["name"];
 
-            var $new_language_level = document.createElement("input");
+            var $new_language_level = document.createElement("select");
             var $new_language_level_id = "new_language_level"+i;
-            $new_language_level.setAttribute("type", "number");
             $new_language_level.setAttribute("id", $new_language_level_id);
-            $new_language_level.setAttribute("placeholder", "Level");
+            for(var index = 1; index <= 5; index++) {
+                var $option = document.createElement("option");
+                $option.text = index;
+                $new_language_level.appendChild($option);
+            }
             $new_language_level.value = language["level"];
 
             var $delete_language = document.createElement("button");
@@ -684,10 +781,12 @@ $(document).ready(function() {
             $delete_language.innerText = "Delete";
             $delete_language.onclick = function() {
                 if(window.confirm("Are you sure you want to delete this language?")) {
+                    $target = this.id.substr(-1);
+                    $lang_id = old_languages[$target]["id"];
                     $.ajax({
                         type: "POST",
                         url: "include/edit_resume.inc.php",
-                        data: {delete_language : language["id"]},
+                        data: {delete_language : $lang_id},
                         dataType: "json",
                         success: function(response) {
                             location.reload();
@@ -700,8 +799,13 @@ $(document).ready(function() {
             }
             
             $break = document.createElement("br");
-           
+            var $text1 = document.createElement("span");
+            $text1.innerText = "Language: ";
+            var $text2 = document.createElement("span");
+            $text2.innerText = "Level: ";
+            $language_form.appendChild($text1);
             $language_form.appendChild($new_language_name);
+            $language_form.appendChild($text2);
             $language_form.appendChild($new_language_level);
             $language_form.appendChild($delete_language);
             $language_form.appendChild($break);
@@ -771,8 +875,24 @@ $(document).ready(function() {
 
     //---------------------Keywords editing----------------------
 
-    $("#edit_keywords").click(function() {
-        $(this).attr("disabled", true);
+    $("[name='delete_keyword']").click(function() {
+        if(window.confirm("Are you sure you want to delete this keyword")) {
+            $keyword_id = this.id;
+            $.ajax({
+                type: "POST",
+                url: "include/edit_resume.inc.php",
+                data: {delete_keyword : $keyword_id},
+                dataType: "json",
+                success: function(response) {
+                    location.reload();
+                },
+                error: function(response) {
+                    console.log(response.error);
+                }
+            })
+        }   
+        
+       /* $(this).attr("disabled", true);
         var $keyword_div = document.getElementById("keywords");
         var $keyword_table = document.getElementById("keyword_table");
         var $keyword_form = document.createElement("form");
@@ -795,19 +915,19 @@ $(document).ready(function() {
             var $new_keyword_category = document.createElement("input");
             var $new_keyword_category_id = "new_keyword_category"+i;
             $new_keyword_category.setAttribute("type", "text");
+            $new_keyword_category.setAttribute("readonly", "readonly");
             $new_keyword_category.setAttribute("id", $new_keyword_category_id);
-            $new_keyword_category.setAttribute("placeholder", "Category");
             $new_keyword_category.setAttribute("name", "Category");
             $new_keyword_category.value = keyword["category"];
-
+            
             var $new_keyword_word = document.createElement("input");
             var $new_keyword_word_id = "new_keyword_word"+i;
-            $new_keyword_word.setAttribute("type", "text");
             $new_keyword_word.setAttribute("id", $new_keyword_word_id);
-            $new_keyword_word.setAttribute("placeholder", "Word");
+            $new_keyword_word.setAttribute("type", "text");
+            $new_keyword_word.setAttribute("readonly", "readonly");
             $new_keyword_word.setAttribute("name", "Word");
             $new_keyword_word.value = keyword["word"];
-          
+        
             var $delete_keyword = document.createElement("button");
             $delete_keyword_id = "delete_keyword_"+i;
             $delete_keyword.setAttribute("id", $delete_keyword_id);
@@ -815,10 +935,12 @@ $(document).ready(function() {
             $delete_keyword.innerText = "Delete";
             $delete_keyword.onclick = function() {
                 if(window.confirm("Are you sure you want to delete this keyword?")) {
+                    $target = this.id.substr(-1);
+                    $kywd_id = old_keywords[$target]["id"];
                     $.ajax({
                         type: "POST",
                         url: "include/edit_resume.inc.php",
-                        data: {delete_keyword : keyword["id"]},
+                        data: {delete_keyword : $kywd_id},
                         dataType: "json",
                         success: function(response) {
                             location.reload();
@@ -831,8 +953,13 @@ $(document).ready(function() {
             }
 
             $break = document.createElement("br");
-           
+            var $text1 = document.createElement("span");
+            $text1.innerText = "Category: ";
+            var $text2 = document.createElement("span");
+            $text2.innerText = "Word: ";
+            $keyword_form.appendChild($text1);
             $keyword_form.appendChild($new_keyword_category);
+            $keyword_form.appendChild($text2);
             $keyword_form.appendChild($new_keyword_word);
             $keyword_form.appendChild($delete_keyword);
             $keyword_form.appendChild($break);
@@ -841,51 +968,6 @@ $(document).ready(function() {
         $keyword_table.remove();
         $keyword_div.appendChild($keyword_form);
 
-        var $submit_new_keywords = document.createElement("input");
-        $submit_new_keywords.setAttribute("type", "submit");
-        $submit_new_keywords.setAttribute("id", "submit_new_keywords");
-        $submit_new_keywords.setAttribute("value", "Save");
-        $keyword_form.appendChild($submit_new_keywords);
-        $submit_new_keywords.onclick = function() {
-           
-            $($keyword_form).validate({
-                submitHandler: function() {
-                    var $flag = 1;
-                    for(var i = 0; i < $keyword_body.rows.length; i++) {
-                        keyword = {};
-
-                        var $new_keyword_category_id = "new_keyword_category"+i;
-                        var $new_keyword_word_id = "new_keyword_word"+i;
-                        
-                        keyword["id"] = old_keywords[i]["id"];
-                        keyword["category"] = document.getElementById($new_keyword_category_id).value;
-                        keyword["word"] = document.getElementById($new_keyword_word_id).value;
-
-                        if(keyword["id"] =='' || keyword["category"]=='' || keyword["word"]=='') {
-                            $flag = 0;
-                        }
-                        new_keywords.push(keyword);
-                    }
-                    if($flag == 1) {
-                        $.ajax({
-                            type: "POST",
-                            url: "include/edit_resume.inc.php",
-                            data: {keywords : new_keywords},
-                            dataType: "json",
-                            success: function(response) {
-                                location.reload();
-                            },
-                            error: function(response) {
-                                console.log(response);
-                            }
-                        })
-                    } else {
-                        alert("Please fill in all fields!");
-                    }
-               }
-            })
-
-        }  
         var $cancel_keyword_edit = document.createElement("button");
         $cancel_keyword_edit.setAttribute("type", "button");
         $cancel_keyword_edit.setAttribute("id", "cancel_keyword_edit");
@@ -896,7 +978,7 @@ $(document).ready(function() {
             $keyword_div.appendChild($keyword_table);
             $("#edit_keywords").attr("disabled", false);
             $(this).remove();
-        }
+        }*/
     })
 
 
@@ -916,21 +998,27 @@ $(document).ready(function() {
         var $country_id = "add_country";
         var $city_id = "add_city";
 
-        var $add_start_year = document.createElement("input");
-        var $add_end_year = document.createElement("input");
+        var $add_start_year = document.createElement("select");
+        var $add_end_year = document.createElement("select");
         var $add_title = document.createElement("input");
         var $add_country = document.createElement("input");
         var $add_city = document.createElement("input");
 
-        $add_start_year.setAttribute("type", "number");
         $add_start_year.setAttribute("id", $sy_id);
-        $add_start_year.setAttribute("placeholder", "Start year");
         $add_start_year.setAttribute("name", "Start_year");
+        for(var i = 1970; i <= 2021; i++) {
+            var $option = document.createElement("option");
+            $option.text = i;
+            $add_start_year.appendChild($option);
+        }
 
-        $add_end_year.setAttribute("type", "number");
         $add_end_year.setAttribute("id", $ey_id);
-        $add_end_year.setAttribute("placeholder", "End year")
         $add_end_year.setAttribute("name", "End_year")
+        for(var i = 1970; i <= 2021; i++) {
+            var $option = document.createElement("option");
+            $option.text = i;
+            $add_end_year.appendChild($option);
+        }
 
         $add_title.setAttribute("type", "text");
         $add_title.setAttribute("id", $title_id);
@@ -1038,10 +1126,10 @@ $(document).ready(function() {
         var $city_id = "add_city_work";
         var $desc_id = "add_description_id";
 
-        var $add_start_year = document.createElement("input");
-        var $add_end_year = document.createElement("input");
-        var $add_start_month = document.createElement("input");
-        var $add_end_month = document.createElement("input");
+        var $add_start_year = document.createElement("select");
+        var $add_end_year = document.createElement("select");
+        var $add_start_month = document.createElement("select");
+        var $add_end_month = document.createElement("select");
         var $add_title = document.createElement("input");
         var $add_country = document.createElement("input");
         var $add_city = document.createElement("input");
@@ -1053,25 +1141,39 @@ $(document).ready(function() {
         $add_description.setAttribute("placeholder", "Description");
         $add_description.setAttribute("name", "Description_we");
 
-        $add_start_month.setAttribute("type", "number");
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
         $add_start_month.setAttribute("id", $sm_id);
-        $add_start_month.setAttribute("placeholder", "Start month");
         $add_start_month.setAttribute("name", "Start_month_we");
+        for(var i = 0; i < months.length; i++) {
+            var $option = document.createElement("option");
+            $option.text = months[i];
+            $add_start_month.appendChild($option);
+        }
 
-        $add_end_month.setAttribute("type", "number");
         $add_end_month.setAttribute("id", $em_id);
-        $add_end_month.setAttribute("placeholder", "End month");
         $add_end_month.setAttribute("name", "End_month_we");
-
-        $add_start_year.setAttribute("type", "number");
+        for(var i = 0; i < months.length; i++) {
+            var $option = document.createElement("option");
+            $option.text = months[i];
+            $add_end_month.appendChild($option);
+        }
+        
         $add_start_year.setAttribute("id", $sy_id);
-        $add_start_year.setAttribute("placeholder", "Start year");
         $add_start_year.setAttribute("name", "Start_year_we");
+        for(var i = 1970; i <= 2021; i++) {
+            var $option = document.createElement("option");
+            $option.text = i;
+            $add_start_year.appendChild($option);
+        }
 
-        $add_end_year.setAttribute("type", "number");
         $add_end_year.setAttribute("id", $ey_id);
-        $add_end_year.setAttribute("placeholder", "End year")
         $add_end_year.setAttribute("name", "End_year_we")
+        for(var i = 1970; i <= 2021; i++) {
+            var $option = document.createElement("option");
+            $option.text = i;
+            $add_end_year.appendChild($option);
+        }
 
         $add_title.setAttribute("type", "text");
         $add_title.setAttribute("id", $title_id);
@@ -1158,10 +1260,10 @@ $(document).ready(function() {
 
         $break = document.createElement("br");
 
-        $add_work_form.appendChild($add_start_year);
-        $add_work_form.appendChild($add_end_year);
         $add_work_form.appendChild($add_start_month);
+        $add_work_form.appendChild($add_start_year);
         $add_work_form.appendChild($add_end_month);
+        $add_work_form.appendChild($add_end_year);
         $add_work_form.appendChild($add_title);
         $add_work_form.appendChild($add_country);
         $add_work_form.appendChild($add_city);
@@ -1188,16 +1290,19 @@ $(document).ready(function() {
         var $level_id = "add_level_skill";    
 
         var $add_name = document.createElement("input");
-        var $add_level = document.createElement("input");
+        var $add_level = document.createElement("select");
 
         $add_name.setAttribute("type", "text");
         $add_name.setAttribute("id", $name_id);
         $add_name.setAttribute("placeholder", "Skill");
         $add_name.setAttribute("name", "Skill");
 
-        $add_level.setAttribute("type", "number");
         $add_level.setAttribute("id", $level_id);
-        $add_level.setAttribute("placeholder", "Level");
+        for(var num = 1; num <= 5; num++) {
+            var $option = document.createElement("option");
+            $option.text = num;
+            $add_level.appendChild($option);
+        }
         $add_level.setAttribute("name", "Level");
 
 
@@ -1277,18 +1382,41 @@ $(document).ready(function() {
         var $name_id = "add_name_language";
         var $level_id = "add_level_language";    
 
-        var $add_name = document.createElement("input");
-        var $add_level = document.createElement("input");
+        var $add_name = document.createElement("select");
+        var $add_level = document.createElement("select");
 
-        $add_name.setAttribute("type", "text");
         $add_name.setAttribute("id", $name_id);
-        $add_name.setAttribute("placeholder", "Language");
         $add_name.setAttribute("name", "Language");
 
-        $add_level.setAttribute("type", "number");
+        var language_list = ["Afar","Abkhazian","Avestan","Afrikaans","Akan","Amharic","Aragonese","Arabic","Assamese","Avaric",
+        "Aymara","Azerbaijani","Bashkir","Belarusian","Bulgarian","Bihari languages","Bambara","Bislama","Bengali","Tibetan","Breton",
+        "Bosnian","Catalan","Valencian","Chechen","Chamorro","Corsican","Cree","Czech","Church Slavic","Chuvash","Welsh","Danish","German",
+        "Divehi","Maldivian","Dzongkha","Ewe","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian","Fulah",
+        "Finnish","Fijian","Faroese","French","Western Frisian","Irish","Gaelic" ,"Scottish Gaelic","Galician","Guarani","Gujarati","Manx",
+        "Hausa","Hebrew","Hindi","Hiri Motu","Croatian","Haitian","Haitian Creole","Hungarian","Armenian","Herero","Interlingua",
+        "Indonesian","Interlingue","Igbo","Sichuan Yi","Inupiaq","Ido","Icelandic","Italian","Inuktitut","Japanese","Javanese","Georgian",
+        "Kongo","Kikuyu","Kuanyama","Kazakh","Kalaallisut","Central Khmer","Kannada","Korean","Kanuri","Kashmiri","Kurdish","Komi",
+        "Cornish","Kirghiz","Latin","Luxembourgish","Ganda","Limburgan","Lingala","Lao","Lithuanian","Luba-Katanga","Latvian","Malagasy",
+        "Marshallese","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese","Burmese","Nauru","Bokmål","Ndebele",
+        "Nepali","Ndonga","Dutch","Norwegian Nynorsk","Norwegian","Ndebele","Navajo","Chichewa","Ojibwa","Oromo","Oriya","Ossetian",
+        "Panjabi","Pali","Polish","Pushto","Portuguese","Quechua","Romansh","Rundi","Romanian","Moldavian","Russian","Kinyarwanda",
+        "Sanskrit","Sardinian","Sindhi","Northern","Sango","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Albanian","Serbian",
+        "Swati","Sotho","Sundanese","Swedish","Swahili","Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen","Tagalog","Tswana","Tonga",
+        "Turkish","Tsonga","Tatar","Twi","Tahitian","Uighur","Ukrainian","Urdu","Uzbek","Venda","Vietnamese","Volapük","Walloon","Wolof",
+        "Xhosa","Yiddish","Yoruba","Zhuang","Chinese","Zulu"];
+        for(var i = 0; i < language_list.length; i++) {
+           var $option = document.createElement("option");
+           $option.text = language_list[i];
+           $add_name.appendChild($option);
+        }
+
         $add_level.setAttribute("id", $level_id);
-        $add_level.setAttribute("placeholder", "Level");
         $add_level.setAttribute("name", "Level_lang");
+        for(var i = 1; i <= 5; i++) {
+            var $option = document.createElement("option");
+            $option.text = i;
+            $add_level.appendChild($option);
+         }
 
 
         $submit_add_language.setAttribute("type", "submit");
@@ -1371,6 +1499,7 @@ $(document).ready(function() {
 
         $add_category.setAttribute("id", $category_id);
         $add_category.setAttribute("name", "Category");
+
         var category = ["Agriculture", "Architecture & Construction", "Business & Management", "Computer Science & IT",
              "Art & Design", "Education", "Engineering", "Medicine", "Humanities", "Law", "Fitness", "Social Studies & Media",
               "Tourism"];
@@ -1381,7 +1510,7 @@ $(document).ready(function() {
         var word_business = ["Business Administration","Business Models","Networking","Business Plans","Business Strategy Companies",
         "Digital Agencies","Ecommerce","Organization", "Design", "Project Management","Retail","Brand Strategy",
             "Brands and Branding","Broadcast Media","Cinematography","Commercial Media","Conferences and Conventions","Content Marketing"];
-        var word_computer = ["Assembly language (ASM)","Bash","BASIC","C++" ,"C#","COBOL","Python",,"Java","Javascript","Networking & infrastructure",
+        var word_computer = ["Assembly language (ASM)","Bash","BASIC","C++" ,"C#","COBOL","Python","Java","Javascript","Networking & infrastructure",
             "Frontend","Backend","GUI design","UI/UX","Database","Embedded Systems"];
         var word_art = ["Abstract","Abstract Expresionism","Art Brut","Art Deco","Art Nouveau","Arts & Crafts","Baroque","Bauhaus",
             "Ceramics","Classical","Constructivism","Contemporary","Cubism","Neo-Expressionism","Op-Art","Orientalism"];
@@ -1390,14 +1519,16 @@ $(document).ready(function() {
             "Simulations","Skills"];
         var word_egineering = ["Economical Solution","Efficiency Control","Electrical Analysis","Electrical Design",
         "Electrical Engineering","Electronic Design","Electronic Equipment","Electrostatic Discharge","Emissions Testing",
-        "Engineering Estimates","Engineering Field Supervision,Engineering Management","Environmental Engineering",
+        "Engineering Estimates","Engineering Field Supervision","Engineering Management","Environmental Engineering",
         "Environmental Problems","Environmental Regulations","Environmental Testing","Equipment Maintenance","Flow Patterns","Fluid Compression"];
-        /*var word_medicine = [];
-        var word_humanities = [];
-        var word_law = [];
-        var word_fitness = [];
-        var word_social = [];
-        var word_media = [];*/
+        var word_medicine = ["Allergy and immunology", "Anesthesiology", "Dermatology", "Diagnostic radiology", "Emergency medicine",
+         "Family medicine", "Internal medicine", "Medical genetics", "Neurology", "Nuclear medicine", "Obstetrics and gynecology",
+          "Ophthalmology", "Pathology", "Pediatrics", "Physical medicine and rehabilitation"];
+        var word_humanities = ["Linguistics", "Literature", "History", "Jurisprudence", "Philosophy", "Archaeology", "Comparative religion", "Ethics", "History, Criticism & theory of the arts"];
+        var word_law = ["Lawyer","Attorney","Law Firm","Law Office","Legal Advice","Legal Consultation","Human rights","Human Rights Act"];
+        var word_fitness = ["Aerobic Exercise" ,"Flexibility (Training)" ,"Resistance/Strength Training", "Compound Excercise", "Functional Training", "Perosnal Trainer"];
+        var word_media = ["Manager","Networking","Print Media", "Broadcasting Media", "Internet Media", "Social Media", "Radio", "Television", "Video editing"];
+        var word_tourism = ["Ecotourism", "Tour guide", "Travel", "Alternative Tourism", "Sports Tourism", "Adventure Tourism"];
 
         for(var i = 0; i < category.length; i++) {
             var $option = document.createElement("option");
@@ -1405,31 +1536,33 @@ $(document).ready(function() {
             $add_category.appendChild($option);
         } 
 
-        $add_word.onclick = function() {
-            $current_option = $add_category.options[ $add_category.selectedIndex].value;
+        $add_category.onchange = function() {
+
+            while($add_word.firstChild) {
+                $add_word.removeChild($add_word.firstChild);
+            }
+
+            $current_option = $add_category.options[$add_category.selectedIndex].value;
+
             if($current_option === "Agriculture") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_agriculture.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_agriculture[i];
                     $add_word.appendChild($option);
                 } 
             } else if($current_option === "Architecture & Construction") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_construction.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_construction[i];
                     $add_word.appendChild($option);
                 }
             }else if($current_option === "Business & Management") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_business.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_business[i];
                     $add_word.appendChild($option);
                 }
             }else if($current_option === "Computer Science & IT") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_computer.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_computer[i];
@@ -1437,36 +1570,65 @@ $(document).ready(function() {
                 }
             }
             else if($current_option === "Art & Design") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_art.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_art[i];
                     $add_word.appendChild($option);
                 }
             } else if($current_option === "Education") {
-                $add_word.innerHTML = "";
                 for(var i = 0; i < word_education.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_education[i];
                     $add_word.appendChild($option);
                 }
-            }
-            else if($current_option === "Engineering") {
-                $add_word.innerHTML = "";
+            }else if($current_option === "Engineering") {
                 for(var i = 0; i < word_egineering.length; i++) {
                     var $option = document.createElement("option");
                     $option.text = word_egineering[i];
                     $add_word.appendChild($option);
                 }
+            }else if($current_option === "Medicine") {
+                for(var i = 0; i < word_medicine.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_medicine[i];
+                    $add_word.appendChild($option);
+                }
+            }else if($current_option === "Humanities") {
+                for(var i = 0; i < word_humanities.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_humanities[i];
+                    $add_word.appendChild($option);
+                }
+            } else if($current_option === "Law") {
+                for(var i = 0; i < word_law.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_law[i];
+                    $add_word.appendChild($option);
+                }
+            } else if($current_option === "Fitness") {
+                for(var i = 0; i < word_fitness.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_fitness[i];
+                    $add_word.appendChild($option);
+                }
+            } else if($current_option === "Social Studies & Media") {
+                for(var i = 0; i < word_media.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_media[i];
+                    $add_word.appendChild($option);
+                }
+            } else if($current_option === "Tourism") {
+                for(var i = 0; i < word_tourism.length; i++) {
+                    var $option = document.createElement("option");
+                    $option.text = word_tourism[i];
+                    $add_word.appendChild($option);
+                   
+                }
             }
-
-
         }
-        
-                
+                        
         $add_word.setAttribute("id", $word_id);
         $add_word.setAttribute("name", "Word");
-
 
         $submit_add_keyword.setAttribute("type", "submit");
         $submit_add_keyword.setAttribute("id", "submit_add_keyword");
