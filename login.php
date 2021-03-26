@@ -10,7 +10,7 @@
     </form>
 
     <div>
-        <p><a href="">Forgot your password?</a></p>    
+        <p><a href="reset_password.php">Forgot your password?</a></p>    
     </div>
 
 <?php 

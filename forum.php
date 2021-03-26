@@ -15,10 +15,11 @@
             if($review['picture']) {
                 echo "<span><img src='".$review['picture']."' width='40' height='40'></img></span>";
             }
-            echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']."</span></br>".$review['text']."<br></span>";
+            echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']."</span></br><div id='text_".$review['id']."'>".$review['text']."</div><br></span>";
             if($_SESSION['user_level'] == 'student') {
                 if($review['oib'] == $_SESSION['oib']) {
                     echo "<button type='button' name='delete_comment' value='".$review['oib']."'>Delete</button>";
+                    echo "<button type='button' name='edit_comment' value='".$review['id']."'>Edit</button>";
                 }
             }
             echo "</br>";
@@ -31,7 +32,6 @@
                 echo "<input type='hidden' id='".$review['oib']."' value='".$review['id']."'></input><span>".$review['firstname']." ".$review['lastname']." ".$review['time']." -Comment pending approval </span></br>".$review['text']."<br></span>";
                 echo "</br>";
             }
-            
         } 
     }   
 

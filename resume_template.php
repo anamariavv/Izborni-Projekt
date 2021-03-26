@@ -122,17 +122,10 @@
     echo '<thead><tr><th>Category</th><th>Keyword</th></tr></thead><tbody id="keyword_body">';
         $count = 0;
         foreach($array_keyword as $row_keyword) {
-            echo '<tr><td hidden id="keyword_id'.$count.'">'.$row_keyword['id'].'</td><td id="keyword_category'.$count.'">'.$row_keyword['category'].'</td><td id="keyword_word'.$count.'">'.$row_keyword['word'].'</td></tr>';
+            echo '<tr><td hidden id="keyword_id'.$count.'">'.$row_keyword['id'].'</td><td id="keyword_category'.$count.'">'.$row_keyword['category'].'</td><td id="keyword_word'.$count.'">'.$row_keyword['word'].'</td><td><button name="delete_keyword" id="'.$row_keyword['id'].'">Delete</button></td></tr>';
             $count += 1;
         }
     echo '</tbody></table></div>';
-        if(!empty($array_keyword)) {
-            echo '<div id="edit_keywords_button">';
-            if($_SESSION['user_level'] == "student") {
-                echo "<button type='button' id='edit_keywords'>Edit</button>";
-            }
-            echo '</div>';
-        }
     echo '<div id="add_keyword_button">';
         if($_SESSION['user_level'] == "student") {
             echo "<button type='button' id='add_keyword'>Add</button>";
