@@ -20,16 +20,32 @@
             $sql = "SELECT * FROM token WHERE token_id = " . $token_id;
             $result = $conn->query($sql);
             $info = $result->fetch_assoc();
-           //check token validity
+
+           if($info["token_created"] && $info["token_status"]=="valid") {
+            date_default_timezone_set('Europe/Zagreb');
+            $current_date = date("Y-m-d H:i:s");
+            $current_date_object =  DateTime::createFromFormat("Y-m-d H:i:s", $current_date);  
+            $created_date = date($info["token_created"]);
+            $created_date_object = DateTime::createFromFormat("Y-m-d H:i:s", $created_date);
+            $difference =date_diff($current_date_object, $created_date_object);
+
+            if($difference->i < 10) {
+                echo "<p>Enter your email:</p>
+                <script src='js/reset_password.js'></script>
+                Token id: <input type='text' readonly='readonly' value=".$_GET["token_id"]." id='token_id' name='token_id'><br>
+                <form action='include/password_recovery.inc.php' method='post' target='_self' name='passwordform' id='passwordform'> 
+                Email: <input type='email' id='email' name='email'></br>
+                Password: <input type='password' id='password' name='password'></br>
+                Confirm password: <input type='password' name='password_check'></br>
+                <input type='submit' value='Submit' name='submitpassword' id='submitpassword'>  
+                </form>";
+            } else {
+                echo "Link has expired. Please request password change again";
+            }
+            
+
+           }
         }
-        echo "<p>Enter your email:</p>
-        <script src='js/reset_password.js'></script>
-        <form action='include/password_recovery.inc.php' method='post' target='_self' name='passwordform' id='passwordform'> 
-            Email: <input type='email' id='email' name='email'></br>
-            Password: <input type='password' id='password' name='password'></br>
-            Confirm password: <input type='password' name='password_check'></br>
-            <input type='submit' value='Submit' name='submitpassword' id='submitpassword'>  
-        </form>";
     }
 ?>
 

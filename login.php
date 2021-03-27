@@ -28,6 +28,9 @@
             echo "<p>The password you entered is incorrect.</p>";
         } 
     }
+    if(isset($_GET["reset"])) {
+        echo "<p>Your password has been successfully reset.</p>";
+    }
 
     include_once "footer.php";
 ?>
