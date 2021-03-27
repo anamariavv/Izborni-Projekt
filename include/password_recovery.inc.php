@@ -1,6 +1,7 @@
 <?php
 
     require_once "database_connect.inc.php";
+
     if(isset($_POST['send_password_link'])) {
         $email = mysqli_real_escape_string($conn, $_POST['email']);
 
@@ -112,7 +113,7 @@
             }
 
             $link = "http://localhost/izborni_projekt/reset_password.php?token_id=".$token_id;
-            $email_text = "Hello ".$row['firstname']."! <br> To reset your password please follow this link ".$link." <br> -Internship Platform";
+            $email_text = "Hello ".$row['firstname']."! <br> To reset your password please follow this link ".$link." <br>The link will expire in 10 minutes.<br> -Internship Platform";
             $email_text = wordwrap($email_text, 70);
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -127,6 +128,7 @@
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $password_hashed = password_hash($password, PASSWORD_BCRYPT);
+        $token_id = $_POST['token_id'];
 
         $sql = "SELECT * FROM student WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
@@ -159,6 +161,9 @@
                 header("Location: ../reset_password?error=sql");
                 exit();
             }
+            $sql = 'UPDATE token SET token_status = "invalid" WHERE token_id = "' .$token_id.'"';
+            $conn->query($sql);
+            echo $conn->error;
             header("Location: ../login.php?reset=success");
         }
 
@@ -193,6 +198,8 @@
                 header("Location: ../reset_password?error=sql");
                 exit();
             }
+            $sql = "UPDATE token SET status = 'invalid' WHERE token_id = " .$token_id;
+            $conn->query($sql);
             header("Location: ../login.php?reset=success");
         }
 
@@ -227,6 +234,9 @@
                 header("Location: ../reset_password?error=sql");
                 exit();
             }
+
+            $sql = "UPDATE token SET status = 'invalid' WHERE token_id = " .$token_id;
+            $conn->query($sql);
             header("Location: ../login.php?reset=success");
         }
 
