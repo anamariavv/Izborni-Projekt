@@ -8,7 +8,7 @@
         echo "<script src='js/manage_internship.js'></script>";
         echo "<div id='candidate_div'>";
         echo "<table>";
-        echo "<thead><tr><th>OIB</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th><th colspan='2'>Acceptance</th></tr></thead>";
+        echo "<thead><tr><th>TIN</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th><th colspan='2'>Acceptance</th></tr></thead>";
         echo "<tbody id='applicants'>";
     
         foreach ($result_array as $row) {

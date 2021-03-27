@@ -44,7 +44,7 @@ $(document).ready(function() {
       // Specify validation error messages
       messages: {
         oib: {
-          required: "Please enter a valid OIB"
+          required: "Please enter a valid TIN"
         },
         age: {
           required: "Please enter a valid age"

@@ -81,11 +81,23 @@ $(document).ready(function() {
             })
         }
 
-        
+        $text1 = document.createElement("p");
+        $text1.innerText = "Firstname:";
+        $text2 = document.createElement("p");
+        $text2.innerText = "Lastname:";
+        $text3 = document.createElement("p");
+        $text3.innerText = "Email:";
+
+        $break = document.createElement("br");
+
         $old_table.remove();
+        $new_form.appendChild($text1);
         $new_form.appendChild($new_firstname);
+        $new_form.appendChild($text2);
         $new_form.appendChild($new_lastname);
+        $new_form.appendChild($text3);
         $new_form.appendChild($new_email);
+        $new_form.appendChild($break);
         $new_form.appendChild($save_edit);
         $div.appendChild($new_form);
 
@@ -96,10 +108,12 @@ $(document).ready(function() {
         $cancel_edit.onclick = function() {
             $("#edit_profile").attr("disabled", false);
             $(this).remove();
+           /* $break.remove();
             $("#save_edit").remove();
             $new_firstname.remove();
             $new_lastname.remove();
-            $new_email.remove();
+            $new_email.remove();*/
+            $new_form.remove();
             $div.appendChild($old_table);
         }        
 

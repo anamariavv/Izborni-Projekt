@@ -4,6 +4,7 @@
 
 <h2>Add an administrator</h2>
 
+<script src="js/add_administrator.js"></script>
 <form action="include/add_administrator.inc.php" id='administrator_form' method='post' target="_self" name="administrator_form">
     Firstname: <input type="text" id="firstname" name="firstname"><br>
     Lastname: <input type="text" id="lastname" name="lastname"><br>

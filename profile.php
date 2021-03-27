@@ -7,9 +7,9 @@
         $html_title = "<h1>My Profile<h1><h3>Personal information</h3>";
         $picture_src = $row["picture"];
         $html_info = "<div id='info_div'><table id='information'>
-        <tr><td>First Name</td><td id='fname'>".$row['firstname']."</td></tr>
-        <tr><td>Last Name</td><td id='lname'>".$row['lastname']."</td></tr>
-        <tr><td>OIB</td><td id='oib'>".$row['oib']."</td></tr>
+        <tr><td>Firstname</td><td id='fname'>".$row['firstname']."</td></tr>
+        <tr><td>Lastname</td><td id='lname'>".$row['lastname']."</td></tr>
+        <tr><td>TIN</td><td id='oib'>".$row['oib']."</td></tr>
         <tr><td>Age</td><td id='age'>".$row['age']."</td></tr>
         <tr><td>University</td><td id='university'>".$row['university']."</td></tr>";
     } else if($_SESSION['user_level'] == 'company') {
@@ -23,8 +23,8 @@
     } else {
         $html_title = "<h1>My Profile<h1><h3>Personal information</h3>";
         $html_info = "<div id='info_div'><table id='information'>
-        <tr><td>First Name</td><td id='fname'>".$row['firstname']."</td></tr>
-        <tr><td>Last Name</td><td id='lname'>".$row['lastname']."</td></tr>";
+        <tr><td>Firstname</td><td id='fname'>".$row['firstname']."</td></tr>
+        <tr><td>Lastname</td><td id='lname'>".$row['lastname']."</td></tr>";
     }
 
     echo "<script src='js/changepass.js'></script>";

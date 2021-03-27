@@ -9,6 +9,10 @@
         <input type="submit" value="Log in" name="loginsubmit"><br>
     </form>
 
+    <div>
+        <p><a href="reset_password.php">Forgot your password?</a></p>    
+    </div>
+
 <?php 
     if(isset($_GET["error"])) {
         if($_GET["error"] == "sql") {
@@ -23,6 +27,9 @@
         if($_GET["error"] == "incorrect_password") {
             echo "<p>The password you entered is incorrect.</p>";
         } 
+    }
+    if(isset($_GET["reset"])) {
+        echo "<p>Your password has been successfully reset.</p>";
     }
 
     include_once "footer.php";

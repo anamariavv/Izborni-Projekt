@@ -92,7 +92,7 @@
     }
 
     if(isset($_POST['keywords'])) {
-
+        
         foreach ($_POST['keywords'] as $row) {
            $id = mysqli_real_escape_string($conn, $row['id']);
            $category = mysqli_real_escape_string($conn, $row['category']);
@@ -131,7 +131,7 @@
             if(!($stmt = $conn->prepare($sql))) {
                 $message = "SQL error";
             }
-            if(!($stmt->bind_param("iiiissssi", $start_month, $end_month, $start_year, $end_year, $title, $country, $city, $description, $id))) {
+            if(!($stmt->bind_param("ssiissssi", $start_month, $end_month, $start_year, $end_year, $title, $country, $city, $description, $id))) {
                 $message = "SQL error";
             }
             if(!($stmt->execute())) {
@@ -182,7 +182,7 @@
             if(!($stmt = $conn->prepare($sql))) {
                 $message = "SQL error";
             }
-            if(!($stmt->bind_param("iiiissssi", $start_month, $end_month, $start_year, $end_year, $title, $country, $city, $description, $_SESSION['oib']))) {
+            if(!($stmt->bind_param("ssiissssi", $start_month, $end_month, $start_year, $end_year, $title, $country, $city, $description, $_SESSION['oib']))) {
                 $message = "SQL error";
             }
             if(!($stmt->execute())) {
