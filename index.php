@@ -2,10 +2,9 @@
     include_once "header.php";
     include_once "include/internships.inc.php";
     include_once "include/internship_feed.inc.php";
- ?>
-
-   <h1>Welcome!</h1>
-   <p>Work in progress</p>
+?>
+    <h1 class = "title_header">Internship Platform</h1>
+    <p>Work in progress</p>
 
 <?php
     if(isset($_GET["success"])) {
