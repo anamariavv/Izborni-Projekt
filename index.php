@@ -4,7 +4,6 @@
     include_once "include/internship_feed.inc.php";
 ?>
     <h1 class = "title_header">Internship Platform</h1>
-    <p>Work in progress</p>
 
 <?php
     if(isset($_GET["success"])) {
@@ -29,6 +28,15 @@
             }
         echo "</table>";
         }
+    } else {
+        echo "<div class='logo'>";
+        echo "<div class='logo_index'><img src='resources/logo.png' width=350px></img></div>";
+        echo "<div class='div_right'>
+        <h3>Looking for an internship?</h3
+        <p>Internship Platform is a web application that helps students find internships that suit them.
+        With features such as personal profiles, company reviews and online CV creation, Internship Platform allows
+        you to do everything online!</p>
+        </div></div>";
     }
 
 

@@ -5,11 +5,12 @@
 
 <?php
     if(!isset($_GET['token_id'])) {
+        echo "<div class='reset_password'>";
         echo "<p>Enter your email:</p>
         <form action='include/password_recovery.inc.php' method='post' target='_self' name='link_form' id='link_form'> 
             <input type='email' id='email' name='email'>
             <input type='submit' value='Submit' name='send_password_link' id='send_password_link'>  
-        </form>";
+        </form></div>";
     } else {
         if(isset($_GET['token_id'])) {
 
@@ -51,7 +52,7 @@
 
 <?php
     if(isset($_GET['link'])) {
-        echo "<div>If the email exists, a reset password link was sent</div>";
+        echo "<div class='reset_password_error'>If the email exists, a reset password link was sent</div>";
     }
     include_once "footer.php";
 ?>

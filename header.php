@@ -33,7 +33,7 @@
                     echo '<script src="js/notifications.js"></script>';
                     echo '<button class="notification_button" type="button" name="notifications" id="notifications">Notifications</button>';
                     echo '<div class="notification_div" id="notification_div"></div>';
-                    echo '<a class="right" href="include/logout.inc.php?logout=true"><button>Log out</button></a>';
+                    echo '<a class="log" href="include/logout.inc.php?logout=true"><button>Log out</button></a>';
                     echo '<a class="right" href="profile.php"><button>My profile</button></a>';
                     if($_SESSION["user_level"] == "administrator") {
                         echo '<div class="dropdown"><button class="dropdown_button">Administrator tools</button><div class="dropdown_content">
@@ -46,7 +46,7 @@
                     echo '<a href="index.php"><button>Home</button></a>'; 
                     echo '<a href="signup.php"><button>Register as student</button></a>'; 
                     echo '<a href="signup_company.php"><button>Register as company</button></a>';
-                    echo '<a class="right" href="login.php"><button>Log in</button></a>';
+                    echo '<a class="log" href="login.php"><button>Log in</button></a>';
                 }
             ?>
         </ul> 
