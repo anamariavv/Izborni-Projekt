@@ -5,18 +5,63 @@ body {
     overflow-x: hidden;
 }
 
+h2 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 0;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
+.navbar .log button {
+    float: right;
+    background-color: rgba(70, 194, 54, 0.753);
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.navbar .log button:hover {
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.logo {
+    margin-top: 0;
+    margin-left: 400px;
+    width: 800px;
+    align-self: center;   
+}
+
+.div_right {
+    float: right;
+    color: white;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    line-height: 40px;
+    background-color: rgba(53, 180, 36, 0.849);   
+}
+
+.logo_index {
+    width: 350px;
+    float: left;
+}
+
 .title_header {
     text-align: center;
     font-family: 'Gill Sans', sans-serif;
     margin-top: 0;
     padding: 40px;  
-    background-color: rgb(85, 84, 84);
+    background-color: rgb(49, 48, 48);
     color: white;
 }
 
 ul.navbar {
     display: inline-block;
-    background-color: rgb(85, 84, 84);
+    background-color: rgb(49, 48, 48);
     width: 100%;
     top: 0;
     margin-top: 0;
@@ -25,9 +70,10 @@ ul.navbar {
 }
 
 .navbar button {
+    border-radius: 4px;
     outline: none;
     transition-duration: 0.8s;
-    background-color: rgb(85, 84, 84);
+    background-color: rgb(49, 48, 48);
     color: white;
     padding: 15px 25px;
     text-align: center;
@@ -94,11 +140,312 @@ ul.navbar {
     bottom: 0;
     text-align: center;
     line-height: 50px;
-    background-color: rgb(85, 84, 84);
+    background-color: rgb(49, 48, 48);
     font-size: 14px;
     color: white;
     font-family: 'Gill Sans', sans-serif;
 }
 
+.login_title {
+    width: 1000px;
+    text-align: center;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 0;;
+}
+
+.login {
+    width: fit-content;
+    border: 2px;
+}
+
+.login_title_img {
+    float: left;
+    width: 400px;
+    margin-left: 298px;
+    margin-right: 0px;
+    margin-top: 2px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding-bottom: 38px;
+}
+
+.login_form {
+    border: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    height: 402px;
+    background-color: rgb(49, 48, 48);
+    font-size: 16px;
+    font-family: 'Gill Sans', sans-serif;
+    margin-left: 700px;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.login_form p {
+    position: relative;
+    margin-top: 20px;
+}
 
 
+.login_form input {
+    margin-left: 0px;
+    margin-top: 50px;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.login_form input[type=submit] {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.login_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.login_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.login_form a {
+    color:  white;
+}
+
+.login_form a:visited {
+    color:  white;
+}
+
+.login_form a:focus {
+    color:  rgb(36, 95, 19);
+}
+.login_error {
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.reset_password {
+    font-size: 16px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.reset_password input {
+    margin-top: 5px;
+    color:  rgb(49, 48, 48);
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.reset_password p {
+    margin-left: -50px;
+}
+
+.reset_password input[type=submit] {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.reset_password input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.reset_password input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.reset_password_error {
+    font-size: 16px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+
+}
+
+.signup_title {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 5px;
+    padding: 10px; 
+    color: rgb(49, 48, 48);
+}
+
+.signup {
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.signup .signup_label {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+label {
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+}
+
+.signup input {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.signup input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.signup input[type=submit] {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.signup input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.signup_div1 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    height: 250px;
+    width: 350px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border-color: rgb(49, 48, 48);
+    border-style: solid;
+    border-radius: 8px;
+}
+
+.signup_div1 img {
+    margin-top: 20px;
+}
+
+.company_signup_title {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 5px;
+    padding: 10px; 
+    color: rgb(49, 48, 48);
+}
+
+.company_signup {
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.company_signup .company_signup_label {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+.company_signup input {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.company_signup input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.company_signup input[type=submit] {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.company_signup input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+
+.signup_error {
+    color: rgb(49, 48, 48);
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
