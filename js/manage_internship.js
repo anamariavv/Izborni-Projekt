@@ -141,7 +141,7 @@ $(document).ready(function() {
         //create form
         var $new_form = document.createElement("form");
         $new_form.setAttribute("id", "edit_internship_form");
-       
+        $new_form.className += ' edit_form';
         var $new_input_1 = document.createElement("input");
         var $new_input_2 = document.createElement("input");
         var $new_input_3 = document.createElement("textarea");
