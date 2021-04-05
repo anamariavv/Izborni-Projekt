@@ -2,9 +2,10 @@
 <?php
     if(!isset($_GET['closed']) && ($_SESSION['user_level'] == 'company') && ($_SESSION['id'] == $company_id)) {
         require_once "include/display_candidates.inc.php";
-        echo "<button type='button' id='edit_internship'>Edit</button>
-        <button type='button' id='delete_internship'>Delete</button>
-        <button type='button' id='close_internship'>Close internship</button>";
+        echo "<div class='internship_button_div'><button type='button' class='internship_button_block' id='edit_internship'>Edit</button>
+        <button type='button' class='internship_button_block' id='delete_internship'>Delete</button>
+        <button type='button' class='internship_button_block' id='close_internship'>Close internship</button>
+        </div>";
         echo "<script src='js/manage_internship.js'></script>";
         echo "<div id='candidate_div'>";
         echo "<table>";
@@ -85,9 +86,9 @@
         }
 
         if(!$applied) {
-            echo "<a href='include/apply_internship.inc.php?id=".$_GET['id']."&company=".$_GET['company']."'><button type='button' id='apply_internship'>Apply</button></a>";
+            echo "<a href='include/apply_internship.inc.php?id=".$_GET['id']."&company=".$_GET['company']."'><button type='button' class='internship_button' id='apply_internship'>Apply</button></a>";
         } else {
-            echo "You are already applied for this internship!";
+            echo "<p class='signup_error'>You are already applied for this internship!<p>";
         }
     }
 ?>
