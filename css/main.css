@@ -2,6 +2,7 @@ body {
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 100px;
     overflow-x: hidden;
 }
 
@@ -141,7 +142,7 @@ ul.navbar {
     text-align: center;
     line-height: 50px;
     background-color: rgb(49, 48, 48);
-    font-size: 14px;
+    font-size: 14px;    
     color: white;
     font-family: 'Gill Sans', sans-serif;
 }
@@ -449,3 +450,118 @@ label {
     text-align: center;
     font-family: 'Gill Sans', sans-serif;
 }
+
+.index_table {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.index_table .table_header {
+    font-size: 32px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.index_table tr {
+    height: 50px;
+}
+
+.index_table .index_column_names {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+}
+
+.index_table button {
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.index_table button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+
+.internship_button {
+    border: none;
+    margin-left: 700px;
+    background-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.internship_button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.internship_button_div {
+    margin-left: 700px;
+    display: inline-block;
+}
+
+.internship_button_block {
+    margin: 5px;
+    float: left;
+    border: none;
+    background-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.internship_button_block:disabled {
+    margin: 5px;
+    float: left;
+    border: none;
+    background-color: rgb(114, 113, 113);
+    border-radius: 4px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.internship_button_block:disabled:hover {
+    outline: none;
+    background-color: rgb(114, 113, 113);
+    border-radius: 4px;
+}
+
+
+.internship_button_block:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.edit_form {
+    
+}
+
+
