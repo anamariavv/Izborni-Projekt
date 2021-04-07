@@ -1,11 +1,13 @@
 $(document).ready(function(){
     $("#new_internship").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = document.getElementById("new_internship");
+        $edit_button.remove();
 
         //create the form
         var $div_element = document.getElementById("create_new");
         var $new_form = document.createElement("form");
         $new_form.setAttribute("id", "new_internship_form");
+        $new_form.className += ' edit_form_2';
 
         //create input elements
         var $new_input_1 = document.createElement("input");
@@ -103,23 +105,31 @@ $(document).ready(function(){
         //append input to form
         $new_form.appendChild($new_input_1);
         $new_form.appendChild($new_input_2);
-        $new_form.appendChild($new_input_3);
+       
         $new_form.appendChild($new_input_4);
-        $new_form.appendChild($new_input_5);
+      
         $new_form.appendChild($new_input_6);
         $new_form.appendChild($new_input_7);
-        $new_form.appendChild($new_input_8);
+        $new_form.appendChild($new_input_3);
+        $new_form.appendChild($new_input_5);
+
+        var $button_div = document.createElement("div");
+        $button_div.appendChild($new_input_8);
+        
+        $new_form.appendChild($button_div);
 
         //append form to div
         $div_element.appendChild($new_form);
 
         //create cancel button and append to div
         var $new_cancel = document.createElement("button");
-        $div_element.appendChild($new_cancel);
         $new_cancel.setAttribute("id", "cancel_new_internship");
+        $button_div.appendChild($new_cancel);
+        $new_cancel.className = " cancel_edit_2";
         $new_cancel.innerText = "Cancel";
         $new_cancel.onclick = function delete_form() {
             $new_form.remove();
+            $div_element.appendChild($edit_button);
             $("#new_internship").attr("disabled", false);
             $(this).remove();
         }  
