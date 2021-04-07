@@ -533,25 +533,6 @@ label {
     font-size: 16px;
 }
 
-.internship_button_block:disabled {
-    margin: 5px;
-    float: left;
-    border: none;
-    background-color: rgb(114, 113, 113);
-    border-radius: 4px;
-    color: white;
-    width: 100px;
-    height: 50px;
-    font-family: 'Gill Sans', sans-serif;
-    font-size: 16px;
-}
-
-.internship_button_block:disabled:hover {
-    outline: none;
-    background-color: rgb(114, 113, 113);
-    border-radius: 4px;
-}
-
 
 .internship_button_block:hover {
     outline: none;
@@ -561,7 +542,224 @@ label {
 }
 
 .edit_form {
-    
+    margin-top: 20px;
+    margin-left: 200px;
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    width: 70%;
+    height: 425px;
+    padding: 10px;
+    display: inline-block;
+    font-family: 'Gill Sans', sans-serif;
 }
+
+.edit_form label {
+    margin-left: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.edit_form input {
+    width: 300px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.edit_form textarea {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 70px;
+    width: 300px;
+    color: white;
+    border-style: solid;
+    border: 2px;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+
+.edit_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form input[type=submit] {
+    margin-left: 400px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.edit_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.cancel_edit {
+    margin-left: 50px;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.cancel_edit:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.link_dark {
+    color:  rgb(53, 180, 36);
+}
+
+.link_dark:visited {
+    color:  rgb(36, 95, 19);
+}
+
+.link_dark:focus {
+    color:  rgb(36, 95, 19);
+}
+
+.button_grey_center {
+    margin-left: 700px;
+    margin-right: 700px;
+    border: none;
+    background-color:rgb(49, 48, 48);
+    color: white;
+    border-color: rgb(49, 48, 48);
+    width: 110px;
+    height: 60px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.button_grey_center:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color:rgb(114, 113, 113);
+    border-radius: 4px;
+}
+
+.edit_form_2 {
+    display: inline-block;
+    margin-left: 400px;
+    width: 50%;
+    padding-top: 20px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    height: 570px;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.edit_form_2 input {
+    width: 200px;
+    margin-bottom: 10px;
+    margin-left: 250px;
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.edit_form_2 textarea {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    margin-left: 200px;
+    height: 70px;
+    width: 300px;
+    color: white;
+    border-style: solid;
+    border: 2px;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+
+.edit_form_2 textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form_2 input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form_2 input[type=submit] {
+    margin-left: 220px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.edit_form_2 input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.cancel_edit_2 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: none;
+    margin-left: 50px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.cancel_edit_2:hover{
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+
 
 
