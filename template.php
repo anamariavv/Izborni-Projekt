@@ -2,14 +2,14 @@
 <?php
     if(!isset($_GET['closed']) && ($_SESSION['user_level'] == 'company') && ($_SESSION['id'] == $company_id)) {
         require_once "include/display_candidates.inc.php";
-        echo "<div class='internship_button_div'><button type='button' class='internship_button_block' id='edit_internship'>Edit</button>
+        echo "<div id='internship_button_div' class='internship_button_div'><button type='button' class='internship_button_block' id='edit_internship'>Edit</button>
         <button type='button' class='internship_button_block' id='delete_internship'>Delete</button>
         <button type='button' class='internship_button_block' id='close_internship'>Close internship</button>
         </div>";
         echo "<script src='js/manage_internship.js'></script>";
         echo "<div id='candidate_div'>";
-        echo "<table>";
-        echo "<thead><tr><th>TIN</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th><th colspan='2'>Acceptance</th></tr></thead>";
+        echo "<table class='index_table'>";
+        echo "<thead><tr class='index_column_names'><th>TIN</th><th>Firstname</th><th>Lastname</th><th>CV</th><th>Keywords</th><th colspan='2'>Acceptance</th></tr></thead>";
         echo "<tbody id='applicants'>";
     
         foreach ($result_array as $row) {
@@ -35,7 +35,7 @@
             $keyword_array = $result->fetch_all(MYSQLI_ASSOC);
 
             $link_string = 'resume_'.$row["oib"].'.php?oib='.$row["oib"];
-            echo "<tr><td id='stu_oib'>".$row['oib']."</td><td>".$row['firstname']."</td><td>".$row['lastname']."</td><td><a href='".$link_string."' target='_blank'>View</a></td>";
+            echo "<tr><td id='stu_oib'>".$row['oib']."</td><td>".$row['firstname']."</td><td>".$row['lastname']."</td><td><a class='link_dark' href='".$link_string."' target='_blank'>View</a></td>";
             echo "<td>";
             $flag = 1;
             foreach($keyword_array as $word) {

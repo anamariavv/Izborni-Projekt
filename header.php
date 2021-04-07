@@ -17,7 +17,7 @@
                         echo '<a href="include/generate_resume.inc.php"><button>My CV</button></a>';
                     }
                     if($_SESSION["user_level"] == "company") {
-                        echo '<a href="internships.php"><button>Internships Overview</button></a>';
+                        echo '<a href="internships.php"><button>My Internships</button></a>';
                     }
                     $notif_id_data;
                     if($_SESSION['user_level'] == 'student') {
