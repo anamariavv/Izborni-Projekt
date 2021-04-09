@@ -15,6 +15,15 @@ h2 {
     color: rgb(49, 48, 48);
 }
 
+.h1 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 0;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
 .navbar .log button {
     float: right;
     background-color: rgba(70, 194, 54, 0.753);
@@ -754,12 +763,233 @@ label {
     border-radius: 4px;
 }
 
-.cancel_edit_2:hover{
+.cancel_edit_2:hover {
     transition-duration: 0.8s;
     background-color: rgb(132, 236, 118);;
     border-radius: 4px;
 }
 
+.forum_list {
+    margin-left: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 50px;
+    width: 60%;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    line-height: 50px;
+    background-color: rgba(53, 180, 36, 0.849);
+}
 
+.forum_list:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+    margin-left: 293px;
+    height: 55px;
+    width: 61%;
+    font-size: 20px;
+}
 
+.forum_list a {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 400px;
+    padding-right: 400px;
+    text-decoration: none;
+    color: white;
+}
 
+.forum_wrapper {
+    margin-left: 390px;
+    margin-bottom: 30px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(49, 48, 48);
+    border-radius: 4px;
+    width: 45%;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.forum_wrapper img {
+    float: left;
+    margin-right: 30px;
+}
+.forum_warning_title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+}
+
+.forum_warning {
+    width: 600px;
+    margin-left: 20px;
+}
+
+.comment {
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    font-family: 'Gill Sans', sans-serif;
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    background-color :rgb(49, 48, 48);
+    color: white;
+}
+
+.comment_author {
+    margin-right: 5px;
+    text-align: right;
+    width: 300px;
+    float: right;
+    font-size: 14px;
+}
+
+.comment_text {
+    margin-left: 5px;
+}
+
+.comment_left {
+    float: left;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.comment_left img {
+   border: 2px;
+   border-color: rgb(49, 48, 48);
+   border-style: solid;
+   border-radius: 50px;
+}
+
+.comment button {
+    color:white;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(70, 194, 54, 0.753);
+    border-radius: 4px;
+    height: 40px;
+    width: 60px;
+}
+
+.comment button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.comment_form {
+    margin-top: 50px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.comment_form textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_form input[type=submit] {
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    width: 95px;
+    height: 60px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.comment_pending {
+    font-style: italic;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Gill Sans', sans-serif;
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    background-color: rgb(114, 113, 113);
+    color: white;
+}
+
+.comment_author_pending {
+    margin-right: 5px;
+    font-style: italic;
+    text-align: right;
+    width: 300px;
+    float: right;
+    font-size: 14px;
+}
+
+.comment_left_pending {
+    float: left;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.comment_left_pending img {
+   border: 2px;
+   border-color: rgb(114, 113, 113);
+   border-style: solid;
+   border-radius: 50px;
+}
+
+.comment_edit_form {
+    margin-left: 50px;
+}
+
+.comment_edit_form textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_edit_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_edit_form input[type=submit] {
+    margin-left: 10px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    height: 40px;
+    width: 60px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_edit_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
