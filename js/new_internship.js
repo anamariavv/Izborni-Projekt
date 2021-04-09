@@ -62,13 +62,13 @@ $(document).ready(function(){
                 },
                 messages: {
                     id: {
-                        required: "This field is required! Please enter the internship ID as country-year-city-number"
+                        required: "Please enter the internship ID as country-year-city-number"
                     },
                     position: {
-                        required: "This field is required! Please enter the name of the work position"
+                        required: "Please enter the name of the work position"
                     },
                     description: {
-                        required: "This field is required! Please provide a description for the position"
+                        required: "Please provide a description for the position"
                     },
                     city: {
                         required: "This field is required!"
@@ -77,10 +77,10 @@ $(document).ready(function(){
                         required: "This field is required!"
                     },
                     salary: {
-                        required: "This field is required! Please provide monthly gross pay"
+                        required: "Please provide monthly gross pay"
                     },    
                     deadline: {
-                        required: "This field is required! Please provide application deadline"
+                        required: "Please provide application deadline"
                     }     
                 },
                 submitHandler: function() {

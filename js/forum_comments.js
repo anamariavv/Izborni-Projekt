@@ -43,10 +43,11 @@ $(document).ready(function() {
 
     var $new_form = document.createElement("form");
     $new_form.setAttribute("id", "new_form");
+    $new_form.className += ' comment_edit_form'; 
     var $textarea = document.createElement("textarea");
     $textarea.setAttribute("form", "new_form");
-    $textarea.setAttribute("cols", "100");
-    $textarea.setAttribute("rows", "8");
+    $textarea.setAttribute("cols", "60");
+    $textarea.setAttribute("rows", "5");
     $textarea.setAttribute("id", "new_comment_text");
     $textarea.value = $comment_text;
     
@@ -95,13 +96,13 @@ $(document).ready(function() {
     var $cancel_edit = document.createElement("button");
     $cancel_edit.setAttribute("type", "button");
     $cancel_edit.setAttribute("id", "cancel_edit");
-    $cancel_edit.innerText = "Cancel editing";
+    $cancel_edit.innerText = "Cancel";
     $cancel_edit.onclick = function() {
       $edit_button.attr("disabled", false);
       $new_form.remove();
       $comment_div.innerHTML = $comment_text;
     }
-    $comment_div.appendChild($cancel_edit);
+    $new_form.appendChild($cancel_edit);
 
   })
 
