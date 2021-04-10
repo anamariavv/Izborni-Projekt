@@ -4,7 +4,7 @@
 
 <h2>Send a custom notification</h2>
 <script src="js/send_notification.js"></script>
-<form action="include/user_list.inc.php" method="post" target="_self" name="messageform" id="messageform">
+<form class='comment_edit_form_2' action="include/user_list.inc.php" method="post" target="_self" name="messageform" id="messageform">
     <textarea form="messageform" cols="50" rows="10" name="message_text"></textarea><br>
     <?php echo "<input type='hidden' value='".$_GET['id']."' name='identification'>";
             echo "<input type='hidden' value='".$_GET['type']."' name='type'>"; 

@@ -36,8 +36,7 @@
                     echo '<a class="log" href="include/logout.inc.php?logout=true"><button>Log out</button></a>';
                     echo '<a class="right" href="profile.php"><button>My profile</button></a>';
                     if($_SESSION["user_level"] == "administrator") {
-                        echo '<div class="dropdown"><button class="dropdown_button">Administrator tools</button><div class="dropdown_content">
-                        <a href="user_list.php"><button>User list</button></a>
+                        echo '<a href="user_list.php"><button>User list</button></a>
                         <a href="approve_comments.php"><button>Comment approval</button></a>
                         <a href="add_administrator.php"><button>Add administrator</button></a>
                         </div></div>';
