@@ -15,14 +15,14 @@
     } else if($_SESSION['user_level'] == 'company') {
         $html_title = "<h1 class='h1'>Profile<h1>";
         $picture_src = $row["logo"];
-        $html_info = "<div id='info_div' class='profile_form'><table class='profile_table' id='information'>
+        $html_info = "<div id='info_div'><table class='profile_table' id='information'>
         <tr><td class='profile_table_col'>Company Name</td><td id='cname'>".$row['name']."</td></tr>
         <tr><td class='profile_table_col'>Field of Work</td><td id='field'>".$row['field']."</td></tr>
         <tr><td class='profile_table_col'>Website</td><td id='website'>".$row['website']."</td></tr>
         <tr><td class='profile_table_col'>Description</td><td id='description'>".$row['description']."</td></tr>"; 
     } else {
         $html_title = "<h1 class='h1'>My Profile</h1>";
-        $html_info = "<div id='info_div' class='profile_form'><table class='profile_table' id='information'>
+        $html_info = "<div id='info_div' class='profile_form_admin'><table class='profile_table' id='information'>
         <tr><td class='profile_table_col'>Firstname</td><td id='fname'>".$row['firstname']."</td></tr>
         <tr><td class='profile_table_col'>Lastname</td><td id='lname'>".$row['lastname']."</td></tr>";
     }
