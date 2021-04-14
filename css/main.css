@@ -15,11 +15,34 @@ h2 {
     color: rgb(49, 48, 48);
 }
 
+.h3 {
+    width: 94.5%;
+    margin-left: 22px;
+    margin-bottom: -40px;
+    background-color: rgb(49, 48, 48);
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    padding: 20px;  
+    color: white;
+}
+
 .h1 {
     font-size: 32px;
     text-align: center;
     font-family: 'Gill Sans', sans-serif;
     margin-top: 0;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
+.result_text {
+    text-align: center;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin: 0 auto;
+    width: 50%;
     padding: 20px;  
     color: rgb(49, 48, 48);
 }
@@ -339,6 +362,7 @@ label {
     text-align: center;
     width: 30%;
     display: inline-block;
+    color: white;
 }
 
 .signup input {
@@ -599,7 +623,6 @@ label {
     font-size: 16px;
 }
 
-
 .edit_form textarea:focus {
     outline: none;
     border-color: rgba(53, 180, 36, 0.849);
@@ -795,8 +818,8 @@ label {
 .forum_list a {
     padding-bottom: 10px;
     padding-top: 10px;
-    padding-left: 400px;
-    padding-right: 400px;
+    padding-left: 200px;
+    padding-right: 200px;
     text-decoration: none;
     color: white;
 }
@@ -817,6 +840,7 @@ label {
     float: left;
     margin-right: 30px;
 }
+
 .forum_warning_title {
     width: 100%;
     text-align: center;
@@ -993,3 +1017,342 @@ label {
     background-color: rgb(132, 236, 118);;
     border-radius: 4px;
 }
+
+.index_table_2 {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.index_table_2 .table_header {
+    font-size: 32px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.index_table_2 tr {
+    height: 50px;
+}
+
+.index_table_2 .index_column_names {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+}
+
+.index_table_2 button {
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.index_table_2 button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.comment_edit_form_2 {
+    margin-left: 520px;
+}
+
+.comment_edit_form_2 textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_edit_form_2 textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_edit_form_2 input[type=submit] {
+    margin-left: 200px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 70px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_edit_form_2 input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.signup_label_2 {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+.profile_table {
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+    border-collapse: collapse;
+}
+
+.profile_table td {
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.profile_table .profile_table_col {
+    text-align: left;
+}
+
+.profile_wrapper {
+    height: 300px;
+}
+
+.profile_picture {
+    margin-left: 600px;
+    border: 5px;
+    border-style: solid;
+    border-radius: 100px;
+    border-color:  rgba(53, 180, 36, 0.849);
+}
+
+.profile_buttons {
+    margin-left: 530px;
+}
+
+.profile_buttons1 {
+    margin-left: 590px;
+}
+
+.profile_buttons1 button {
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 90px;
+    height: 60px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.profile_buttons1 button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.profile_buttons button {
+    margin-top: 10px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 160px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.profile_buttons button:disabled {
+    border-color: rgba(136, 138, 135, 0.849);
+    background-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.profile_buttons button:disabled:hover {
+    background-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.profile_buttons button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.passdiv form {
+    border: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    height: 160px;
+    background-color: rgb(49, 48, 48);
+    font-size: 16px;
+    font-family: 'Gill Sans', sans-serif;
+    border-radius: 6px;
+    padding: 20px;
+    margin-left: 480px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.passdiv input {
+    height: 30px;
+    margin-top: 10px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.passdiv input[type=submit] {
+    margin-top: 10px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.passdiv input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.passdiv button {
+    margin-top: 10px;
+    margin-left:5px;
+    font-size: 16px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.passdiv button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.passdiv input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form {
+    margin-top: 50px;
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.profile_form label {
+    text-align: left;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.profile_form form {
+    height: 400px;
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.profile_form input {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+
+.profile_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form input[type=submit] {
+    margin-left: 400px;
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.profile_form button {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
