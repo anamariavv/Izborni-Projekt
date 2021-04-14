@@ -81,22 +81,31 @@ $(document).ready(function() {
             })
         }
 
-        $text1 = document.createElement("p");
+        $div1 = document.createElement("div");
+        $div1.className += " profile_admin_form_div";
+        $text1 = document.createElement("label");
         $text1.innerText = "Firstname:";
-        $text2 = document.createElement("p");
+        $div1.appendChild($text1);
+        $div1.appendChild($new_firstname);
+        $div2 = document.createElement("div");
+        $div2.className += " profile_admin_form_div";
+        $text2 = document.createElement("label");
         $text2.innerText = "Lastname:";
-        $text3 = document.createElement("p");
+        $div2.appendChild($text2);
+        $div2.appendChild($new_lastname);
+        $div3 = document.createElement("div");
+        $div3.className += " profile_admin_form_div";
+        $text3 = document.createElement("label");
         $text3.innerText = "Email:";
+        $div3.appendChild($text3);
+        $div3.appendChild($new_email);
 
         $break = document.createElement("br");
 
         $old_table.remove();
-        $new_form.appendChild($text1);
-        $new_form.appendChild($new_firstname);
-        $new_form.appendChild($text2);
-        $new_form.appendChild($new_lastname);
-        $new_form.appendChild($text3);
-        $new_form.appendChild($new_email);
+        $new_form.appendChild($div1);
+        $new_form.appendChild($div2);
+        $new_form.appendChild($div3);
         $new_form.appendChild($break);
         $new_form.appendChild($save_edit);
         $div.appendChild($new_form);
@@ -108,16 +117,11 @@ $(document).ready(function() {
         $cancel_edit.onclick = function() {
             $("#edit_profile").attr("disabled", false);
             $(this).remove();
-           /* $break.remove();
-            $("#save_edit").remove();
-            $new_firstname.remove();
-            $new_lastname.remove();
-            $new_email.remove();*/
             $new_form.remove();
             $div.appendChild($old_table);
         }        
 
-        $div.appendChild($cancel_edit);
+        $new_form.appendChild($cancel_edit);
     });
     
 })
