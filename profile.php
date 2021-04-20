@@ -13,9 +13,9 @@
         <tr><td class='profile_table_col'>Age</td><td id='age'>".$row['age']."</td></tr>
         <tr><td class='profile_table_col'>University</td><td id='university'>".$row['university']."</td></tr>";
     } else if($_SESSION['user_level'] == 'company') {
-        $html_title = "<h1 class='h1'>Profile<h1>";
+        $html_title = "<div class='profile_wrapper'><h1 class='h1'>Profile</h1>";
         $picture_src = $row["logo"];
-        $html_info = "<div id='info_div'><table class='profile_table' id='information'>
+        $html_info = "<div id='info_div' class='profile_form_company'><table class='profile_table' id='information'>
         <tr><td class='profile_table_col'>Company Name</td><td id='cname'>".$row['name']."</td></tr>
         <tr><td class='profile_table_col'>Field of Work</td><td id='field'>".$row['field']."</td></tr>
         <tr><td class='profile_table_col'>Website</td><td id='website'>".$row['website']."</td></tr>
@@ -45,7 +45,7 @@
             echo "<div class='profile_buttons1'><a id='delete_link'><button type ='button' id='delete_picture'>Remove picture</button></a>";
         }
         echo "<button type ='button' id='change_picture'>Change picture</button></div></div>";
-        echo "<div id='picture_div'></div>";
+        echo "<div id='picture_div' class='picture_div'></div>";
     }
     
 

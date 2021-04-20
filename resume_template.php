@@ -1,31 +1,33 @@
 <?php
     include_once "include/display_resume.inc.php";
 
-    echo '<h1 id="h1_title">'.$row['title'].'</h1>
+    echo '<div id="cv_wrapper" class="cv_wrapper">';
+    echo '<div id="sidebar" class="sidebar">';
+    echo '<img src='.$row['picture'].' width="200" height="200"></img>';
+    echo '<div id="contact" class="contact" >';
+    echo  $row['firstname'].' '.$row['lastname'];
+    echo '<p>Email: '.$row['email'].'</p>
+        <p>Phone: '.$row['phone_number'].'</p>
+        </div></div>';
+
+    echo '<div id="cv_content" class="cv_content">';
+    echo '<h1 id="h1_title" class="h1">'.$row['title'].'</h1>
         <div id="title"></div>
         <div id="edit_title_button">';
         if($_SESSION["user_level"] == "student") {
             echo "<button type='button' id='edit_title'>Edit</button>";
         }
     echo '</div>';
-
-    echo '<h2 id="h2_name">'.$row['firstname'].' '.$row['lastname'].'</h2>';
     echo '<h2>Introduction</h2>
-        <div id="intro">'.$row['description'].'</div>
+        <div id="intro" class="intro">'.$row['description'].'</div>
         <div id="edit_intro_button">';
         if($_SESSION['user_level'] == "student") {
             echo "<button type='button' id='edit_intro'>Edit</button>";
         }
     echo '</div>';
-    echo '<h2>Contact</h2>
-        <div id="contact">
-        <p>Email:'.$row['email'].'</p>
-        <p>Phone:'.$row['phone_number'].'</p>
-        </div>';
-
-    echo '<h2>Education</h2>
-        <div id="education">
-        <table id="education_table">';
+    echo  '<h2>Education</h2>
+        <div id="education" class="education">
+        <table id="education_table" class="cv_table">';
     echo '<thead><tr><th>Start year</th><th>End year</th><th>Title</th><th>Country</th><th>City</th></tr></thead><tbody id="education_body">';
         $count = 0;
         foreach ($array_education as $row_education) {
@@ -47,8 +49,8 @@
     echo '</div>';
 
     echo '<h2>Work Experience</h2>
-        <div id="work_experience">
-        <table id="work_table" width="35%">';
+        <div id="work_experience" class="work_experience">
+        <table id="work_table" width="35%" class="cv_table">';
         $count = 1;
         foreach($array_work as $row_work) {
             echo '<tr><th hidden id="work_id'.$count.'">'.$row_work['id'].'</th><th id="work_start_month'.$count.'">'.$row_work['start_month'].'</th><th id="work_start_year'.$count.'">'.$row_work['start_year'].'</th><th id="work_end_month'.$count.'">'.$row_work['end_month'].'</th><th id="work_end_year'.$count.'">'.$row_work['end_year'].'</th><th id="work_title'.$count.'">'.$row_work['title'].'</th><th id="work_city'.$count.'">'.$row_work['city'].'</th><th id="work_country'.$count.'">'.$row_work['country'].'</th></tr>';
@@ -71,8 +73,8 @@
     echo '</div>';
 
     echo '<h2>Skills</h2>
-        <div id="skills">
-        <table id="skill_table">';
+        <div id="skills" class="skills">
+        <table id="skill_table" class="cv_table">';
     echo '<thead><tr><th>Skill</th><th>Level</th></tr></thead><tbody id="skill_body">';
         $count = 0;
         foreach($array_skill as $row_skill) {
@@ -94,8 +96,8 @@
     echo '</div>';
     
     echo '<h2>Languages</h2>
-        <div id="languages">
-        <table id="language_table">';
+        <div id="languages" class="languages">
+        <table id="language_table" class="cv_table">';
     echo '<thead><tr><th>Language</th><th>Level</th></tr></thead><tbody id="language_body">';
         $count = 0;
         foreach($array_language as $row_language) {
@@ -117,8 +119,8 @@
     echo '</div>';
 
     echo '<h2>Keywords</h2>
-        <div id="keywords">        
-        <table id="keyword_table">';
+        <div id="keywords" class="keywords">        
+        <table id="keyword_table" class="cv_table">';
     echo '<thead><tr><th>Category</th><th>Keyword</th></tr></thead><tbody id="keyword_body">';
         $count = 0;
         foreach($array_keyword as $row_keyword) {
@@ -130,6 +132,7 @@
         if($_SESSION['user_level'] == "student") {
             echo "<button type='button' id='add_keyword'>Add</button>";
         }
+    echo '</div></div>';
     echo '</div>';
 
 ?>
