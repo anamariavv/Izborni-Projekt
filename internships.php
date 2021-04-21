@@ -2,11 +2,9 @@
     include_once "header.php";
     require_once "include/internships.inc.php"; 
 ?>
-    <h1>Internships</h1>
-
-    <table>
-        <tr><th colspan="9"><h2>Open internships</h2></th></tr>
-        <tr><th>ID</th><th>Position</th><th>City</th><th>Status</th><th>Deadline</th></tr>
+    <table class='index_table'>
+        <tr><th class='table_header' colspan="9">Open internships<th></tr>
+        <tr class='index_column_names'><th>ID</th><th>Position</th><th>City</th><th>Status</th><th>Deadline</th><th>Actions</th></tr>
         <?php
             foreach($result_array as $row) {
                 if($row['status'] == 'open' && $row['company_id'] == $_SESSION['id']) {
@@ -16,9 +14,9 @@
         ?>
     </table>
     
-    <table>
-        <tr><th colspan = "9"><h2>Internship Archive</h2></th></tr>
-        <tr><th>ID</th><th>Position</th><th>City</th></tr>
+    <table class='index_table'>
+        <tr><th class='table_header' colspan = "9">Internship Archive<th></tr>
+        <tr class='index_column_names'><th>ID</th><th>Position</th><th>City</th><th>Actions</th></tr>
         <?php
             foreach($result_array as $row) {
                     if($row['status'] == 'closed' && $row['company_id'] == $_SESSION['id']) {
@@ -29,7 +27,7 @@
     </table>
 
 
-    <button type="button" id="new_internship">Create new internship</button>
+    <button type="button" class="button_grey_center" id="new_internship">Create new internship</button>
     <div id="create_new"></div>
     <script src="js/new_internship.js"></script>
 <?php

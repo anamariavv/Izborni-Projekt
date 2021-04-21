@@ -9,17 +9,15 @@
         <script src="js/jquery-3.5.1.min.js"></script>
         <script src="js/jquery.validate.js"></script>
         <link rel="stylesheet" href="css/main.css">
-        <ul>
+        <ul class="navbar">
             <?php
                 if(isset($_SESSION["status"])) {
-                    echo '<a href="include/logout.inc.php?logout=true">Log out</a>';
-                    echo '<a href="index.php">Home</a>';
-                    echo '<a href="profile.php">My profile</a>';
+                    echo '<a href="index.php"><button>Home</button></a>';
                     if($_SESSION["user_level"] == "student") {
-                        echo '<a href="include/generate_resume.inc.php">My CV</a>';
+                        echo '<a href="include/generate_resume.inc.php"><button>My CV</button></a>';
                     }
                     if($_SESSION["user_level"] == "company") {
-                        echo '<a href="internships.php">Internships Overview</a>';
+                        echo '<a href="internships.php"><button>My Internships</button></a>';
                     }
                     $notif_id_data;
                     if($_SESSION['user_level'] == 'student') {
@@ -31,24 +29,26 @@
                     }
                     echo "<input id='notif_id' type='hidden' value='".$notif_id_data."'></hidden>";
                     echo "<input id='notif_id_type' type='hidden' value='".$notif_id_type."'></hidden>";
+                    echo '<a href="company_forums.php"><button>Company forums</button></a>';
                     echo '<script src="js/notifications.js"></script>';
-                    echo '<button type=notifications name="notifications" id="notifications">Notifications</button>';
-                    echo '<div id="notification_div"></div>';
-                    echo '<a href="company_forums.php">Company forums</a>';
+                    echo '<button class="notification_button" type="button" name="notifications" id="notifications">Notifications</button>';
+                    echo '<div class="notification_div" id="notification_div"></div>';
+                    echo '<a class="log" href="include/logout.inc.php?logout=true"><button>Log out</button></a>';
+                    echo '<a class="right" href="profile.php"><button>My profile</button></a>';
                     if($_SESSION["user_level"] == "administrator") {
-                        echo '<div class="dropdown"><button class="dropdown_button">Administrator tools</button><div class="dropdown_content">
-                        <a href="user_list.php">User list</a>
-                        <a href="approve_comments.php">Comment approval</a>
-                        <a href="add_administrator.php">Add administrator</a>
+                        echo '<a href="user_list.php"><button>User list</button></a>
+                        <a href="approve_comments.php"><button>Comment approval</button></a>
+                        <a href="add_administrator.php"><button>Add administrator</button></a>
                         </div></div>';
                     }
                 } else {
-                    echo '<a href="login.php">Log in</a>'; 
-                    echo '<a href="signup.php">Register as student</a>'; 
-                    echo '<a href="signup_company.php">Register as company</a>';
-                    echo '<a href="index.php">Home</a>';
+                    echo '<a href="index.php"><button>Home</button></a>'; 
+                    echo '<a href="signup.php"><button>Register as student</button></a>'; 
+                    echo '<a href="signup_company.php"><button>Register as company</button></a>';
+                    echo '<a class="log" href="login.php"><button>Log in</button></a>';
                 }
             ?>
         </ul> 
     </head>
 <body>
+

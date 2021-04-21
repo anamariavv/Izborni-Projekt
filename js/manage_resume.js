@@ -2,7 +2,8 @@ $(document).ready(function() {
     
     //---------------------Title editing----------------------
    $("#edit_title").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = this;
+        $edit_button.remove();
         var $title_div = document.getElementById("title");
         var $old_title = document.getElementById("h1_title");
         var $title_form = document.createElement("form");
@@ -49,22 +50,24 @@ $(document).ready(function() {
         $cancel_title_edit.setAttribute("id", "cancel_title_edit");
         $cancel_title_edit.innerHTML = "Cancel";
         $cancel_title_edit.onclick = function cancel_title_edit() {
-            $("#edit_title").attr("disabled", false);
             $title_form.remove();
             $title_div.appendChild($old_title);
+            $title_div.appendChild($edit_button);
             $(this).remove();
-        }        
+        }    
+
         $title_form.append($input1);
         $title_form.append($input2);
+        $title_form.appendChild($cancel_title_edit);
         $old_title.remove();
         $title_div.appendChild($title_form);
-        $title_div.appendChild($cancel_title_edit);
+        
     })
 
     //---------------------Introduction editing----------------------
     $("#edit_intro").click(function() {
-        $(this).attr("disabled", true);
-        
+        var $edit_button = this;
+        $edit_button.remove();
         $old_intro = document.getElementById("intro");
         $old_intro_text = $old_intro.innerHTML;
         $old_intro.innerHTML = "";
@@ -81,7 +84,7 @@ $(document).ready(function() {
         $textarea.innerText = $old_intro_text;
         var $submit_new_intro = document.createElement("input");
         $submit_new_intro.setAttribute("type", "submit");
-        $submit_new_intro.innerText = "Save";
+        $submit_new_intro.value = "Save";
         $submit_new_intro.onclick = function save_intro(e) {
                 $("#intro_form").validate({
                 rules: {
@@ -118,11 +121,11 @@ $(document).ready(function() {
         $cancel_intro_edit.setAttribute("type", "button");
         $cancel_intro_edit.setAttribute("id", "cancel_intro_edit");
         $cancel_intro_edit.innerText = "Cancel";
-        $intro_div.appendChild($cancel_intro_edit);
+        $intro_form.appendChild($cancel_intro_edit);
         $cancel_intro_edit.onclick = function cancel_intro_edit() {
-            $("#edit_intro").attr("disabled", false);
             $intro_form.remove();
             $intro_div.innerHTML = $old_intro_text;
+            $intro_div.appendChild($edit_button);
             $(this).remove();
         }
     })
@@ -130,7 +133,10 @@ $(document).ready(function() {
 
     //---------------------Education editing----------------------
     $("#edit_education").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = this;
+        $edit_button.remove();
+        var $add_button = document.getElementById("add_education");
+        $add_button.remove();
         
         var $education_div = document.getElementById("education");
         var $education_table = document.getElementById("education_table");
@@ -151,6 +157,8 @@ $(document).ready(function() {
         var $new_title = document.createElement("input");
         var $new_country = document.createElement("input");
         var $new_city = document.createElement("input");
+
+        var old_education = [];
        
         for(var i = 0; i < $education_body.rows.length; i++) {
             var $id0 = "education_id" + i;
@@ -160,6 +168,10 @@ $(document).ready(function() {
             var $id4 = "education_country" + i;
             var $id5 = "education_city" + i;
             education = [];
+
+            tmp = {};
+            tmp["id"] = document.getElementById($id0).innerHTML;
+            old_education.push(tmp);
 
             education["id"] = document.getElementById($id0).innerHTML;
             $start_year = document.getElementById($id1).innerHTML;
@@ -220,10 +232,13 @@ $(document).ready(function() {
             $delete_education.innerText = "Delete";
             $delete_education.onclick = function() {
                 if(window.confirm("Are you sure you want to delete this education?")) {
+                    $target = this.id.substr(-1);
+                    $e_id = old_education[$target]["id"];
+                    console.log($e_id);
                     $.ajax({
                         type: "POST",
                         url: "include/edit_resume.inc.php",
-                        data: {delete_education : education["id"]},
+                        data: {delete_education : $e_id},
                         dataType: "json",
                         success: function(response) {
                             location.reload();
@@ -321,12 +336,13 @@ $(document).ready(function() {
         var $cancel_education_edit = document.createElement("button");
         $cancel_education_edit.setAttribute("type", "button");
         $cancel_education_edit.setAttribute("id", "cancel_education_edit");
-        $cancel_education_edit.innerText = "Cancel Editing";
-        $education_div.appendChild($cancel_education_edit);
+        $cancel_education_edit.innerText = "Cancel";
+        $education_form.appendChild($cancel_education_edit);
         $cancel_education_edit.onclick = function cancel_education_edit() {
-            $("#edit_education").attr("disabled", false);
             $education_form.remove();
             $education_div.appendChild($education_table);
+            $education_div.appendChild($edit_button);
+            $education_div.appendChild($add_button);
             $(this).remove();
         }
         
@@ -335,7 +351,10 @@ $(document).ready(function() {
     //---------------------Work experience editing----------------------
 
     $("#edit_work_experience").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = this;
+        $edit_button.remove();
+        var $add_button = document.getElementById("add_work");
+        $add_button.remove();
         var $work_div = document.getElementById("work_experience");
         var $work_table = document.getElementById("work_table");
         var $work_form = document.createElement("form");
@@ -435,8 +454,8 @@ $(document).ready(function() {
             $new_work_description.setAttribute("form", "work_form");
             $new_work_description.setAttribute("id", $new_work_description_id);
             $new_work_description.setAttribute("placeholder", "Description");
-            $new_work_description.setAttribute("cols", "50");
-            $new_work_description.setAttribute("rows", "10");
+            $new_work_description.setAttribute("cols", "20");
+            $new_work_description.setAttribute("rows", "3");
             $new_work_description.value = work["description"];
 
             var $delete_work = document.createElement("button");
@@ -445,7 +464,6 @@ $(document).ready(function() {
             $delete_work.setAttribute("type", "button");
             $delete_work.innerText = "Delete";
             $delete_work.onclick = function() {
-                console.log(old_work);
                 if(window.confirm("Are you sure you want to delete this work?")) {
                     var $target = this.id.substr(-1)-1;
                     var $w_id = old_work[$target]["id"];
@@ -483,6 +501,9 @@ $(document).ready(function() {
             var $text8 = document.createElement("span");
             $text8.innerText = "Work description: ";
             
+            var $space_div = document.createElement("div");
+            $space_div.className += " space_div";
+
             $work_form.appendChild($text1);
             $work_form.appendChild($new_work_sm);
             $work_form.appendChild($text2);
@@ -501,6 +522,7 @@ $(document).ready(function() {
             $work_form.appendChild($new_work_description);
             $work_form.appendChild($delete_work);
             $work_form.appendChild($break);
+            $work_form.appendChild($space_div);
         }
 
         $work_table.remove();
@@ -567,18 +589,22 @@ $(document).ready(function() {
         $cancel_work_edit.setAttribute("type", "button");
         $cancel_work_edit.setAttribute("id", "cancel_work_edit");
         $cancel_work_edit.innerText = "Cancel";
-        $work_div.appendChild($cancel_work_edit);
+        $work_form.appendChild($cancel_work_edit);
         $cancel_work_edit.onclick = function cancel_work_edit() {
             $work_form.remove();
             $work_div.appendChild($work_table);
-            $("#edit_work_experience").attr("disabled", false);
+            $work_div.appendChild($edit_button);
+            $work_div.appendChild($add_button);
             $(this).remove();
         }
     })
 
     //---------------------Skills editing----------------------
     $("#edit_skills").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = this;
+        $edit_button.remove();
+        var $add_button = document.getElementById("add_skill");
+        $add_button.remove();
         var $skill_div = document.getElementById("skills");
         var $skill_table = document.getElementById("skill_table");
         var $skill_body = document.getElementById("skill_body");
@@ -705,18 +731,22 @@ $(document).ready(function() {
         $cancel_skill_edit.setAttribute("type", "button");
         $cancel_skill_edit.setAttribute("id", "cancel_skill_edit");
         $cancel_skill_edit.innerText = "Cancel";
-        $skill_div.appendChild($cancel_skill_edit);
+        $skill_form.appendChild($cancel_skill_edit);
         $cancel_skill_edit.onclick = function cancel_skill_edit() {
             $skill_form.remove();
             $skill_div.appendChild($skill_table);
-            $("#edit_skills").attr("disabled", false);
+            $skill_div.appendChild($edit_button);
+            $skill_div.appendChild($add_button);
             $(this).remove();
         }
     })
 
     //---------------------Languages editing----------------------
     $("#edit_languages").click(function() {
-        $(this).attr("disabled", true);
+        var $edit_button = this;
+        $edit_button.remove();
+        var $add_button = document.getElementById("add_language");
+        $add_button.remove();
         var $language_div = document.getElementById("languages");
         var $language_table = document.getElementById("language_table");
         var $language_body = document.getElementById("language_body");
@@ -864,123 +894,15 @@ $(document).ready(function() {
         $cancel_language_edit.setAttribute("type", "button");
         $cancel_language_edit.setAttribute("id", "cancel_language_edit");
         $cancel_language_edit.innerText = "Cancel";
-        $language_div.appendChild($cancel_language_edit);
+        $language_form.appendChild($cancel_language_edit);
         $cancel_language_edit.onclick = function cancel_language_edit() {
             $language_form.remove();
             $language_div.appendChild($language_table);
-            $("#edit_languages").attr("disabled", false);
+            $language_div.appendChild($edit_button);
+            $language_div.appendChild($add_button);
             $(this).remove();
         }
     })
-
-    //---------------------Keywords editing----------------------
-
-    $("[name='delete_keyword']").click(function() {
-        if(window.confirm("Are you sure you want to delete this keyword")) {
-            $keyword_id = this.id;
-            $.ajax({
-                type: "POST",
-                url: "include/edit_resume.inc.php",
-                data: {delete_keyword : $keyword_id},
-                dataType: "json",
-                success: function(response) {
-                    location.reload();
-                },
-                error: function(response) {
-                    console.log(response.error);
-                }
-            })
-        }   
-        
-       /* $(this).attr("disabled", true);
-        var $keyword_div = document.getElementById("keywords");
-        var $keyword_table = document.getElementById("keyword_table");
-        var $keyword_form = document.createElement("form");
-        var $keyword_body = document.getElementById("keyword_body");
-
-        var old_keywords = [];
-        var new_keywords = [];
-    
-        for(var i = 0; i < $keyword_body.rows.length; i++) {
-            keyword = {};
-            
-            var $keyword_id = "keyword_id"+i;
-            var $keyword_category = "keyword_category"+i;
-            var $keyword_word = "keyword_word"+i;
-            keyword["id"] = document.getElementById($keyword_id).innerHTML;
-            keyword["category"] = document.getElementById($keyword_category).innerHTML;
-            keyword["word"] = document.getElementById($keyword_word).innerHTML;
-            old_keywords.push(keyword);
-            
-            var $new_keyword_category = document.createElement("input");
-            var $new_keyword_category_id = "new_keyword_category"+i;
-            $new_keyword_category.setAttribute("type", "text");
-            $new_keyword_category.setAttribute("readonly", "readonly");
-            $new_keyword_category.setAttribute("id", $new_keyword_category_id);
-            $new_keyword_category.setAttribute("name", "Category");
-            $new_keyword_category.value = keyword["category"];
-            
-            var $new_keyword_word = document.createElement("input");
-            var $new_keyword_word_id = "new_keyword_word"+i;
-            $new_keyword_word.setAttribute("id", $new_keyword_word_id);
-            $new_keyword_word.setAttribute("type", "text");
-            $new_keyword_word.setAttribute("readonly", "readonly");
-            $new_keyword_word.setAttribute("name", "Word");
-            $new_keyword_word.value = keyword["word"];
-        
-            var $delete_keyword = document.createElement("button");
-            $delete_keyword_id = "delete_keyword_"+i;
-            $delete_keyword.setAttribute("id", $delete_keyword_id);
-            $delete_keyword.setAttribute("type", "button");
-            $delete_keyword.innerText = "Delete";
-            $delete_keyword.onclick = function() {
-                if(window.confirm("Are you sure you want to delete this keyword?")) {
-                    $target = this.id.substr(-1);
-                    $kywd_id = old_keywords[$target]["id"];
-                    $.ajax({
-                        type: "POST",
-                        url: "include/edit_resume.inc.php",
-                        data: {delete_keyword : $kywd_id},
-                        dataType: "json",
-                        success: function(response) {
-                            location.reload();
-                        },
-                        error: function(response) {
-                            console.log(response.error);
-                        }
-                    })
-                }
-            }
-
-            $break = document.createElement("br");
-            var $text1 = document.createElement("span");
-            $text1.innerText = "Category: ";
-            var $text2 = document.createElement("span");
-            $text2.innerText = "Word: ";
-            $keyword_form.appendChild($text1);
-            $keyword_form.appendChild($new_keyword_category);
-            $keyword_form.appendChild($text2);
-            $keyword_form.appendChild($new_keyword_word);
-            $keyword_form.appendChild($delete_keyword);
-            $keyword_form.appendChild($break);
-        }
-
-        $keyword_table.remove();
-        $keyword_div.appendChild($keyword_form);
-
-        var $cancel_keyword_edit = document.createElement("button");
-        $cancel_keyword_edit.setAttribute("type", "button");
-        $cancel_keyword_edit.setAttribute("id", "cancel_keyword_edit");
-        $cancel_keyword_edit.innerText = "Cancel";
-        $keyword_div.appendChild($cancel_keyword_edit);
-        $cancel_keyword_edit.onclick = function cancel_keyword_edit() {
-            $keyword_form.remove();
-            $keyword_div.appendChild($keyword_table);
-            $("#edit_keywords").attr("disabled", false);
-            $(this).remove();
-        }*/
-    })
-
 
     //---------------------Education adding----------------------
 
@@ -1484,7 +1406,8 @@ $(document).ready(function() {
     //---------------------Keyword adding----------------------
 
     $("#add_keyword").click(function() {
-        $(this).attr("disabled", true);
+        var $add_button = this;
+        $add_button.remove();
         var $add_keyword_form = document.createElement("form");
         var $submit_add_keyword = document.createElement("input");
         $add_keyword_form.setAttribute("id", "add_keyword_form");
@@ -1675,7 +1598,7 @@ $(document).ready(function() {
         $cancel_add_row.setAttribute("id", $cancel_add_row_id);
         $cancel_add_row.onclick = function() {
             $add_keyword_form.remove();
-            $("#add_keyword").attr("disabled", false);
+            $keyword_div.appendChild($add_button);
             $(this).remove();
         }
 

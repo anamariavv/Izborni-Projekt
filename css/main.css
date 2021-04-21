@@ -1,0 +1,2278 @@
+body {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 100px;
+    overflow-x: hidden;
+}
+
+.error_grey {
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin: 0 auto;
+    width: 50%; 
+    color: rgb(49, 48, 48);
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 0;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
+
+.h3 {
+    width: 94.5%;
+    margin-left: 22px;
+    margin-bottom: -40px;
+    background-color: rgb(49, 48, 48);
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    padding: 20px;  
+    color: white;
+}
+
+.h1 {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 0;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
+.result_text {
+    text-align: center;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin: 0 auto;
+    width: 50%;
+    padding: 20px;  
+    color: rgb(49, 48, 48);
+}
+
+.navbar .log button {
+    float: right;
+    background-color: rgba(70, 194, 54, 0.753);
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.navbar .log button:hover {
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.logo {
+    margin-top: 0;
+    margin-left: 400px;
+    width: 800px;
+    align-self: center;   
+}
+
+.div_right {
+    float: right;
+    color: white;
+    padding: 20px;
+    width: 350px;
+    height: 350px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    line-height: 40px;
+    background-color: rgba(53, 180, 36, 0.849);   
+}
+
+.logo_index {
+    width: 350px;
+    float: left;
+}
+
+.title_header {
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 0;
+    padding: 40px;  
+    background-color: rgb(49, 48, 48);
+    color: white;
+}
+
+ul.navbar {
+    display: inline-block;
+    background-color: rgb(49, 48, 48);
+    width: 100%;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+.navbar button {
+    border-radius: 4px;
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: medium;
+    font-family: 'Gill Sans', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    border-width: 0;
+}
+
+.navbar .right {
+   float: right;
+   margin-right: 20px;
+}
+.navbar a :hover {
+    background-color:rgb(114, 113, 113);
+    color:white;
+    border-radius: 4px;
+}
+
+.navbar .notification_button:hover {
+    background-color: rgb(114, 113, 113);
+}
+
+.navbar .notification_div {
+    background-color: white;
+    overflow-y: auto;
+    height: 300px;
+    width: 350px;
+    position: absolute;
+    top: 70px;
+    left: 358px;
+    box-shadow: 0 4px 8px 0;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+	border-radius: 10px;
+}
+
+.navbar .notification_div p {
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: lightgray;
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Gill Sans', sans-serif;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(49, 48, 48);
+    font-size: 14px;    
+    color: white;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.login_title {
+    width: 1000px;
+    text-align: center;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 0;;
+}
+
+.login {
+    width: fit-content;
+    border: 2px;
+}
+
+.login_title_img {
+    float: left;
+    width: 400px;
+    margin-left: 298px;
+    margin-right: 0px;
+    margin-top: 2px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding-bottom: 38px;
+}
+
+.login_form {
+    border: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    height: 402px;
+    background-color: rgb(49, 48, 48);
+    font-size: 16px;
+    font-family: 'Gill Sans', sans-serif;
+    margin-left: 700px;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.login_form p {
+    position: relative;
+    margin-top: 20px;
+}
+
+
+.login_form input {
+    margin-left: 0px;
+    margin-top: 50px;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.login_form input[type=submit] {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.login_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.login_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.login_form a {
+    color:  white;
+}
+
+.login_form a:visited {
+    color:  white;
+}
+
+.login_form a:focus {
+    color:  rgb(36, 95, 19);
+}
+.login_error {
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.reset_password {
+    font-size: 16px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.reset_password input {
+    margin-top: 5px;
+    color:  rgb(49, 48, 48);
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.reset_password p {
+    margin-left: -50px;
+}
+
+.reset_password input[type=submit] {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.reset_password input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.reset_password input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.reset_password_error {
+    font-size: 16px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+
+}
+
+.signup_title {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 5px;
+    padding: 10px; 
+    color: rgb(49, 48, 48);
+}
+
+.signup {
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.signup .signup_label {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+label {
+    text-align: center;
+    width: 30%;
+    display: inline-block;
+    color: white;
+}
+
+.signup input {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.signup input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.signup input[type=submit] {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.signup input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.signup_div1 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    height: 250px;
+    width: 350px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    border-color: rgb(49, 48, 48);
+    border-style: solid;
+    border-radius: 8px;
+}
+
+.signup_div1 img {
+    margin-top: 20px;
+}
+
+.company_signup_title {
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin-top: 5px;
+    padding: 10px; 
+    color: rgb(49, 48, 48);
+}
+
+.company_signup {
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.company_signup .company_signup_label {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+.company_signup input {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.company_signup input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.company_signup input[type=submit] {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.company_signup input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+
+.signup_error {
+    color: rgb(49, 48, 48);
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.index_table {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.index_table .table_header {
+    font-size: 32px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.index_table tr {
+    height: 50px;
+}
+
+.index_table td {
+    word-wrap: break-word;
+}
+
+.index_table .index_column_names {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+}
+
+.index_table button {
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.index_table button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+
+.internship_button {
+    border: none;
+    margin-left: 700px;
+    background-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.internship_button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.internship_button_div {
+    margin-left: 700px;
+    display: inline-block;
+}
+
+.internship_button_block {
+    margin: 5px;
+    float: left;
+    border: none;
+    background-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+.internship_button_block:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.edit_form {
+    margin-top: 20px;
+    margin-left: 200px;
+    padding-top: 10px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    width: 70%;
+    height: 425px;
+    padding: 10px;
+    display: inline-block;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.edit_form label {
+    margin-left: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.edit_form input {
+    width: 300px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.edit_form textarea {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 70px;
+    width: 300px;
+    color: white;
+    border-style: solid;
+    border: 2px;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.edit_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form input[type=submit] {
+    margin-left: 400px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.edit_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.cancel_edit {
+    margin-left: 50px;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.cancel_edit:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.link_dark {
+    color:  rgb(53, 180, 36);
+}
+
+.link_dark:visited {
+    color:  rgb(36, 95, 19);
+}
+
+.link_dark:focus {
+    color:  rgb(36, 95, 19);
+}
+
+.button_grey_center {
+    margin-left: 700px;
+    margin-right: 700px;
+    border: none;
+    background-color:rgb(49, 48, 48);
+    color: white;
+    border-color: rgb(49, 48, 48);
+    width: 110px;
+    height: 60px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.button_grey_center:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color:rgb(114, 113, 113);
+    border-radius: 4px;
+}
+
+.edit_form_2 {
+    display: inline-block;
+    margin-left: 400px;
+    width: 50%;
+    padding-top: 20px;
+    border-radius: 6px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    height: 570px;
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.edit_form_2 input {
+    width: 200px;
+    margin-bottom: 10px;
+    margin-left: 250px;
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.edit_form_2 textarea {
+    background-color: rgb(49, 48, 48);
+    margin-top: 10px;
+    margin-left: 200px;
+    height: 70px;
+    width: 300px;
+    color: white;
+    border-style: solid;
+    border: 2px;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+
+.edit_form_2 textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form_2 input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.edit_form_2 input[type=submit] {
+    margin-left: 220px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.edit_form_2 input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.cancel_edit_2 {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: none;
+    margin-left: 50px;
+    margin-bottom: 0;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+.cancel_edit_2:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.forum_list {
+    margin-left: 300px;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 50px;
+    width: 60%;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    line-height: 50px;
+    background-color: rgba(53, 180, 36, 0.849);
+}
+
+.forum_list:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+    margin-left: 293px;
+    height: 55px;
+    width: 61%;
+    font-size: 20px;
+}
+
+.forum_list a {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 200px;
+    padding-right: 200px;
+    text-decoration: none;
+    color: white;
+}
+
+.forum_wrapper {
+    margin-left: 390px;
+    margin-bottom: 30px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(49, 48, 48);
+    border-radius: 4px;
+    width: 45%;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.forum_wrapper img {
+    float: left;
+    margin-right: 30px;
+}
+
+.forum_warning_title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+}
+
+.forum_warning {
+    width: 600px;
+    margin-left: 20px;
+}
+
+.comment {
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    font-family: 'Gill Sans', sans-serif;
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    background-color :rgb(49, 48, 48);
+    color: white;
+}
+
+.comment_author {
+    margin-right: 5px;
+    text-align: right;
+    width: 300px;
+    float: right;
+    font-size: 14px;
+}
+
+.comment_text {
+    margin-left: 5px;
+}
+
+.comment_left {
+    float: left;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.comment_left img {
+   border: 2px;
+   border-color: rgb(49, 48, 48);
+   border-style: solid;
+   border-radius: 50px;
+}
+
+.comment button {
+    color:white;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(70, 194, 54, 0.753);
+    border-radius: 4px;
+    height: 40px;
+    width: 60px;
+}
+
+.comment button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.comment_form {
+    margin-top: 50px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.comment_form textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_form input[type=submit] {
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    width: 95px;
+    height: 60px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.comment_pending {
+    font-style: italic;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Gill Sans', sans-serif;
+    width: 100%;
+    height: fit-content;
+    font-size: 18px;
+    background-color: rgb(114, 113, 113);
+    color: white;
+}
+
+.comment_author_pending {
+    margin-right: 5px;
+    font-style: italic;
+    text-align: right;
+    width: 300px;
+    float: right;
+    font-size: 14px;
+}
+
+.comment_left_pending {
+    float: left;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.comment_left_pending img {
+   border: 2px;
+   border-color: rgb(114, 113, 113);
+   border-style: solid;
+   border-radius: 50px;
+}
+
+.comment_edit_form {
+    margin-left: 50px;
+}
+
+.comment_edit_form textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_edit_form textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_edit_form input[type=submit] {
+    margin-left: 10px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    height: 40px;
+    width: 60px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_edit_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.index_table_2 {
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+}
+
+.index_table_2 .table_header {
+    font-size: 32px;
+    color: white;
+    background-color: rgb(49, 48, 48);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.index_table_2 tr {
+    height: 50px;
+}
+
+.index_table_2 .index_column_names {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+}
+
+.index_table_2 button {
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.index_table_2 button:hover {
+    outline: none;
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.comment_edit_form_2 {
+    margin-left: 520px;
+}
+
+.comment_edit_form_2 textarea {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgb(49, 48, 48);
+}
+
+.comment_edit_form_2 textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+}
+
+.comment_edit_form_2 input[type=submit] {
+    margin-left: 200px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    width: 70px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: none;
+}
+
+.comment_edit_form_2 input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.signup_label_2 {
+    text-align: left;
+    width: 15%;
+    display: inline-block;
+}
+
+.profile_table {
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+    border-collapse: collapse;
+}
+
+.profile_table td {
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    width: 30%;
+    word-wrap: break-word;
+}
+
+.profile_table .profile_table_col {
+    text-align: left;
+}
+
+.profile_wrapper {
+    margin-bottom: 10px;
+}
+
+.profile_wrapper button {
+    margin-left: 700px;
+    outline: none;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 90px;
+    height: 60px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+} 
+
+.profile_wrapper button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.profile_picture {
+    margin-left: 660px;
+    border: 5px;
+    border-style: solid;
+    border-radius: 100px;
+    border-color:  rgba(53, 180, 36, 0.849);
+}
+
+.profile_buttons {
+    margin-left: 570px;
+}
+
+.profile_buttons1 {
+    margin-left: 645px;
+}
+
+.profile_buttons1 button {
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 90px;
+    height: 60px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.profile_buttons1 button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.profile_buttons button {
+    margin-top: 10px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 160px;
+    height: 50px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.profile_buttons button:disabled {
+    border-color: rgba(136, 138, 135, 0.849);
+    background-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.profile_buttons button:disabled:hover {
+    background-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.profile_buttons button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.passdiv form {
+    border: 2px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    width: 400px;
+    height: 160px;
+    background-color: rgb(49, 48, 48);
+    font-size: 16px;
+    font-family: 'Gill Sans', sans-serif;
+    border-radius: 6px;
+    padding: 20px;
+    margin-left: 480px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.passdiv input {
+    height: 30px;
+    margin-top: 10px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.passdiv input[type=submit] {
+    margin-top: 10px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.passdiv input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.passdiv button {
+    margin-top: 10px;
+    margin-left:5px;
+    font-size: 16px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 80px;
+    height: 50px;
+}
+
+.passdiv button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.passdiv input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form_admin {
+    margin-top: 50px;
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.profile_admin_form_div {
+    margin-left: 300px;
+}
+
+.profile_form_admin form  {
+    height: 300px;
+}
+
+.profile_form_admin input {
+    margin-top: 20px;
+    width: 200px;
+    display: inline-block;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.profile_form_admin label {
+    margin-top: 10px;
+    text-align: left;
+    width: 200px;
+    margin-left: 15px;
+}
+
+
+.profile_form_admin input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form_admin input[type=submit] {
+    margin-left: 400px;
+    margin-right: 10px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form_admin button {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form_admin button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.profile_form {
+    margin-top: 50px;
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.profile_form label {
+    text-align: left;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.profile_form form {
+    width: 80%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.profile_form input {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+
+.profile_form input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form input[type=submit] {
+    margin-left: 400px;
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.profile_form button {
+    display: inline-block;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+
+.profile_form_company {
+    margin-top: 50px;
+    margin-left: 150px;
+    border-radius: 6px;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.profile_form_company form {
+    height: 400px;
+}
+
+.profile_form_company input {
+    margin-top: 20px;
+    width: 200px;
+    display: inline-block;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.profile_form_company textarea {
+    margin-top: 20px;
+    width: 200px;
+    display: inline-block;
+    height: 30px;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border: 2px;
+    border-color: rgba(136, 138, 135, 0.849);
+    border-radius: 4px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.profile_form_company input:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form_company textarea:focus {
+    outline: none;
+    border-color: rgba(53, 180, 36, 0.849);
+    border-radius: 4px;
+}
+
+.profile_form_company input[type=submit] {
+    margin-left: 400px;
+    margin-right: 10px;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form_company input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.profile_form_company button {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.profile_form_company button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);;
+    border-radius: 4px;
+}
+
+.picture_div form {
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 20px;
+    width: 25%;
+    background-color: rgb(49, 48, 48);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+
+.picture_div input[type=submit] {
+    margin-right: 10px;
+    border-radius: 4px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 50px;
+}
+
+.picture_div input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.picture_div button {
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 100px;
+    height: 50px;
+}
+
+.picture_div button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.sidebar {
+    margin-top: 20px;
+    float: left;
+    height: 500px;
+    width: 350px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.cv_content {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-left: 2px;
+    border-left-style: solid;
+    border-left-color: rgb(49, 48, 48);
+    float: right;
+    margin-bottom: 100px;
+    padding-right: 20px;
+    padding-left: 30px;
+    width: 70%;
+}
+
+.sidebar img {
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+.contact {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.title {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.title form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.title input[type=text] {
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 30px;
+    width: 200px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.title input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.title input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.title button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 100px;
+    height: 35px;
+    
+}
+
+.title .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.title button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.title input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.intro {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.intro form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.intro input[type=text] {
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 30px;
+    width: 200px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.intro input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.intro input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.intro .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.intro button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.intro button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.intro input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.intro textarea {
+    border-radius: 4px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    margin-left: -150px;
+}
+
+.intro textarea:focus {
+    border-color: rgb(132, 236, 118);
+}
+
+.education {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.education select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.education select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.education input {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.education input:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.education input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.education .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.education button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.education button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.education input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+
+.work_experience {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.work_experience input[type=text] {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.work_experience input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.work_experience input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.work_experience select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.work_experience select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.work_experience .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.work_experience button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.work_experience button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.work_experience input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.work_experience textarea {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.work_experience textarea:focus {
+    border-color: rgb(132, 236, 118);
+}
+
+.skills {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.skills input[type=text] {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.skills input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.skills input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.skills select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.skills select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.skills .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.skills button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.skills button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.skills input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.keywords input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.keywords select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.keywords select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.keywords .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.keywords button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.keywords button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.keywords input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.languages {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.languages input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.languages select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.languages select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.languages .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.languages button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.languages button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.languages input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.cv_table th {
+    padding: 10px;
+    font-size: 18px;
+}
+.cv_table td {
+    padding: 10px;
+}
+
+.space_div {
+    width: 100%;
+    height: 40px;
+}
+
+

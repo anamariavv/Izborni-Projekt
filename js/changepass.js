@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $("#change_pass").click(function(){
             $("<form id='passwordform'></form>")
-                .appendTo("#passdiv");  
+                .appendTo("#passdiv") 
             $("<input type='password'><br>")
                 .attr("id", "pwd1")
                 .attr("name", "pwd1")

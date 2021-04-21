@@ -120,7 +120,13 @@ $(document).ready(function() {
     
     $("#edit_internship").click(function() {
         //switch from table to form
-        $(this).attr("disabled", true);
+        
+        var $edit_button_old = document.getElementById('edit_internship');
+        var $close_button_old = document.getElementById('close_internship');
+        var $delete_button_old = document.getElementById('delete_internship');
+        $edit_button_old.remove();
+        $close_button_old.remove();
+        $delete_button_old.remove();
 
         var $div_element = document.getElementById("information_div");
         var $old_html = $div_element.innerHTML;
@@ -141,7 +147,7 @@ $(document).ready(function() {
         //create form
         var $new_form = document.createElement("form");
         $new_form.setAttribute("id", "edit_internship_form");
-       
+        $new_form.className += ' edit_form';
         var $new_input_1 = document.createElement("input");
         var $new_input_2 = document.createElement("input");
         var $new_input_3 = document.createElement("textarea");
@@ -212,89 +218,7 @@ $(document).ready(function() {
                         dataType: "json",
                         data: JSON.parse(JSON.stringify(data_array)),
                         success: function(data) {
-                            $("#edit_internship").attr("disabled", false);
-                            $new_form.remove();
-                            $new_table = document.createElement("table");
-                            $new_table.setAttribute("id", "information_table");
-                            $tr1 = document.createElement("tr");
-                            $th1 = document.createElement("th");
-                            $th1.setAttribute("colspan", "9");
-                            $th1.innerText = "Internship information";
-                            $tr2 = document.createElement("tr");
-                            $th2 = document.createElement("th");
-                            $th2.innerText = "ID";
-                            $th3 = document.createElement("th");
-                            $th3.innerText = "Date Created";
-                            $th4 = document.createElement("th");
-                            $th4.innerText = "Position";
-                            $th5 = document.createElement("th");
-                            $th5.innerText = "Work Description";
-                            $th6 = document.createElement("th");
-                            $th6.innerText = "City";
-                            $th7 = document.createElement("th");
-                            $th7.innerText = "Requirements";
-                            $th8 = document.createElement("th");
-                            $th8.innerText = "Status";
-                            $th9 = document.createElement("th");
-                            $th9.innerText = "Monthly Salary (Gross Pay)";
-                            $th10 = document.createElement("th");
-                            $th10.innerText = "Application Deadline";
-                            $tr3 = document.createElement("tr");
-                            $td1 = document.createElement("td");
-                            $td1.setAttribute("id", "id");
-                            $td1.innerText = data_array["id"];
-                            $td2 = document.createElement("td");
-                            $td2.setAttribute("id", "created");
-                            $td2.innerText = $created;
-                            $td3 = document.createElement("td");
-                            $td3.setAttribute("id", "position");
-                            $td3.innerText = data_array["position"];
-                            $td4 = document.createElement("td");
-                            $td4.setAttribute("id", "description");
-                            $td4.innerText = data_array["desc"];
-                            $td5 = document.createElement("td");
-                            $td5.setAttribute("id", "city");
-                            $td5.innerText = data_array["city"];
-                            $td6 = document.createElement("td");
-                            $td6.setAttribute("id", "requirements");
-                            $td6.innerText = data_array["req"];
-                            $td7 = document.createElement("td");
-                            $td7.setAttribute("id", "status");
-                            $td7.innerText = $status;
-                            $td8 = document.createElement("td");
-                            $td8.setAttribute("id", "salary");
-                            $td8.innerText = data_array["salary"];
-                            $td9 = document.createElement("td");
-                            $td9.setAttribute("id", "deadline");
-                            $td9.innerText = data_array["deadline"];
-                            $new_table.appendChild($tr1);
-                            $tr1.appendChild($th1);
-                            $new_table.appendChild($tr2);
-                            $tr2.appendChild($th2);
-                            $tr2.appendChild($th3);
-                            $tr2.appendChild($th4);
-                            $tr2.appendChild($th5);
-                            $tr2.appendChild($th6);
-                            $tr2.appendChild($th7);
-                            $tr2.appendChild($th8);
-                            $tr2.appendChild($th9);
-                            $tr2.appendChild($th10);
-                            $tr3 = document.createElement("tr");
-                            $tr3.appendChild($td1);
-                            $tr3.appendChild($td2);
-                            $tr3.appendChild($td3);
-                            $tr3.appendChild($td4);
-                            $tr3.appendChild($td5);
-                            $tr3.appendChild($td6);
-                            $tr3.appendChild($td7);
-                            $tr3.appendChild($td8);
-                            $tr3.appendChild($td9);
-                            $new_table.appendChild($tr3);
-
-                            $div_element.appendChild($new_table);
-                            
-                            $("#cancel_edit_internship").remove();
-                            $(this).remove();
+                            location.reload();
                         },
                         error: function(data) {
                             alert("An error occured: " + data);
@@ -305,35 +229,52 @@ $(document).ready(function() {
         }
 
         $break = document.createElement("br");
-        $text1 = document.createElement("p");
-        $text1.innerText = "Internship ID: ";
-        $text2 = document.createElement("p");
-        $text2.innerText = "Position: ";
-        $text3 = document.createElement("p");
-        $text3.innerText = "Job description: ";
-        $text4 = document.createElement("p");
-        $text4.innerText = "City: ";
-        $text5 = document.createElement("p");
-        $text5.innerText = "Requirements: ";
-        $text6 = document.createElement("p");
-        $text6.innerText = "Salary: ";
-        $text7 = document.createElement("p");
-        $text7.innerText = "Application Deadline: ";
+        var $text1 = document.createElement("div");
+        $text1.className = ' input_div';
+        var $text1_label = document.createElement('label');
+        $text1_label.innerText = "Internship ID: ";
+        $text1.appendChild($text1_label);
+        $text1.appendChild($new_input_1)
 
+        var $text2_label = document.createElement('label');
+        $text2_label.innerText = "Position: ";
+        $text1.appendChild($text2_label);
+        $text1.appendChild($new_input_2);
+
+        var $text2 = document.createElement("div");
+        $text2.className = ' input_div';
+        var $text3_label = document.createElement('label');
+        $text3_label.innerText = "Job description: ";
+        $text2.appendChild($text3_label);
+        $text2.appendChild($new_input_3)
+
+        var $text4_label = document.createElement('label');
+        $text4_label.innerText = "City: ";
+        $text2.appendChild($text4_label);
+        $text2.appendChild($new_input_4);
+
+        var $text3 = document.createElement("div");
+        $text3.className = ' input_div';
+        var $text5_label = document.createElement('label');
+        $text5_label.innerText = "Requirements: ";
+        $text3.appendChild($text5_label);
+        $text3.appendChild($new_input_5)
+        var $text6_label = document.createElement('label');
+        $text6_label.innerText = "Salary: ";
+        $text3.appendChild($text6_label);
+        $text3.appendChild($new_input_6)
+
+        var $text4 = document.createElement("div");
+        $text4.className = ' input_div';
+        var $text7_label = document.createElement('label');
+        $text7_label.innerText = "Deadline: ";
+        $text4.appendChild($text7_label);
+        $text4.appendChild($new_input_7)
+    
         $new_form.appendChild($text1);
-        $new_form.appendChild($new_input_1);
         $new_form.appendChild($text2);
-        $new_form.appendChild($new_input_2);
         $new_form.appendChild($text3);
-        $new_form.appendChild($new_input_3);
-        $new_form.appendChild($text5);
-        $new_form.appendChild($new_input_5);
         $new_form.appendChild($text4);
-        $new_form.appendChild($new_input_4);
-        $new_form.appendChild($text6);
-        $new_form.appendChild($new_input_6);
-        $new_form.appendChild($text7);
-        $new_form.appendChild($new_input_7);
         $new_form.appendChild($break);
         $new_form.appendChild($new_input_8);
 
@@ -343,11 +284,15 @@ $(document).ready(function() {
         var $new_cancel_button = document.createElement("button");
         $new_cancel_button.setAttribute("id", "cancel_edit_internship");
         $new_cancel_button.innerText = "Cancel Edit";
-        $div_element.appendChild($new_cancel_button);
+        $new_cancel_button.className = " cancel_edit";
+        $new_form.appendChild($new_cancel_button);
         $new_cancel_button.onclick = function delete_form() {
-            $("#edit_internship").attr("disabled", false);
             $new_form.remove();
             $div_element.innerHTML = $old_html;
+            document.getElementById('internship_button_div').appendChild($edit_button_old);
+            $("#edit_internship").attr("disabled", false);
+            document.getElementById('internship_button_div').appendChild($close_button_old);
+            document.getElementById('internship_button_div').appendChild($delete_button_old);
             $(this).remove();
         }
         

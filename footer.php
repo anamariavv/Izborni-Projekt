@@ -1,4 +1,4 @@
 
-    <p>Riteh 2020.</p>
+        <div class="footer">Riteh 2020.</div>
     </body>
 </html>
