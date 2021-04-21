@@ -12,17 +12,15 @@
 
     echo '<div id="cv_content" class="cv_content">';
     echo '<h1 id="h1_title" class="h1">'.$row['title'].'</h1>
-        <div id="title"></div>
-        <div id="edit_title_button">';
+        <div id="title" class="title">';
         if($_SESSION["user_level"] == "student") {
-            echo "<button type='button' id='edit_title'>Edit</button>";
+            echo "<button type='button' id='edit_title' class='edit_button'>Edit</button>";
         }
-    echo '</div>';
+        echo'</div>';
     echo '<h2>Introduction</h2>
-        <div id="intro" class="intro">'.$row['description'].'</div>
-        <div id="edit_intro_button">';
+        <div id="intro" class="intro"><p>'.$row['description'].'</p>';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='edit_intro'>Edit</button>";
+            echo "<button type='button' id='edit_intro' class='edit_button'>Edit</button>";
         }
     echo '</div>';
     echo  '<h2>Education</h2>
@@ -34,17 +32,14 @@
             echo '<tr><td hidden id="education_id'.$count.'">'.$row_education['id'].'</td><td id="education_start_year'.$count.'">'.$row_education['start_year'].'</td><td id="education_end_year'.$count.'">'.$row_education['end_year'].'</td><td id="education_title'.$count.'">'.$row_education['title'].'</td><td id="education_country'.$count.'">'.$row_education['country'].'</td><td id="education_city'.$count.'">'.$row_education['city'].'</td></tr>';
             $count += 1;
         }
-    echo '</tbody></table></div>';
+    echo '</tbody></table>';
         if(!empty($array_education)){ 
-            echo '<div id="edit_education_button">';
             if($_SESSION['user_level'] == "student") {
-                echo "<button type='button' id='edit_education'>Edit</button>";
-            }
-            echo '</div>';   
+                echo "<button type='button' id='edit_education' class='edit_button'>Edit</button>";
+            }   
         }
-    echo '<div id="add_education_button">';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='add_education'>Add</button>";
+            echo "<button type='button' id='add_education' class='edit_button'>Add</button>";
         }
     echo '</div>';
 
@@ -57,18 +52,14 @@
             echo '<tr><td colspan="7" id="work_description'.$count.'">'.$row_work['description'].'</td></tr>';
             $count += 1;
         }
-    echo '</table></div>';
+    echo '</table>';
         if(!empty($array_work)) {
-            echo '<div id="edit_work_experience_button">';
             if($_SESSION['user_level'] == "student") {
-                echo "<button type='button' id='edit_work_experience'>Edit</button>";
+                echo "<button type='button' id='edit_work_experience' class='edit_button'>Edit</button>";
             }
-            echo '</div>';
         }
-        
-    echo '<div id="add_work_button">';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='add_work'>Add</button>";
+            echo "<button type='button' id='add_work' class='edit_button'>Add</button>";
         }
     echo '</div>';
 
@@ -81,17 +72,14 @@
             echo '<tr><td hidden id="skill_id'.$count.'">'.$row_skill['id'].'</td><td id="skill_name'.$count.'">'.$row_skill['name'].'</td><td id="skill_level'.$count.'">'.$row_skill['level'].'</td></tr>';
             $count += 1;
         }
-    echo '</tbody></table></div>';
+    echo '</tbody></table>';
         if(!empty($array_skill)) {
-            echo '<div id="edit_skills_button">';
             if($_SESSION['user_level'] == "student") {
-                echo "<button type='button' id='edit_skills'>Edit</button>";
+                echo "<button type='button' id='edit_skills' class='edit_button'>Edit</button>";
             }
-            echo '</div>';
         }  
-    echo '<div id="add_skill_button">';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='add_skill'>Add</button>";
+            echo "<button type='button' id='add_skill' class='edit_button'>Add</button>";
         }
     echo '</div>';
     
@@ -104,17 +92,15 @@
             echo '<tr><td hidden id="language_id'.$count.'">'.$row_language['id'].'</td><td id="language_name'.$count.'">'.$row_language['name'].'</td><td id="language_level'.$count.'">'.$row_language['level'].'</td></tr>';
             $count += 1;
         }        
-    echo '</tbody></table></div>';
+    echo '</tbody></table>';
         if(!empty($array_language)) {
-            echo  '<div id="edit_languages_button">';
             if($_SESSION['user_level'] == "student") {
-                echo "<button type='button' id='edit_languages'>Edit</button>";
+                echo "<button type='button' id='edit_languages' class='edit_button'>Edit</button>";
             }
-            echo '</div>';
+
         }
-    echo '<div id="add_language_button">';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='add_language'>Add</button>";
+            echo "<button type='button' id='add_language' class='edit_button'>Add</button>";
         }
     echo '</div>';
 
@@ -127,12 +113,11 @@
             echo '<tr><td hidden id="keyword_id'.$count.'">'.$row_keyword['id'].'</td><td id="keyword_category'.$count.'">'.$row_keyword['category'].'</td><td id="keyword_word'.$count.'">'.$row_keyword['word'].'</td><td><button name="delete_keyword" id="'.$row_keyword['id'].'">Delete</button></td></tr>';
             $count += 1;
         }
-    echo '</tbody></table></div>';
-    echo '<div id="add_keyword_button">';
+    echo '</tbody></table>';
         if($_SESSION['user_level'] == "student") {
-            echo "<button type='button' id='add_keyword'>Add</button>";
+            echo "<button type='button' id='add_keyword' class='edit_button'>Add</button>";
         }
-    echo '</div></div>';
+    echo '</div>';
     echo '</div>';
 
 ?>

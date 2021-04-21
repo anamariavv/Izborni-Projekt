@@ -37,15 +37,13 @@
             $link_string = 'resume_'.$row["oib"].'.php?oib='.$row["oib"];
             echo "<tr><td id='stu_oib'>".$row['oib']."</td><td>".$row['firstname']."</td><td>".$row['lastname']."</td><td><a class='link_dark' href='".$link_string."' target='_blank'>View</a></td>";
             echo "<td>";
-            $flag = 1;
+            $i = 0;
             foreach($keyword_array as $word) {
                 echo $word["word"];
-                if($flag == 1 && sizeof($keyword_array) > 1) {
+                if($i < sizeof($keyword_array) && sizeof($keyword_array) > 1) {
                     echo ",";
-                    $flag = 0;
-                } else {
-                    $flag = 1;
                 }
+                $i++;
             }
             echo "</td>";
             if($row['acceptance'] == 'pending') {

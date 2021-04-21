@@ -41,7 +41,7 @@
                 <input type='submit' value='Submit' name='submitpassword' id='submitpassword'>  
                 </form>";
             } else {
-                echo "Link has expired. Please request password change again";
+                echo "<div class='error_grey'>Link has expired. Please request password change again</div>";
             }
             
 
