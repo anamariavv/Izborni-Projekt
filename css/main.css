@@ -6,6 +6,15 @@ body {
     overflow-x: hidden;
 }
 
+.error_grey {
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Gill Sans', sans-serif;
+    margin: 0 auto;
+    width: 50%; 
+    color: rgb(49, 48, 48);
+}
+
 h2 {
     font-size: 32px;
     text-align: center;
@@ -504,6 +513,10 @@ label {
 
 .index_table tr {
     height: 50px;
+}
+
+.index_table td {
+    word-wrap: break-word;
 }
 
 .index_table .index_column_names {
@@ -1124,6 +1137,8 @@ label {
     border-color: white;
     border-radius: 4px;
     padding: 10px;
+    width: 30%;
+    word-wrap: break-word;
 }
 
 .profile_table .profile_table_col {
@@ -1391,7 +1406,7 @@ label {
 }
 
 .profile_form form {
-    width: 100%;
+    width: 80%;
     display: inline-block;
     margin-top: 20px;
 }
@@ -1605,13 +1620,13 @@ label {
     margin-top: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-left: 3px;
+    border-left: 2px;
     border-left-style: solid;
-    border-left-color: rgba(53, 180, 36, 0.849);
+    border-left-color: rgb(49, 48, 48);
     float: right;
     margin-bottom: 100px;
     padding-right: 20px;
-    padding-left: 20px;
+    padding-left: 30px;
     width: 70%;
 }
 
@@ -1627,9 +1642,168 @@ label {
     font-size: 16px;
 }
 
-.intro {
-    margin-left: 20px;
+.title {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.title form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.title input[type=text] {
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 30px;
+    width: 200px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
     text-align: center;
+}
+
+.title input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.title input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.title button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 100px;
+    height: 35px;
+    
+}
+
+.title .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.title button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.title input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.intro {
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.intro form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.intro input[type=text] {
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 30px;
+    width: 200px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.intro input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.intro input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.intro .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.intro button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.intro button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.intro input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
 }
 
 .intro textarea {
@@ -1637,34 +1811,456 @@ label {
     border: 2px;
     border-style: solid;
     border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    margin-left: -150px;
 }
 
 .intro textarea:focus {
     border-color: rgb(132, 236, 118);
-   
 }
 
 .education {
-    margin-left: 300px;
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
 }
 
+.education select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.education select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.education input {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.education input:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.education input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.education .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.education button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.education button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.education input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+
 .work_experience {
-    margin-left: 240px;
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
+}
+
+.work_experience input[type=text] {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.work_experience input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.work_experience input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.work_experience select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.work_experience select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.work_experience .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.work_experience button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.work_experience button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.work_experience input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.work_experience textarea {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+}
+
+.work_experience textarea:focus {
+    border-color: rgb(132, 236, 118);
 }
 
 .skills {
-    margin-left: 460px;
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
 }
 
-.keywords {
-    margin-left: 300px;
+.skills input[type=text] {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    height: 20px;
+    width: 100px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.skills input[type=text]:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.skills input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.skills select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.skills select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.skills .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.skills button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.skills button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.skills input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.keywords input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
+
+.keywords select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.keywords select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.keywords .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.keywords button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.keywords button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.keywords input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
 }
 
 .languages {
-    margin-left: 430px;
+    padding-bottom: 15px;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(49, 48, 48);
 }
 
+.languages input[type=submit] {
+    margin-left: 10px;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+}
 
+.languages select {
+    margin-right: 5px;
+    border: 2px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: rgba(53, 180, 36, 0.849);
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.languages select:focus {
+    outline: none;
+    border-color: rgb(132, 236, 118);
+}
+
+.languages .edit_button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    height: 35px;
+    margin-left: 5px;
+}
+
+.languages button {
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border-style: solid;
+    background-color:rgba(53, 180, 36, 0.849);
+    color: white;
+    border-color: rgba(53, 180, 36, 0.849);
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 35px;
+    
+}
+
+.languages button:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
+
+.languages input[type=submit]:hover {
+    transition-duration: 0.8s;
+    background-color: rgb(132, 236, 118);
+    border-radius: 4px;
+}
 
 .cv_table th {
     padding: 10px;
@@ -1673,4 +2269,10 @@ label {
 .cv_table td {
     padding: 10px;
 }
+
+.space_div {
+    width: 100%;
+    height: 40px;
+}
+
 
