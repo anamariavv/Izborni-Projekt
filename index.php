@@ -5,16 +5,17 @@
 ?>
    
 <?php
-    if(isset($_GET["success"])) {
-        echo "<p>You have registered successfully!</p>";
-    }
    
     if($_SESSION) {
         echo "<table class='index_table_2'>
             <tr><th class='table_header_2' colspan='9'>All internships</th></tr>
-            <tr class='index_column_names'><th>ID</th><th>Position</th><th>Company Name</th><th>City</th><th>Deadline</th><th>Action</th></tr>";
+            <tr class='index_column_names'><th>ID</th><th>Company Rating</th><th>Position</th><th>Company Name</th><th>City</th><th>Deadline</th><th>Action</th></tr>";
             foreach($result_array as $row) {
-                echo "<tr><td>".$row['id']."</td><td>".$row['position']."</td><td>".$row['name']."</td><td>".$row['city']."</td><td>".$row['deadline']."</td><td><a href='internship_".$row['id'].".php?id=".$row['id']."&company=".$row['c_id']."'><button type='button'>View</button></a></td></tr>";
+                $sql_3 = 'SELECT ROUND(AVG(grade), 2) as average FROM rating WHERE company_id = "'.$row['c_id'].'"';
+        
+                $result_3 = $conn->query($sql_3);
+                $average_rating_3 = $result_3->fetch_all(MYSQLI_ASSOC);
+                echo "<tr><td>".$row['id']."</td><td>".$average_rating_3[0]['average']."</td><td>".$row['position']."</td><td>".$row['name']."</td><td>".$row['city']."</td><td>".$row['deadline']."</td><td><a href='internship_".$row['id'].".php?id=".$row['id']."&company=".$row['c_id']."'><button type='button'>View</button></a></td></tr>";
             }
         echo "</table>";
         if($_SESSION['user_level'] == "student") {
@@ -29,6 +30,9 @@
         }
     } else {
         echo '<h1 class = "title_header">Internship Platform</h1>';
+        if(isset($_GET["success"])) {
+            echo "<p class='signup_error'>You have registered successfully!</p>";
+        }
         echo "<div class='logo'>";
         echo "<div class='logo_index'><img src='resources/logo.png' width=350px></img></div>";
         echo "<div class='div_right'>
@@ -37,6 +41,7 @@
         With features such as personal profiles, company reviews and online CV creation, Internship Platform allows
         you to do everything online!</p>
         </div></div>";
+       
     }
 
 

@@ -15,7 +15,7 @@
                 echo "<button name='approve' id='".$comment['id']."'>Approve</button>";
             }
             if($comment['status'] == 'pending'|| $comment['status'] == 'approved') {
-                echo "<button name='reject' id='".$comment['id']."'>Reject</button>";
+                echo "<button name='reject' class='reject_button' id='".$comment['id']."'>Reject</button>";
             }         
             echo "</td></tr>";
         }

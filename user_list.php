@@ -2,8 +2,21 @@
     include_once "header.php";
     include_once "include/user_list.inc.php";
 ?>
-    
+   
     <h2>User list</h2>
+
+    <h2>Send push notification</h2>
+    <form class="push_form" action="include/user_list.inc.php" method="post" target="_self" name="pushform" id="pushform">
+        <span>User type</span>
+        <select id="usertype" name="usertype">
+            <option>Student</option>
+            <option>Company</option>
+            <option>Administrator</option>
+        </select><br>
+        <span>Notification text</span>
+        <textarea id="pushtext" form="pushform" rows="5" cols="30" name="pushtext"></textarea><br>
+        <input type="submit" name="submitpush" id="submitpush" value="Send"></input><br>
+    </form>
 
     <h3 class='h3'>Administrators</h3>
     

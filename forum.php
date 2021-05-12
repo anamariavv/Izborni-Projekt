@@ -1,11 +1,32 @@
 <?php
     include_once "header.php";
     require_once "include/forum.inc.php";
+    require_once "include/get_rating.inc.php";
+
     echo "<script src='js/forum_comments.js'></script>";
 
     echo "<h1 class='h1'>".$_GET['name']." internship discussion</h1>";
 
+    $rate = $average_rating[0]['average'];
+    if($average_rating[0]['average'] == NULL) {
+        $rate = 0;
+    }
+    echo "<div class='rating_div'><p>This company has a rating of " . $rate . ", rated by " . $rating_count[0]['rating_count'] . " users</p></div>";
+
     if($_SESSION['user_level'] == 'student') {
+        if(!$rated) {
+            echo "<p class='rating_p'>Please provide a rating for your experience with this company (1-lowest rating, 5-highest rating):";
+        echo "<form class='rating_form' action='include/rating.inc.php' method='post' name='rating_form' id='rating_form'>
+            <input type='hidden' name='company_id' value='".$_GET['company']."'></input>
+            <input type='hidden' name='company_name' value='".$_GET['name']."'></input>
+            <input type='radio' name='rating' value='1'>1</input>
+            <input type='radio' name='rating' value='2'>2</input>
+            <input type='radio' name='rating' value='3'>3</input>
+            <input type='radio' name='rating' value='4'>4</input>
+            <input type='radio' name='rating' value='5'>5</input><br>
+            <input type='submit' value='Submit' id='ratingsubmit' name='ratingsubmit'></input><br>
+        </form>";
+        }        
         echo "<form class='comment_form' action='include/new_comment.inc.php' method='post' name='new_comment_form' id='new_comment_form'>
         <textarea form='new_comment_form' id='comment_text' name='comment_text' cols='60' rows='5'></textarea><br>
         <input type='hidden' name='company' value='".$_GET['company']."'></input>

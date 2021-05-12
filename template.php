@@ -47,7 +47,7 @@
             }
             echo "</td>";
             if($row['acceptance'] == 'pending') {
-                echo "<td id='rejection'><button type='button' name='reject' id='".$row['oib']."'>Reject</button></td><td id='acceptance'><button type='button'name='accept' id='".$row['oib']."'>Accept</button></td></tr>";
+                echo "<td id='rejection'><button type='button' class='reject_button' name='reject' id='".$row['oib']."'>Reject</button></td><td id='acceptance'><button type='button'name='accept' id='".$row['oib']."'>Accept</button></td></tr>";
             } else if($row['acceptance'] == 'accepted') {
                 echo "<td>Student accepted</td>";
             }

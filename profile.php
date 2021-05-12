@@ -9,7 +9,9 @@
         $html_info = "<div id='info_div' class='profile_form'><table class='profile_table' id='information'>
         <tr><td class='profile_table_col'>Firstname</td><td id='fname'>".$row['firstname']."</td></tr>
         <tr><td class='profile_table_col'>Lastname</td><td id='lname'>".$row['lastname']."</td></tr>
-        <tr><td class='profile_table_col'>TIN</td><td id='oib'>".$row['oib']."</td></tr>
+        <tr><td class='profile_table_col'>TIN <br>*(Tax Identification Number) <br> The personal identification number is a constant identifier of
+        any person (natural or legal) that the public authorities use in the official records, in their everyday
+        work and by data exchange. E.g. (Croatia - OIB, Germany - Steuer-ID, Italy - Codice fiscale)</td><td id='oib'>".$row['oib']."</td></tr>
         <tr><td class='profile_table_col'>Age</td><td id='age'>".$row['age']."</td></tr>
         <tr><td class='profile_table_col'>University</td><td id='university'>".$row['university']."</td></tr>";
     } else if($_SESSION['user_level'] == 'company') {

@@ -49,6 +49,9 @@
                 }
             ?>
         </ul> 
+        <div class="notification_alert" id="notification_alert">
+            <p>You have new notifications! Click to dismiss</p>
+        </div>
     </head>
 <body>
 
