@@ -151,7 +151,7 @@ $(document).ready(function(){
             .appendTo("#info_form")
         $("<label>Phone Number: </label>")
             .appendTo("#info_form")
-        $("<input type='tel'></input>")
+        $("<input type='text'></input>")
             .attr("name", "phone")
             .attr("id", "phone")
             .attr("value", phone)

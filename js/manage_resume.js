@@ -69,7 +69,7 @@ $(document).ready(function() {
         var $edit_button = this;
         $edit_button.remove();
         $old_intro = document.getElementById("intro");
-        $old_intro_text = $old_intro.innerHTML;
+        $old_intro_text = $old_intro.innerText;
         $old_intro.innerHTML = "";
       
         var $intro_div = document.getElementById("intro");
@@ -124,7 +124,9 @@ $(document).ready(function() {
         $intro_form.appendChild($cancel_intro_edit);
         $cancel_intro_edit.onclick = function cancel_intro_edit() {
             $intro_form.remove();
-            $intro_div.innerHTML = $old_intro_text;
+            var $p_element = document.createElement("p");
+            $p_element.innerText = $old_intro_text;
+            $intro_div.appendChild($p_element);
             $intro_div.appendChild($edit_button);
             $(this).remove();
         }
@@ -767,22 +769,17 @@ $(document).ready(function() {
 
             old_languages.push(language);
             
-            var language_list = ["Afar","Abkhazian","Avestan","Afrikaans","Akan","Amharic","Aragonese","Arabic","Assamese","Avaric",
-            "Aymara","Azerbaijani","Bashkir","Belarusian","Bulgarian","Bihari languages","Bambara","Bislama","Bengali","Tibetan","Breton",
-            "Bosnian","Catalan","Valencian","Chechen","Chamorro","Corsican","Cree","Czech","Church Slavic","Chuvash","Welsh","Danish","German",
-            "Divehi","Maldivian","Dzongkha","Ewe","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian","Fulah",
-            "Finnish","Fijian","Faroese","French","Western Frisian","Irish","Gaelic" ,"Scottish Gaelic","Galician","Guarani","Gujarati","Manx",
-            "Hausa","Hebrew","Hindi","Hiri Motu","Croatian","Haitian","Haitian Creole","Hungarian","Armenian","Herero","Interlingua",
-            "Indonesian","Interlingue","Igbo","Sichuan Yi","Inupiaq","Ido","Icelandic","Italian","Inuktitut","Japanese","Javanese","Georgian",
-            "Kongo","Kikuyu","Kuanyama","Kazakh","Kalaallisut","Central Khmer","Kannada","Korean","Kanuri","Kashmiri","Kurdish","Komi",
-            "Cornish","Kirghiz","Latin","Luxembourgish","Ganda","Limburgan","Lingala","Lao","Lithuanian","Luba-Katanga","Latvian","Malagasy",
-            "Marshallese","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese","Burmese","Nauru","Bokmål","Ndebele",
-            "Nepali","Ndonga","Dutch","Norwegian Nynorsk","Norwegian","Ndebele","Navajo","Chichewa","Ojibwa","Oromo","Oriya","Ossetian",
-            "Panjabi","Pali","Polish","Pushto","Portuguese","Quechua","Romansh","Rundi","Romanian","Moldavian","Russian","Kinyarwanda",
-            "Sanskrit","Sardinian","Sindhi","Northern","Sango","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Albanian","Serbian",
-            "Swati","Sotho","Sundanese","Swedish","Swahili","Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen","Tagalog","Tswana","Tonga",
-            "Turkish","Tsonga","Tatar","Twi","Tahitian","Uighur","Ukrainian","Urdu","Uzbek","Venda","Vietnamese","Volapük","Walloon","Wolof",
-            "Xhosa","Yiddish","Yoruba","Zhuang","Chinese","Zulu"];
+            var language_list = ["Afrikaans","Amharic","Armenian","Albanian","Arabic","Azerbaijani","Belarusian","Bulgarian",
+            "Bengali","Tibetan","Breton","Bosnian","Catalan","Valencian","Corsican","Cree","Czech","Welsh","Danish","German",
+            "Maldivian","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian",
+            "Finnish","French","Irish","Galician","Hausa","Hebrew","Hindi","Croatian","Hungarian","Armenian",
+            "Indonesian","Igbo","Icelandic","Italian","Japanese","Javanese","Khmer","Korean","Kurdish","Kirghiz","Latin","Luxembourgish",
+            "Lao","Lithuanian","Latvian","Malagasy","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese",
+           "Nepali","Dutch","Norwegian","Odia","Punjabi","Pashto","Portuguese","Romanian","Moldavian","Russian","Kinyarwanda",
+           "Sardinian","Sindhi","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Serbian","Sundanese","Swedish","Swahili",
+           "Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen",
+            "Turkish","Tatar","Ukrainian","Urdu","Uzbek","Vietnamese",
+            "Xhosa","Yiddish","Yoruba","Zulu"];
            
             var $new_language_name = document.createElement("select");
             var $new_language_name_id = "new_language_name"+i;
@@ -1310,22 +1307,17 @@ $(document).ready(function() {
         $add_name.setAttribute("id", $name_id);
         $add_name.setAttribute("name", "Language");
 
-        var language_list = ["Afar","Abkhazian","Avestan","Afrikaans","Akan","Amharic","Aragonese","Arabic","Assamese","Avaric",
-        "Aymara","Azerbaijani","Bashkir","Belarusian","Bulgarian","Bihari languages","Bambara","Bislama","Bengali","Tibetan","Breton",
-        "Bosnian","Catalan","Valencian","Chechen","Chamorro","Corsican","Cree","Czech","Church Slavic","Chuvash","Welsh","Danish","German",
-        "Divehi","Maldivian","Dzongkha","Ewe","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian","Fulah",
-        "Finnish","Fijian","Faroese","French","Western Frisian","Irish","Gaelic" ,"Scottish Gaelic","Galician","Guarani","Gujarati","Manx",
-        "Hausa","Hebrew","Hindi","Hiri Motu","Croatian","Haitian","Haitian Creole","Hungarian","Armenian","Herero","Interlingua",
-        "Indonesian","Interlingue","Igbo","Sichuan Yi","Inupiaq","Ido","Icelandic","Italian","Inuktitut","Japanese","Javanese","Georgian",
-        "Kongo","Kikuyu","Kuanyama","Kazakh","Kalaallisut","Central Khmer","Kannada","Korean","Kanuri","Kashmiri","Kurdish","Komi",
-        "Cornish","Kirghiz","Latin","Luxembourgish","Ganda","Limburgan","Lingala","Lao","Lithuanian","Luba-Katanga","Latvian","Malagasy",
-        "Marshallese","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese","Burmese","Nauru","Bokmål","Ndebele",
-        "Nepali","Ndonga","Dutch","Norwegian Nynorsk","Norwegian","Ndebele","Navajo","Chichewa","Ojibwa","Oromo","Oriya","Ossetian",
-        "Panjabi","Pali","Polish","Pushto","Portuguese","Quechua","Romansh","Rundi","Romanian","Moldavian","Russian","Kinyarwanda",
-        "Sanskrit","Sardinian","Sindhi","Northern","Sango","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Albanian","Serbian",
-        "Swati","Sotho","Sundanese","Swedish","Swahili","Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen","Tagalog","Tswana","Tonga",
-        "Turkish","Tsonga","Tatar","Twi","Tahitian","Uighur","Ukrainian","Urdu","Uzbek","Venda","Vietnamese","Volapük","Walloon","Wolof",
-        "Xhosa","Yiddish","Yoruba","Zhuang","Chinese","Zulu"];
+        var language_list = ["Afrikaans","Amharic","Armenian","Albanian","Arabic","Azerbaijani","Belarusian","Bulgarian",
+        "Bengali","Tibetan","Breton","Bosnian","Catalan","Valencian","Corsican","Cree","Czech","Welsh","Danish","German",
+        "Maldivian","Greek","English","Esperanto","Spanish","Castilian","Estonian","Basque","Persian",
+        "Finnish","French","Irish","Galician","Hausa","Hebrew","Hindi","Croatian","Hungarian","Armenian",
+        "Indonesian","Igbo","Icelandic","Italian","Japanese","Javanese","Khmer","Korean","Kurdish","Kirghiz","Latin","Luxembourgish",
+        "Lao","Lithuanian","Latvian","Malagasy","Maori","Macedonian","Malayalam","Mongolian","Marathi","Malay","Maltese",
+       "Nepali","Dutch","Norwegian","Odia","Punjabi","Pashto","Portuguese","Romanian","Moldavian","Russian","Kinyarwanda",
+       "Sardinian","Sindhi","Sinhala","Slovak","Slovenian","Samoan","Shona","Somali","Serbian","Sundanese","Swedish","Swahili",
+       "Tamil","Telugu","Tajik","Thai","Tigrinya","Turkmen",
+        "Turkish","Tatar","Ukrainian","Urdu","Uzbek","Vietnamese",
+        "Xhosa","Yiddish","Yoruba","Zulu"];
         for(var i = 0; i < language_list.length; i++) {
            var $option = document.createElement("option");
            $option.text = language_list[i];
@@ -1612,6 +1604,25 @@ $(document).ready(function() {
         $add_keyword_form.appendChild($break);
         
         $keyword_div.appendChild($add_keyword_form);
+    })
+
+    $("[name='delete_keyword']").click(function() {
+        if(window.confirm("Are you sure you want to delete this keyword?")) {
+            $selected_keyword = this.id;
+            $.ajax({
+                type: "POST",
+                url: "include/edit_resume.inc.php",
+                dataType: "json",
+                data: {delete_keyword : $selected_keyword},
+                success: function(response) {
+                    location.reload();
+                },
+                error: function(response) {
+                    console.log(response.error);
+                }
+            })
+        }
+        
     })
 
 })
