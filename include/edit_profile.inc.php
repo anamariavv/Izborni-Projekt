@@ -37,7 +37,7 @@
             header("Location: ../profile.php?error=sql");
             exit();
         }
-        if(!($stmt->bind_param("issisissis", $oib, $fname, $lname, $age, $email, $phone, $city, $address, $postal, $university))) {
+        if(!($stmt->bind_param("ississssis", $oib, $fname, $lname, $age, $email, $phone, $city, $address, $postal, $university))) {
             header("Location: ../profile.php?error=sql");
             exit();
         }
@@ -62,7 +62,7 @@
             exit();
         }
 
-        if(!($stmt->bind_param("sssisisss", $cname, $city, $address, $postal, $email, $phone, $website, $description, $field))) {
+        if(!($stmt->bind_param("sssisssss", $cname, $city, $address, $postal, $email, $phone, $website, $description, $field))) {
             header("Location: ../profile.php?error=sql");
             exit();
         }

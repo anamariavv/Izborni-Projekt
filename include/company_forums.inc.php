@@ -6,3 +6,5 @@
 
     $result = $conn->query($sql);
     $result_array = $result->fetch_all(MYSQLI_ASSOC);
+
+   

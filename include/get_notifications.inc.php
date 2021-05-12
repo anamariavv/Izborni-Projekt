@@ -28,13 +28,12 @@
       
     } else if(isset($_POST['read'])) {
 
-        foreach($_POST['read'] as $row) {
-            $sql = "UPDATE notification SET status = 'read' WHERE id = " . $row['id'];
+        $sql = "UPDATE notification SET status = 'read' WHERE id = ".$_POST['read'];
 
-            if(!($result = $conn->query($sql))) {
-                $message =  "SQL error";
-            }            
-        }
+        if(!($result = $conn->query($sql))) {
+            $message =  $conn->error;
+        }  
+        $message = $sql;          
     }
  
     echo json_encode($message);
