@@ -22,6 +22,7 @@
             $result = $conn->query($sql);
             $info = $result->fetch_assoc();
 
+            //if token is valid
            if($info["token_created"] && $info["token_status"]=="valid") {
             date_default_timezone_set('Europe/Zagreb');
             $current_date = date("Y-m-d H:i:s");
@@ -30,6 +31,7 @@
             $created_date_object = DateTime::createFromFormat("Y-m-d H:i:s", $created_date);
             $difference =date_diff($current_date_object, $created_date_object);
 
+            //if token hasn't expired display new password form
             if($difference->i < 10) {
                 echo "<p>Enter your email:</p>
                 <script src='js/reset_password.js'></script>
@@ -51,6 +53,7 @@
 ?>
 
 <?php
+    //after the link was sent by mail
     if(isset($_GET['link'])) {
         echo "<div class='reset_password_error'>If the email exists, a reset password link was sent</div>";
     }

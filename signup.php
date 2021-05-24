@@ -7,7 +7,7 @@
     <form action="include/signup.inc.php" method="post" target="_self" name="signupform">
         <label class='signup_label'>Firstname:</label> <input type="text" id="firstname" name="firstname"><br>
         <label class='signup_label'>Lastname:</label> <input type="text" id="lastname" name="lastname"><br>
-        <label class='signup_label'>TIN*:</label> <input type="number" id="oib" name="oib"><br> <!--nije oib na engleskom->dodaj pored polja-->
+        <label class='signup_label'>TIN*:</label> <input type="number" id="oib" name="oib"><br> 
         <label class='signup_label'>Age:</label> <input type="number" id="age" name="age"><br>
         <label class='signup_label'>E-mail:</label> <input type="email" id="email" name="email"><br>
         <label class='signup_label'>City:</label> <input type="text" id="city" name="city"><br> 
