@@ -1425,8 +1425,8 @@ $(document).ready(function() {
         var word_business = ["Business Administration","Business Models","Networking","Business Plans","Business Strategy Companies",
         "Digital Agencies","Ecommerce","Organization", "Design", "Project Management","Retail","Brand Strategy",
             "Brands and Branding","Broadcast Media","Cinematography","Commercial Media","Conferences and Conventions","Content Marketing"];
-        var word_computer = ["Assembly language (ASM)","Bash","BASIC","C++" ,"C#","COBOL","Python","Java","Javascript","Networking & infrastructure",
-            "Frontend","Backend","GUI design","UI/UX","Database","Embedded Systems"];
+        var word_computer = ["Assembly language (ASM)","Bash","BASIC","C++" ,"C#","COBOL","Python","Java","Javascript",
+            "Networking & infrastructure","Frontend","Backend","GUI design","UI/UX","Database","Embedded Systems"];
         var word_art = ["Abstract","Abstract Expresionism","Art Brut","Art Deco","Art Nouveau","Arts & Crafts","Baroque","Bauhaus",
             "Ceramics","Classical","Constructivism","Contemporary","Cubism","Neo-Expressionism","Op-Art","Orientalism"];
         var word_education = ["Hybrid courses","Hybrid learning","Qualitative analysis","Qualitative research","Interactive learning",
