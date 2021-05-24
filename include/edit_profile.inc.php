@@ -2,6 +2,8 @@
     session_start();
     require_once "database_connect.inc.php";
     
+    //depending on user type, save form information to variables
+
     if($_SESSION['user_level'] == 'student') {
         $fname = mysqli_real_escape_string($conn, $_POST['fname']);
         $lname = mysqli_real_escape_string($conn, $_POST['lname']);
@@ -22,10 +24,13 @@
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $postal = mysqli_real_escape_string($conn, $_POST['postal']);
 
+    //check user type and check if variables are empty
     if($_SESSION['user_level'] == 'student') {
         if(empty($phone)) $phone = NULL;     
         if(empty($address)) $address = NULL;  
-        if(empty($postal)) $postal = NULL;    
+        if(empty($postal)) $postal = NULL; 
+        
+        //if mandatory variables empty, return to profile page with error
         if(empty($city) ||empty($fname) || empty($lname) || empty($oib) || empty($age) || empty($university)) {
             header("Location: ../profile.php?error=empty_fields");
             exit();

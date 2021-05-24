@@ -3,6 +3,7 @@
     session_start();
     require_once "database_connect.inc.php";
 
+    //insert new comment into review table
     $comment_text = mysqli_real_escape_string($conn, $_POST['comment_text']);
     $company = mysqli_real_escape_string($conn, $_POST['company']);
     $company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
@@ -22,10 +23,12 @@
         exit();
     }
 
+    //get all admins from database
     $sql = "SELECT id FROM admin";
     $result = $conn->query($sql);
     $admins = $result->fetch_all(MYSQLI_ASSOC);
-    var_dump($admins);
+
+    //notify admins that there is a new comment on that forum
     foreach($admins as $admin) {
         $sql = 'INSERT INTO notification(notif_text, admin_id) VALUES
          ("Dear administrator, a new comment has been made on the '.$company_name.' forum. Please review it.", "'.$admin['id'].'")'; 

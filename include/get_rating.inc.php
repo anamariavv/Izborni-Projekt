@@ -1,5 +1,6 @@
 <?php
     require_once "database_connect.inc.php";
+    //for the forum page - check if a student has rated that company or not
         if($_SESSION['user_level'] == 'student') {
             $student = $_SESSION['oib'];
 
@@ -14,15 +15,21 @@
             if(!($stmt->execute())) {
                 header("Location: ../forum?error=".$conn->error);
             }
+
             $rated = 0;
             $result = $stmt->get_result();
+
+            //if the result set is empty, student hasn't rated it
             if(mysqli_num_rows($result) == 0) {
                 $rated = 0;
-            } else {
+            } else { 
+                //student has rated the company
                 $rated = 1;
             }
        }
        
+
+        //get average grade for company
         $company = $_GET['company'];       
 
         $sql = 'SELECT ROUND(AVG(grade), 2) as average FROM rating WHERE company_id = "'.$company.'"';
@@ -30,6 +37,7 @@
         $result = $conn->query($sql);
         $average_rating = $result->fetch_all(MYSQLI_ASSOC);
          
+       //get number of students that have rated that company
         $sql = 'SELECT COUNT(*) as rating_count FROM rating WHERE company_id = "'.$company.'"';
         
         $result = $conn->query($sql);

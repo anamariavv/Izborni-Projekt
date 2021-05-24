@@ -1,4 +1,5 @@
 <?php
+    //for displaying internships on the index page, only display if a session has been set
     if($_SESSION) {
         require_once "database_connect.inc.php";
 
@@ -14,6 +15,8 @@
         }
         $result_array = $result->fetch_all(MYSQLI_ASSOC);
 
+        //get all the internships that student has applied to, if the current
+        //user type is a student
         if($_SESSION['user_level'] == 'student') {
             $sql_applied = "SELECT internship.id, student_oib, company.name, internship.position, internship.city, internship.deadline FROM internship INNER JOIN application ON (internship.id = application.internship_id) INNER JOIN company ON (application.company_id = company.id) WHERE application.student_oib = " . $_SESSION['oib'];
             if(!($result_applied = $conn->query($sql_applied))) {

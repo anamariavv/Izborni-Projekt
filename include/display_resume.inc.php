@@ -2,6 +2,9 @@
 
     require_once "include/database_connect.inc.php";
 
+    //get student resume information
+
+
     if($_SESSION['user_level'] == 'student') {
         $oib = $_SESSION['oib'];
     } else if($_SESSION['user_level'] == 'company') {

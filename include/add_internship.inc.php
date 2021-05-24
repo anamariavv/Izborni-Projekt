@@ -1,6 +1,8 @@
 <?php
     session_start();
     
+    //creating a new internsip
+
     require_once "database_connect.inc.php";
     $message = "Success";
 

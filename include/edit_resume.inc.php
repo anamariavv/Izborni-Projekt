@@ -4,6 +4,7 @@
 
     $message = "success";
 
+    //edit resume title
     if(isset($_POST['title'])) {
         //alter resume title
         $title = mysqli_real_escape_string($conn, $_POST['title']);
@@ -13,6 +14,7 @@
         $conn->query($sql);
     }
 
+    //edit resume intro
     if(isset($_POST['intro'])) {
         $intro = mysqli_real_escape_string($conn, $_POST['intro']);
         $id = $_SESSION['oib'];
@@ -21,6 +23,7 @@
         $conn->query($sql);
     }
 
+    //edit resume education
     if(isset($_POST['education'])) {
         //loop through array->for each row, turn it into sql and update in database
 
@@ -46,6 +49,7 @@
         } 
     }
 
+    //edit resume skills
     if(isset($_POST['skills'])) {
 
         foreach ($_POST['skills'] as $row) {
@@ -68,6 +72,7 @@
         }
     }
 
+    //edit resume languages
     if(isset($_POST['languages'])) {
 
         foreach ($_POST['languages'] as $row) {
@@ -112,6 +117,7 @@
         }
     }
 
+    //edit resume rowk experience
     if(isset($_POST['work'])) {
 
         foreach ($_POST['work'] as $row) {
@@ -140,6 +146,7 @@
         }
     }
 
+    //ad new education
     if(isset($_POST['add_education'])) {   
         
         foreach ($_POST['add_education'] as $row) {
@@ -165,6 +172,7 @@
     }
 
 
+    //add new work experience
     if(isset($_POST['add_work'])) {
         
         foreach ($_POST['add_work'] as $row) {
@@ -191,6 +199,7 @@
         }
     }
 
+    //and neww skill
     if(isset($_POST['add_skill'])) {
 
         foreach ($_POST['add_skill'] as $row) {
@@ -212,6 +221,7 @@
         }
     }
 
+    //add new language
     if(isset($_POST['add_language'])) {
 
         foreach ($_POST['add_language'] as $row) {
@@ -234,6 +244,7 @@
         }
     }
 
+    //add new keyword
     if(isset($_POST['add_keyword'])) {
 
         foreach ($_POST['add_keyword'] as $row) {
@@ -254,6 +265,7 @@
         }
     }
 
+    //delete keyword
     if(isset($_POST['delete_keyword'])) {
 
         $id = mysqli_real_escape_string($conn, $_POST['delete_keyword']);
@@ -271,6 +283,7 @@
         }
     }
 
+    //delete language
     if(isset($_POST['delete_language'])) {
 
         $id = mysqli_real_escape_string($conn, $_POST['delete_language']);
@@ -288,6 +301,7 @@
         }
     }
 
+    //delete skill
     if(isset($_POST['delete_skill'])) {
 
         $id = mysqli_real_escape_string($conn, $_POST['delete_skill']);
@@ -305,6 +319,7 @@
         }
     }
 
+    //delete education
     if(isset($_POST['delete_education'])) {
 
         $id = mysqli_real_escape_string($conn, $_POST['delete_education']);
@@ -322,6 +337,7 @@
         }
     }
 
+    //delete work experience
     if(isset($_POST['delete_work'])) {
 
         $id = mysqli_real_escape_string($conn, $_POST['delete_work']);

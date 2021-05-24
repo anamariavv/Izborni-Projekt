@@ -1,6 +1,7 @@
 <?php
     require_once "database_connect.inc.php";
  
+    //get user information for display on profile page
     if($_SESSION["user_level"] == "student") {
        $table = "student";
        $column = "oib";

@@ -2,9 +2,11 @@
 
     require_once "database_connect.inc.php";
 
+    //if the user entered email and pressed submit on reset_password.php
     if(isset($_POST['send_password_link'])) {
         $email = mysqli_real_escape_string($conn, $_POST['email']);
 
+        //check if the user even exists in the student table
         $sql = "SELECT * FROM student WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
             header("Location: ../reset_password?error=sql");
@@ -21,7 +23,9 @@
         
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+        //if user exists
         if($row) {
+            //generate token and insert into token table
             $token_id_bytes = openssl_random_pseudo_bytes(8);
             $token_id = bin2hex($token_id_bytes);
             $token_id_string = '"'.$token_id.'"';
@@ -32,6 +36,7 @@
                 exit();
             }
 
+            //generate and send email
             $link = "http://localhost/izborni_projekt/reset_password.php?token_id=".$token_id;
             $email_text = "Hello ".$row['firstname']."! <br> To reset your password please follow this link ".$link." <br> -Internship Platform";
             $email_text = wordwrap($email_text, 70);
@@ -44,6 +49,7 @@
             }
         }
 
+        //--process repeated for company table--
         $sql = "SELECT * FROM company WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
             header("Location: ../reset_password?error=sql");
@@ -83,6 +89,8 @@
                 exit();
             }
         }
+
+        //--process repeated for admint able--
 
         $sql = "SELECT * FROM admin WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
@@ -125,6 +133,9 @@
         }
         
     } else if(isset($_POST['submitpassword'])) {
+
+        //if the user submit a new password, change password in database and invalidate the token
+
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
         $password_hashed = password_hash($password, PASSWORD_BCRYPT);

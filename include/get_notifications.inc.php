@@ -5,6 +5,9 @@
     $message = "success";
 
     if(isset($_POST['data'])) {
+
+        //get notifications, based on user type 
+
         $data = $_POST['data'][0]['identification'];
 
         if($_POST['data'][0]['type'] == 'student') {
@@ -27,6 +30,8 @@
         $message = $result_array;
       
     } else if(isset($_POST['read'])) {
+
+        //set this notification as read
 
         $sql = "UPDATE notification SET status = 'read' WHERE id = ".$_POST['read'];
 

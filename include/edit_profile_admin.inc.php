@@ -2,6 +2,9 @@
 
     session_start();
     require_once "database_connect.inc.php";
+
+    //insert new admin information to table
+
     $message = "sucess";
   
     $firstname = mysqli_real_escape_string($conn, $_POST['profile_data'][0]['firstname']);

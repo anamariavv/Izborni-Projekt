@@ -1,7 +1,7 @@
 <?php
 
     require_once "database_connect.inc.php";
-    
+    //For sending a custom message to one user
     if(isset($_POST['messagesubmit'])) {
 
         $message = mysqli_real_escape_string($conn, $_POST['message_text']);
@@ -24,11 +24,13 @@
             exit();
         }
     
-    } else if(isset($_POST['submitpush'])) {
+    } else if(isset($_POST['submitpush'])) { //For sending push notifications
         $type = mysqli_real_escape_string($conn, $_POST['usertype']);
         $message = mysqli_real_escape_string($conn, $_POST['pushtext']);
         $result;
 
+        //depending on which user type, define column, indentifier and bind string to be used in query,
+        //get all users of that type
         if($type == 'Student') {
             $column = 'student_oib';
             $sql = "SELECT oib FROM student";
@@ -49,8 +51,8 @@
             $id = 'id';
         }
 
+        //for each user of that type, insert notification
         $result_array = $result->fetch_all(MYSQLI_ASSOC);
-        //za svaki id ovisno o tipu ubaci notification
         foreach ($result_array as $identification) {
 
             $sql = "INSERT INTO notification(notif_text, ".$column.") VALUES (?, ?)";
@@ -70,7 +72,7 @@
         }
         header("Location: ../user_list.php?push=sent");
 
-    } else {
+    } else { //default - display all users
         $sql_admin = "SELECT * FROM admin";
         $result = $conn->query($sql_admin);
         $administrators = $result->fetch_all(MYSQLI_ASSOC);

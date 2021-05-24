@@ -1,6 +1,8 @@
 <?php
     require_once "database_connect.inc.php";
 
+
+    //get company information
     $sql = 'SELECT internship.id, internship.created, internship.salary, internship.position, internship.description, internship.city, 
     internship.requirements, internship.status, internship.deadline, company.id AS company_id, company.description as company_description, 
     company.name as company_name, company.city as company_city, company.address as company_address, company.postal_code as company_postal,

@@ -2,18 +2,23 @@
     session_start();
     require_once "database_connect.inc.php";
 
+    //for the add administrators feature
+
     if(isset($_POST['administratorsubmit'])) {
         $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
         $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+        //set user level and generate unique id
         $user_level_id = 1;
         $id = openssl_random_pseudo_bytes(8);
         $id = bin2hex($id);
         
+        //hash password
         $password_hashed = password_hash($password, PASSWORD_BCRYPT);
 
+        //check if email is taken
         $sql = "SELECT * FROM admin WHERE email = ?";
         if(!($stmt = $conn->prepare($sql))) {
             header("Location: ../add_administrator.php?error=sql");
@@ -34,6 +39,7 @@
             exit();
         } 
 
+        //if the email wasn't taken, insert new admin
         $sql = "INSERT INTO admin(id,firstname,lastname,email,password,user_level_id) VALUES (?,?,?,?,?,?)";
 
         if(!($stmt = $conn->prepare($sql))) {

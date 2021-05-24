@@ -2,6 +2,7 @@
     session_start();
     require_once "database_connect.inc.php";
     
+    //when a user rates a company, update the rating table
     if(isset($_POST['ratingsubmit'])) {
 
         $student = $_SESSION['oib'];
@@ -21,7 +22,7 @@
             header("Location: ../forum?error=".$conn->error);
         }
 
-    
+        //return with the original paramters in GET
         header("Location: ../forum?company=".$company."&name=".$company_name);
     }
     

@@ -2,12 +2,14 @@
     session_start();
     require_once "database_connect.inc.php";
 
+    //apply for an internship - insert application
+
     $sql = "INSERT INTO application(internship_id, company_id, student_oib) VALUES (?,?,?)";
     $internship_id = mysqli_real_escape_string($conn, $_GET['id']);
     $company_id = mysqli_real_escape_string($conn, $_GET['company']);
     
     if(!($stmt = $conn->prepare($sql))) {
-        header("Location: ..?error=".$conn->error);
+        header("Location: ..?error=sql");
         exit();
     }  
 
